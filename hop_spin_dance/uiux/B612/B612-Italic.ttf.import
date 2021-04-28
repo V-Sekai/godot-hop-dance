@@ -1,0 +1,31 @@
+[remap]
+
+importer="font_data"
+type="FontData"
+path="res://.godot/imported/B612-Italic.ttf-3eccaaf5cc3e8e0e56999ab1de22b52a.fontdata"
+
+[deps]
+
+files=[ "res://.godot/imported/B612-Italic.ttf-3eccaaf5cc3e8e0e56999ab1de22b52a.fontdata" ]
+
+source_file="res://hop_spin_dance/uiux/B612/B612-Italic.ttf"
+dest_files=[ "res://.godot/imported/B612-Italic.ttf-3eccaaf5cc3e8e0e56999ab1de22b52a.fontdata", "res://.godot/imported/B612-Italic.ttf-3eccaaf5cc3e8e0e56999ab1de22b52a.fontdata" ]
+
+[params]
+
+antialiased=true
+force_autohinter=false
+msdf=true
+oversampling=0.0
+msdf_px_range=8.0
+hinting=1
+base_variation="size=64"
+preload/ranges=PackedStringArray(  )
+preload/variations=PackedStringArray(  )
+support_overrides/language_enabled=PackedStringArray(  )
+support_overrides/language_disabled=PackedStringArray(  )
+support_overrides/script_enabled=PackedStringArray(  )
+support_overrides/script_disabled=PackedStringArray(  )
+convert_to_bitmap=false
+extra_spacing_glyph=0
+extra_spacing_space=0

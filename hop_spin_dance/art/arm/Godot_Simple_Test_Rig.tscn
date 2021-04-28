@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://hop_spin_dance/art/arm/Godot_Simple_Test_Rig.glb" type="PackedScene" id=1]
+
+[sub_resource type="EWBIKState" id=1]
+bone_count = 5
+bone/0/name = "bone_1"
+bone/0/stiffness = -1.0
+bone/0/height = -1.0
+bone/0/twist_min_angle = 3.14159
+bone/0/twist_range = 9.42478
+bone/0/direction_count = 0
+bone/0/constraint_axes = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bone/1/name = "bone_2"
+bone/1/stiffness = -1.0
+bone/1/height = -1.0
+bone/1/twist_min_angle = 3.14159
+bone/1/twist_range = 9.42478
+bone/1/direction_count = 0
+bone/1/constraint_axes = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bone/2/name = "bone_3"
+bone/2/stiffness = -1.0
+bone/2/height = -1.0
+bone/2/twist_min_angle = 3.14159
+bone/2/twist_range = 9.42478
+bone/2/direction_count = 0
+bone/2/constraint_axes = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bone/3/name = "bone_4"
+bone/3/stiffness = -1.0
+bone/3/height = -1.0
+bone/3/twist_min_angle = 3.14159
+bone/3/twist_range = 9.42478
+bone/3/direction_count = 0
+bone/3/constraint_axes = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bone/4/name = "bone_5"
+bone/4/stiffness = -1.0
+bone/4/height = -1.0
+bone/4/twist_min_angle = 3.14159
+bone/4/twist_range = 9.42478
+bone/4/direction_count = 0
+bone/4/constraint_axes = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[sub_resource type="SkeletonModification3DEWBIK" id=2]
+effector_count = 1
+effectors/0/name = "bone_5"
+effectors/0/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+effectors/0/target_node = NodePath("../Node3D")
+effectors/0/budget = 4.0
+root_bone = "bone_1"
+state = SubResource( 1 )
+
+[sub_resource type="SkeletonModificationStack3D" id=3]
+modification_count = 1
+modifications/0 = SubResource( 2 )
+
+[node name="Godot_Simple_Test_Rig" instance=ExtResource( 1 )]
+
+[node name="Skeleton3D" parent="Simple_Test_Rig_Armature" index="0"]
+modification_stack = SubResource( 3 )
+
+[node name="BoneAttachment3D" parent="Simple_Test_Rig_Armature/Skeleton3D" index="1"]
+bone_idx = 0
+
+[node name="BoneAttachment3D2" parent="Simple_Test_Rig_Armature/Skeleton3D" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
+bone_idx = 1
+
+[node name="BoneAttachment3D3" parent="Simple_Test_Rig_Armature/Skeleton3D" index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0 )
+bone_idx = 2
+
+[node name="BoneAttachment3D4" parent="Simple_Test_Rig_Armature/Skeleton3D" index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 0 )
+bone_idx = 3
+
+[node name="BoneAttachment3D5" parent="Simple_Test_Rig_Armature/Skeleton3D" index="5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 0 )
+bone_idx = 4
+
+[node name="Node3D" type="Node3D" parent="Simple_Test_Rig_Armature" index="1"]
+script = null
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 0.636159, 0.771558, 0, -0.771558, 0.636159, 3.87373, 0, 0 )
+script = null
