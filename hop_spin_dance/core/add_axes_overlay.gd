@@ -6,7 +6,7 @@ func post_import(scene):
 	return scene
 
 
-var axes_y : PackedScene = load("res://vrm/axes_decameter.glb")
+var axes_y : PackedScene = load("res://hop_spin_dance/uiux/axes_indicator/axes_decameter.glb")
 
 func iterate(node, root):
 	if node is Skeleton3D:
