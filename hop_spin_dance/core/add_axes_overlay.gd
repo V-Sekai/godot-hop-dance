@@ -1,12 +1,15 @@
 @tool
 extends EditorScenePostImport
 
+
+@export
+var axes_y : PackedScene = load("res://hop_spin_dance/uiux/axes_indicator/axes_decameter.glb")
+
+
 func post_import(scene):
 	iterate(scene, scene)
 	return scene
 
-
-var axes_y : PackedScene = load("res://hop_spin_dance/uiux/axes_indicator/axes_decameter.glb")
 
 func iterate(node, root):
 	if node is Skeleton3D:
