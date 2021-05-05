@@ -1,0 +1,29 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+path="res://.godot/imported/Godot_Simple_Test_Rig.glb-40f29439b0ad3309d4c34d432148b6bf.scn"
+
+[deps]
+
+source_file="res://hop_spin_dance/art/characters/arm/Godot_Simple_Test_Rig.glb"
+dest_files=[ "res://.godot/imported/Godot_Simple_Test_Rig.glb-40f29439b0ad3309d4c34d432148b6bf.scn" ]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/root_scale=0.01
+meshes/ensure_tangents=true
+meshes/generate_lods=false
+meshes/create_shadow_meshes=false
+meshes/light_baking=0
+meshes/lightmap_texel_size=0.1
+skins/use_named_skins=true
+animation/import=true
+animation/point_parent_bone_to_children=true
+animation/fps=15
+import_script/path=""
+_subresources={
+}
