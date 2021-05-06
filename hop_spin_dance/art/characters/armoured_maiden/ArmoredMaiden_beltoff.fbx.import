@@ -1,0 +1,29 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+path="res://.godot/imported/ArmoredMaiden_beltoff.fbx-11fa21b45be2be0a50a757fc2e6ac51d.scn"
+
+[deps]
+
+source_file="res://hop_spin_dance/art/characters/armoured_maiden/ArmoredMaiden_beltoff.fbx"
+dest_files=[ "res://.godot/imported/ArmoredMaiden_beltoff.fbx-11fa21b45be2be0a50a757fc2e6ac51d.scn" ]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=2
+meshes/lightmap_texel_size=0.1
+skins/use_named_skins=true
+animation/import=true
+animation/point_parent_bone_to_children=true
+animation/fps=15
+import_script/path=""
+_subresources={
+}
