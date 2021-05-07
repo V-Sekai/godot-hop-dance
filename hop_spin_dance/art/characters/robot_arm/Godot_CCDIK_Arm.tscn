@@ -4,12 +4,17 @@
 
 [sub_resource type="SkeletonModification3DEWBIK" id=1]
 root_bone = "Root"
-effector_count = 1
-effectors/0/name = "Joint_05"
-effectors/0/index = 6
-effectors/0/target_node = NodePath("../Target")
+effector_count = 2
+effectors/0/name = "Root"
+effectors/0/index = 0
+effectors/0/target_node = NodePath("../Root")
 effectors/0/use_node_rotation = true
 effectors/0/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+effectors/1/name = "Joint_05"
+effectors/1/index = 6
+effectors/1/target_node = NodePath("../Node3D")
+effectors/1/use_node_rotation = true
+effectors/1/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [sub_resource type="SkeletonModificationStack3D" id=2]
 enabled = true
@@ -21,6 +26,10 @@ modifications/0 = SubResource( 1 )
 [node name="Skeleton3D" parent="Robotic_Arm_Armature" index="0"]
 modification_stack = SubResource( 2 )
 
-[node name="Target" type="Node3D" parent="Robotic_Arm_Armature" index="1"]
-transform = Transform( 0.618749, 0.170802, -0.766796, 0.02431, 0.971447, 0.236005, 0.785212, -0.164668, 0.59693, 2.71484, 4.50169, -2.804 )
+[node name="Root" type="Node3D" parent="Robotic_Arm_Armature" index="1"]
+transform = Transform( 1, 0, 0, 0, 0.993646, -0.112544, 0, 0.112544, 0.993647, 0, 0, 0 )
+script = null
+
+[node name="Node3D" type="Node3D" parent="Robotic_Arm_Armature" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.544999, 3.70052, 3.30629 )
 script = null

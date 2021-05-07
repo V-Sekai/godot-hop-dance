@@ -28,4 +28,24 @@ script = null
 [node name="Skeleton3D" parent="Godot_Simple_Test_Rig/Simple_Test_Rig_Armature" index="1"]
 modification_stack = SubResource( 2 )
 
+[node name="BoneAttachment3D" parent="Godot_Simple_Test_Rig/Simple_Test_Rig_Armature/Skeleton3D" index="1"]
+bone_idx = 0
+
+[node name="BoneAttachment3D2" parent="Godot_Simple_Test_Rig/Simple_Test_Rig_Armature/Skeleton3D" index="2"]
+transform = Transform( 1, -0.000208581, -0.000158768, 0.000208598, 1, 0.000105414, 0.000158746, -0.000105447, 1, 0, 6, 0 )
+bone_idx = 1
+
+[node name="BoneAttachment3D3" parent="Godot_Simple_Test_Rig/Simple_Test_Rig_Armature/Skeleton3D" index="3"]
+transform = Transform( 0.93549, -0.337869, -0.10346, 0.337978, 0.770137, 0.540981, -0.103102, -0.541049, 0.834647, -0.00125149, 12, -0.000632681 )
+bone_idx = 2
+
+[node name="BoneAttachment3D4" parent="Godot_Simple_Test_Rig/Simple_Test_Rig_Armature/Skeleton3D" index="4"]
+transform = Transform( 0.42746, -0.000910826, -0.904034, -0.00668439, -0.999975, -0.00215314, -0.904009, 0.0069633, -0.427456, -2.02846, 16.6208, -3.24693 )
+bone_idx = 3
+
+[node name="BoneAttachment3D5" parent="Godot_Simple_Test_Rig/Simple_Test_Rig_Armature/Skeleton3D" index="5"]
+transform = Transform( 0.509392, -0.22427, -0.830797, 0.582863, -0.620339, 0.524832, -0.63308, -0.751586, -0.185277, -2.03393, 10.621, -3.20515 )
+bone_idx = 4
+
 [editable path="Godot_Simple_Test_Rig"]
+[editable path="Godot_Simple_Test_Rig/Simple_Test_Rig_Armature/Skeleton3D/BoneAttachment3D/Bone_01"]
