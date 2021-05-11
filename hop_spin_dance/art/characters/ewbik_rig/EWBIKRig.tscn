@@ -4,15 +4,16 @@
 
 [sub_resource type="SkeletonModification3DEWBIK" id=1]
 root_bone = "C2"
+ik_iterations = 2
 effector_count = 2
 effectors/0/name = "A2"
 effectors/0/index = 4
-effectors/0/target_node = NodePath("../A2Target")
+effectors/0/target_node = NodePath("../A2")
 effectors/0/use_node_rotation = true
 effectors/0/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-effectors/1/name = "A2.001"
-effectors/1/index = 6
-effectors/1/target_node = NodePath("../A2001Target")
+effectors/1/name = "A2.002"
+effectors/1/index = 11
+effectors/1/target_node = NodePath("../A2002")
 effectors/1/use_node_rotation = true
 effectors/1/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
@@ -26,12 +27,12 @@ script = null
 
 [node name="ewbik_rig" parent="." instance=ExtResource( 1 )]
 
-[node name="A2Target" type="Node3D" parent="ewbik_rig/Armature" index="0"]
-transform = Transform( 0.737313, 0.675552, 0, -0.675552, 0.737313, 0, 0, 0, 1, -4.28508, 2.6161, -0.586147 )
+[node name="A2" type="Node3D" parent="ewbik_rig/Armature" index="0"]
+transform = Transform( -0.871048, -0.00743848, -0.491142, -0.0292127, 0.9989, 0.0366804, 0.49033, 0.046298, -0.870306, -0.0519671, 2.88753, -0.560956 )
 script = null
 
-[node name="A2001Target" type="Node3D" parent="ewbik_rig/Armature" index="1"]
-transform = Transform( -0.300872, 0, 0.953664, 0, 1, 0, -0.953664, 0, -0.300872, 2.68797, 4.12665, -2.20168 )
+[node name="A2002" type="Node3D" parent="ewbik_rig/Armature" index="1"]
+transform = Transform( -0.300674, -0.0362949, 0.953036, -0.0109201, 0.999341, 0.0346131, -0.953664, 0, -0.300872, 1.73707, 4.0354, -0.0578373 )
 script = null
 
 [node name="Skeleton3D" parent="ewbik_rig/Armature" index="2"]

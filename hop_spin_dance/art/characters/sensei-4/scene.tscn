@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://hop_spin_dance/art/characters/sensei-4/scene.gltf" type="PackedScene" id=1]
+
+[sub_resource type="SkeletonModification3DEWBIK" id=1]
+root_bone = "CC_Base_Hip_corrected_0166"
+target_count = 6
+targets/0/name = "CC_Base_Hip_corrected_0166"
+targets/0/index = 2
+targets/0/target_node = NodePath("Root")
+targets/0/use_node_rotation = false
+targets/0/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+targets/1/name = "CC_Base_Head_corrected_0175"
+targets/1/index = 160
+targets/1/target_node = NodePath("Head")
+targets/1/use_node_rotation = true
+targets/1/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+targets/2/name = "CC_Base_L_Hand_053"
+targets/2/index = 75
+targets/2/target_node = NodePath("LeftHand")
+targets/2/use_node_rotation = true
+targets/2/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+targets/3/name = "CC_Base_R_Hand_018"
+targets/3/index = 115
+targets/3/target_node = NodePath("RightHand")
+targets/3/use_node_rotation = true
+targets/3/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+targets/4/name = "CC_Base_L_Foot_0145"
+targets/4/index = 40
+targets/4/target_node = NodePath("LeftFoot")
+targets/4/use_node_rotation = true
+targets/4/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+targets/5/name = "CC_Base_R_Foot_0117"
+targets/5/index = 12
+targets/5/target_node = NodePath("RightFoot")
+targets/5/use_node_rotation = true
+targets/5/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[sub_resource type="SkeletonModificationStack3D" id=2]
+enabled = true
+modification_count = 1
+modifications/0 = SubResource( 1 )
+
+[node name="scene" instance=ExtResource( 1 )]
+
+[node name="Skeleton3D" parent="RootNode (gltf orientation matrix)/RootNode (model correction matrix)/6632df942e704cda80fbcce5adb6954afbx/Node2/RootNode/Node32" index="0"]
+modification_stack = SubResource( 2 )
+
+[node name="Root" type="Node3D" parent="RootNode (gltf orientation matrix)/RootNode (model correction matrix)/6632df942e704cda80fbcce5adb6954afbx/Node2/RootNode/Node32/Skeleton3D" index="12"]
+transform = Transform( 0.30478, 0.560838, -0.769786, 0.824001, -0.560597, -0.0821849, -0.477632, -0.609256, -0.632989, -0.801163, 117.708, 0 )
+script = null
+
+[node name="LeftHand" type="Node3D" parent="RootNode (gltf orientation matrix)/RootNode (model correction matrix)/6632df942e704cda80fbcce5adb6954afbx/Node2/RootNode/Node32/Skeleton3D" index="13"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5197, 153.341, -8.19844 )
+script = null
+
+[node name="RightHand" type="Node3D" parent="RootNode (gltf orientation matrix)/RootNode (model correction matrix)/6632df942e704cda80fbcce5adb6954afbx/Node2/RootNode/Node32/Skeleton3D" index="14"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.5296, 175.589, 0 )
+script = null
+
+[node name="Head" type="Node3D" parent="RootNode (gltf orientation matrix)/RootNode (model correction matrix)/6632df942e704cda80fbcce5adb6954afbx/Node2/RootNode/Node32/Skeleton3D" index="15"]
+transform = Transform( 0.254366, 0.967108, 0, -0.967108, 0.254366, 0, 0, 0, 1, -23.1473, 171.862, -1.76636 )
+script = null
+
+[node name="LeftFoot" type="Node3D" parent="RootNode (gltf orientation matrix)/RootNode (model correction matrix)/6632df942e704cda80fbcce5adb6954afbx/Node2/RootNode/Node32/Skeleton3D" index="16"]
+transform = Transform( 0.254366, 0.967108, 0, -0.967108, 0.254366, 0, 0, 0, 1, -23.1473, -36.9046, -1.76636 )
+script = null
+
+[node name="RightFoot" type="Node3D" parent="RootNode (gltf orientation matrix)/RootNode (model correction matrix)/6632df942e704cda80fbcce5adb6954afbx/Node2/RootNode/Node32/Skeleton3D" index="17"]
+transform = Transform( 0.254366, 0.967108, 0, -0.967108, 0.254366, 0, 0, 0, 1, -23.1473, -36.9046, -47.9621 )
+script = null
+
+[node name="AnimationPlayer" parent="." index="1"]
+blend_times = [  ]
