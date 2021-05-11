@@ -4,7 +4,6 @@
 
 [sub_resource type="SkeletonModification3DEWBIK" id=1]
 root_bone = "Bone_01"
-ik_iterations = 15
 effector_count = 1
 effectors/0/name = "Bone_05"
 effectors/0/index = 4
@@ -30,8 +29,7 @@ script = null
 modification_stack = SubResource( 2 )
 
 [node name="Target" type="Node3D" parent="Godot_Simple_Test_Rig/Simple_Test_Rig_Armature/Skeleton3D" index="1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.23115, 21.3772, -1.81037 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 20, 1 )
 script = null
 
 [editable path="Godot_Simple_Test_Rig"]
-[editable path="Godot_Simple_Test_Rig/Simple_Test_Rig_Armature/Skeleton3D/BoneAttachment3D/Bone_01"]
