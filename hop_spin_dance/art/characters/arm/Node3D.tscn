@@ -34,3 +34,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.23115, 21.3772, -1.81037 )
 script = null
 
 [editable path="Godot_Simple_Test_Rig"]
+[editable path="Godot_Simple_Test_Rig/Simple_Test_Rig_Armature/Skeleton3D/BoneAttachment3D/Bone_01"]
