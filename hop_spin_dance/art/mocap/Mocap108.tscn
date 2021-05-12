@@ -1,0 +1,112 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://hop_spin_dance/art/mocap/MocapScene173.gltf" type="PackedScene" id=1]
+[ext_resource path="res://hop_spin_dance/art/characters/armoured_maiden_3d_preview_for_gmod/scene.gltf" type="PackedScene" id=2]
+
+[sub_resource type="SkeletonModification3DEWBIK" id=1]
+root_bone = "ValveBiped.Bip01_Pelvis_default_p_ears_skeleton"
+effector_count = 6
+effectors/0/name = "ValveBiped.Bip01_Head1_default_p_ears_skeleton"
+effectors/0/index = 7
+effectors/0/target_node = NodePath("../../../../../../../../head/Position3D")
+effectors/0/use_node_rotation = true
+effectors/0/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+effectors/1/name = "ValveBiped.Bip01_L_Hand_default_p_ears_skeleton"
+effectors/1/index = 24
+effectors/1/target_node = NodePath("../../../../../../../../left_hand/Position3D")
+effectors/1/use_node_rotation = true
+effectors/1/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+effectors/2/name = "ValveBiped.Bip01_R_Hand_default_p_ears_skeleton"
+effectors/2/index = 45
+effectors/2/target_node = NodePath("../../../../../../../../right_hand/Position3D")
+effectors/2/use_node_rotation = true
+effectors/2/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+effectors/3/name = "ValveBiped.Bip01_L_Foot_default_p_ears_skeleton"
+effectors/3/index = 70
+effectors/3/target_node = NodePath("../../../../../../../../left_foot/Position3D")
+effectors/3/use_node_rotation = true
+effectors/3/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+effectors/4/name = "ValveBiped.Bip01_R_Foot_default_p_ears_skeleton"
+effectors/4/index = 75
+effectors/4/target_node = NodePath("../../../../../../../../right_foot/Position3D")
+effectors/4/use_node_rotation = true
+effectors/4/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+effectors/5/name = "ValveBiped.Bip01_Pelvis_default_p_ears_skeleton"
+effectors/5/index = 1
+effectors/5/target_node = NodePath("../../../../../..")
+effectors/5/use_node_rotation = true
+effectors/5/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[sub_resource type="SkeletonModificationStack3D" id=2]
+enabled = true
+modification_count = 1
+modifications/0 = SubResource( 1 )
+
+[node name="Node3D" type="Node3D"]
+script = null
+
+[node name="MocapScene173" parent="." instance=ExtResource( 1 )]
+
+[node name="Root" parent="MocapScene173" index="0"]
+transform = Transform( 0.764824, 0, -0.644239, 0, 1, 0, 0.644239, 0, 0.764824, 5.77777, -0.0135, 3.65007 )
+
+[node name="head" parent="MocapScene173/Root" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Position3D" type="Position3D" parent="MocapScene173/Root/head" index="0"]
+transform = Transform( 1, 0, 0, -1.16415e-10, 1, -1.50794e-09, 0, -1.50794e-09, 1, 0.192716, 0.122269, 0.000157356 )
+script = null
+
+[node name="left_hand" parent="MocapScene173/Root" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Position3D" type="Position3D" parent="MocapScene173/Root/left_hand" index="0"]
+transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0.664127, 0.00846467, 0.0114908 )
+script = null
+
+[node name="right_hand" parent="MocapScene173/Root" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Position3D" type="Position3D" parent="MocapScene173/Root/right_hand" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.158225, -0.142276, 0.0156925 )
+script = null
+
+[node name="left_foot" parent="MocapScene173/Root" index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Position3D" type="Position3D" parent="MocapScene173/Root/left_foot" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.230801, -1.0615, 0.0219326 )
+script = null
+
+[node name="right_foot" parent="MocapScene173/Root" index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Position3D" type="Position3D" parent="MocapScene173/Root/right_foot" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.142521, -1.07169, 0.014883 )
+script = null
+
+[node name="hips" parent="MocapScene173/Root" index="5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Position3D" type="Position3D" parent="MocapScene173/Root/hips" index="0"]
+transform = Transform( 1, 7.45058e-09, 0, -7.45058e-09, 1, -3.25963e-09, 0, -3.72529e-09, 1, 0.202321, -0.132169, 0.0355711 )
+script = null
+
+[node name="scene2" parent="MocapScene173/Root/hips/Position3D" instance=ExtResource( 2 )]
+transform = Transform( 0.02, -9.02219e-10, -1.03398e-25, -5.82077e-11, 0.02, -1.16415e-10, 9.31323e-10, 1.16415e-10, 0.02, 1.49012e-08, -0.948694, 0 )
+
+[node name="Skeleton3D" parent="MocapScene173/Root/hips/Position3D/scene2/RootNode (gltf orientation matrix)/RootNode (model correction matrix)/Root/default_p_ears_skeleton" index="0"]
+bones/9/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.65218e-08, -2.91946e-07, -1.00119e-05 )
+bones/10/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0041e-07, 2.1014e-07, 1.00069e-05 )
+bones/22/rest = Transform( 0.266267, -0.189059, -0.945173, -0.0712745, 0.974033, -0.214906, 0.961266, 0.12459, 0.245873, -8.19564e-08, 3.91971, 0 )
+bones/43/rest = Transform( 0.159807, -0.152124, 0.97536, -0.0835817, 0.982421, 0.166922, -0.983608, -0.108197, 0.144283, 5.25266e-07, 3.86645, 5.96046e-08 )
+modification_stack = SubResource( 2 )
+
+[node name="AnimationPlayer" parent="MocapScene173/Root/hips/Position3D/scene2" index="1"]
+blend_times = [  ]
+
+[node name="AnimationPlayer" parent="MocapScene173" index="1"]
+blend_times = [  ]
+
+[editable path="MocapScene173"]
+[editable path="MocapScene173/Root/hips/Position3D/scene2"]
