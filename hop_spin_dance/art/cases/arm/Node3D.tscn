@@ -4,6 +4,8 @@
 
 [sub_resource type="SkeletonModification3DEWBIK" id=1]
 root_bone = "Bone_01"
+ik_iterations = 5
+default_damp_degrees = 0.01
 effector_count = 1
 effectors/0/name = "Bone_05"
 effectors/0/index = 4
@@ -30,7 +32,7 @@ bones/2/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90328, -0.497856, -3.692
 modification_stack = SubResource( 2 )
 
 [node name="Target" type="Node3D" parent="Godot_Simple_Test_Rig/Simple_Test_Rig_Armature/Skeleton3D" index="1"]
-transform = Transform( 0.0632414, 0.97004, 0.234571, -0.670643, 0.21537, -0.709827, -0.739081, -0.112422, 0.664171, -0.512141, 23.9554, -1.68266 )
+transform = Transform( -0.654054, 0.279739, 0.702824, -0.670643, 0.21537, -0.709827, -0.349933, -0.935608, 0.0467415, -4.1342, 24.2438, -5.21938 )
 script = null
 
 [editable path="Godot_Simple_Test_Rig"]

@@ -4,9 +4,8 @@
 
 [sub_resource type="SkeletonModification3DEWBIK" id=1]
 root_bone = "ValveBiped.Bip01_Pelvis_default_p_ears_skeleton"
-ik_iterations = 5
-default_damp_degrees = 0.5
-effector_count = 6
+ik_iterations = 1
+effector_count = 3
 effectors/0/name = "ValveBiped.Bip01_Head1_default_p_ears_skeleton"
 effectors/0/index = 7
 effectors/0/target_node = NodePath("Head")
@@ -22,21 +21,6 @@ effectors/2/index = 45
 effectors/2/target_node = NodePath("RightHand")
 effectors/2/use_node_rotation = true
 effectors/2/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-effectors/3/name = "ValveBiped.Bip01_L_Foot_default_p_ears_skeleton"
-effectors/3/index = 70
-effectors/3/target_node = NodePath("LeftFoot")
-effectors/3/use_node_rotation = true
-effectors/3/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-effectors/4/name = "ValveBiped.Bip01_R_Foot_default_p_ears_skeleton"
-effectors/4/index = 75
-effectors/4/target_node = NodePath("RightFoot")
-effectors/4/use_node_rotation = true
-effectors/4/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-effectors/5/name = "ValveBiped.Bip01_Pelvis_default_p_ears_skeleton"
-effectors/5/index = 1
-effectors/5/target_node = NodePath("Hips")
-effectors/5/use_node_rotation = true
-effectors/5/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [sub_resource type="SkeletonModificationStack3D" id=2]
 enabled = true
@@ -46,28 +30,19 @@ modifications/0 = SubResource( 1 )
 [node name="scene" instance=ExtResource( 1 )]
 
 [node name="Skeleton3D" parent="RootNode (gltf orientation matrix)/RootNode (model correction matrix)/Root/default_p_ears_skeleton" index="0"]
-bones/6/pose = Transform( -0.493287, 0.869619, 0.0207838, -0.853325, -0.479131, -0.205595, -0.168831, -0.119153, 0.978416, 0, 0, 0 )
-bones/7/pose = Transform( -0.651345, -0.749219, -0.120086, 0.69669, -0.527806, -0.485844, 0.300621, -0.400115, 0.865757, 0.70886, -1.95631, 2.64847 )
+bones/45/pose = Transform( 0.994116, -0.0271285, -0.104873, 0.0334716, 0.997685, 0.0592038, 0.103024, -0.0623656, 0.992722, 0, 0, 0 )
 modification_stack = SubResource( 2 )
 
 [node name="Head" type="Position3D" parent="RootNode (gltf orientation matrix)/RootNode (model correction matrix)/Root/default_p_ears_skeleton/Skeleton3D" index="20"]
-transform = Transform( -0.298719, 0.932218, -0.20427, 0.949869, 0.269748, -0.158029, -0.0922166, -0.241239, -0.966067, -3.05784, 6.10241, 56.3396 )
+transform = Transform( -0.940762, -0.339048, 0, 0.284828, -0.79032, -0.542452, 0.183918, -0.510323, 0.840077, 0.0477318, 0.638908, 56.8101 )
 script = null
 
 [node name="LeftHand" type="Position3D" parent="RootNode (gltf orientation matrix)/RootNode (model correction matrix)/Root/default_p_ears_skeleton/Skeleton3D" index="21"]
-transform = Transform( -70.4352, 70.7391, 5.90449, -9.10705, -0.756009, -99.5816, -70.3984, -70.6782, 6.97474, 16.34, -0.605987, 49.8213 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6359, -3.24242, 53.6365 )
 script = null
 
 [node name="RightHand" type="Position3D" parent="RootNode (gltf orientation matrix)/RootNode (model correction matrix)/Root/default_p_ears_skeleton/Skeleton3D" index="22"]
-transform = Transform( 64.5762, -75.978, 7.56645, -11.171, 0.401732, 99.3733, -75.5322, -65.0168, -8.22807, -22.3359, 1.08981, 45.2917 )
-script = null
-
-[node name="LeftFoot" type="Position3D" parent="RootNode (gltf orientation matrix)/RootNode (model correction matrix)/Root/default_p_ears_skeleton/Skeleton3D" index="23"]
-transform = Transform( -7.58895, -2.55874, 99.6788, -69.6513, -71.3987, -7.13563, 71.352, -69.9691, 3.63622, 2.91784, 1.6136, 3.91266 )
-script = null
-
-[node name="RightFoot" type="Position3D" parent="RootNode (gltf orientation matrix)/RootNode (model correction matrix)/Root/default_p_ears_skeleton/Skeleton3D" index="24"]
-transform = Transform( 4.75118, 0.440788, 99.8861, -69.8647, -71.4541, 3.6385, 71.3887, -69.958, -3.08696, -2.89422, 1.53342, 3.89051 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.305, -6.21499, 50.8082 )
 script = null
 
 [node name="AnimationPlayer" parent="." index="1"]

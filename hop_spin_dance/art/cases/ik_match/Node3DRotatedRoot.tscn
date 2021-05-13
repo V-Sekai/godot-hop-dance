@@ -406,5 +406,5 @@ visible = false
 script = null
 
 [node name="GlobalEffector" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.630785, 1.95469, -0.403614 )
 script = null

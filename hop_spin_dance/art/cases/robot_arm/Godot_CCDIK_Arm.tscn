@@ -23,7 +23,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0177011, 0, 0 )
 modification_stack = SubResource( 2 )
 
 [node name="Target" type="Position3D" parent="Robotic_Arm_Armature/Skeleton3D" index="1"]
-transform = Transform( 0.976223, 0.216766, 0.000362372, -0.216766, 0.976218, 0.00330395, 0.000362475, -0.00330388, 0.999994, 0.374781, 3.55329, 4.66475 )
+transform = Transform( 0.910101, -0.205508, -0.359835, 0.388113, 0.727006, 0.566418, 0.145199, -0.655155, 0.74141, 2.5698, 3.55329, 2.96219 )
 script = null
 
 [node name="Root" type="Node3D" parent="Robotic_Arm_Armature" index="1"]
