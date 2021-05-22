@@ -34,15 +34,15 @@ bones/45/pose = Transform( 0.994116, -0.0271285, -0.104873, 0.0334716, 0.997685,
 modification_stack = SubResource( 2 )
 
 [node name="Head" type="Position3D" parent="RootNode (gltf orientation matrix)/RootNode (model correction matrix)/Root/default_p_ears_skeleton/Skeleton3D" index="20"]
-transform = Transform( -0.940762, -0.339048, 0, 0.284828, -0.79032, -0.542452, 0.183918, -0.510323, 0.840077, 0.0477318, 0.638908, 56.8101 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.150828, 0.815032, 60.5492 )
 script = null
 
 [node name="LeftHand" type="Position3D" parent="RootNode (gltf orientation matrix)/RootNode (model correction matrix)/Root/default_p_ears_skeleton/Skeleton3D" index="21"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6359, -3.24242, 53.6365 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4423, -2.45454, 42.539 )
 script = null
 
 [node name="RightHand" type="Position3D" parent="RootNode (gltf orientation matrix)/RootNode (model correction matrix)/Root/default_p_ears_skeleton/Skeleton3D" index="22"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.305, -6.21499, 50.8082 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7774, -0.867143, 43.0493 )
 script = null
 
 [node name="AnimationPlayer" parent="." index="1"]
