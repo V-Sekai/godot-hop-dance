@@ -30,6 +30,12 @@ window/stretch/aspect="keep"
 
 import/use_multiple_threads=false
 
+[importer_defaults]
+
+scene={
+@"meshes/create_shadow_meshes": false
+}
+
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
