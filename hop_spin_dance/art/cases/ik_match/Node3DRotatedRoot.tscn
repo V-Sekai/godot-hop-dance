@@ -7,7 +7,7 @@ effectors/0/name = "b3"
 effectors/0/index = 3
 effectors/0/target_node = NodePath("../../../GlobalEffector")
 effectors/0/use_node_rotation = true
-effectors/0/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+effectors/0/target_transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [sub_resource type="SkeletonModificationStack3D" id=2]
 enabled = true
@@ -32,16 +32,16 @@ blend_shape_mode = 0
 bind_count = 4
 bind/0/name = @"root"
 bind/0/bone = -1
-bind/0/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bind/0/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 bind/1/name = @"b1"
 bind/1/bone = -1
-bind/1/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+bind/1/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 bind/2/name = @"b2"
 bind/2/bone = -1
-bind/2/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
+bind/2/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
 bind/3/name = @"b3"
 bind/3/bone = -1
-bind/3/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0 )
+bind/3/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0 )
 
 [sub_resource type="SkeletonModification3DEWBIK" id=5]
 root_bone = "root"
@@ -50,7 +50,7 @@ effectors/0/name = "b3"
 effectors/0/index = 3
 effectors/0/target_node = NodePath("../../Effector2")
 effectors/0/use_node_rotation = true
-effectors/0/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+effectors/0/target_transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [sub_resource type="SkeletonModificationStack3D" id=6]
 enabled = true
@@ -75,16 +75,16 @@ blend_shape_mode = 0
 bind_count = 4
 bind/0/name = @"root"
 bind/0/bone = -1
-bind/0/pose = Transform( 1, -1.50996e-07, 0, 0, 0, 1, -1.50996e-07, -1, 0, 0, 0, 0 )
+bind/0/pose = Transform3D( 1, -1.50996e-07, 0, 0, 0, 1, -1.50996e-07, -1, 0, 0, 0, 0 )
 bind/1/name = @"b1"
 bind/1/bone = -1
-bind/1/pose = Transform( 1, -8.74228e-08, 0, 0, 0, 1, -8.74228e-08, -1, 0, 8.74228e-08, 5.96046e-08, 1 )
+bind/1/pose = Transform3D( 1, -8.74228e-08, 0, 0, 0, 1, -8.74228e-08, -1, 0, 8.74228e-08, 5.96046e-08, 1 )
 bind/2/name = @"b2"
 bind/2/bone = -1
-bind/2/pose = Transform( 1, -8.74228e-08, 0, 0, 0, 1, -8.74228e-08, -1, 0, 1.74846e-07, 5.96046e-08, 2 )
+bind/2/pose = Transform3D( 1, -8.74228e-08, 0, 0, 0, 1, -8.74228e-08, -1, 0, 1.74846e-07, 5.96046e-08, 2 )
 bind/3/name = @"b3"
 bind/3/bone = -1
-bind/3/pose = Transform( 1, -8.74228e-08, 0, 0, 0, 1, -8.74228e-08, -1, 0, 2.62268e-07, 1.19209e-07, 3 )
+bind/3/pose = Transform3D( 1, -8.74228e-08, 0, 0, 0, 1, -8.74228e-08, -1, 0, 2.62268e-07, 1.19209e-07, 3 )
 
 [sub_resource type="SkeletonModification3DEWBIK" id=9]
 root_bone = "root"
@@ -93,7 +93,7 @@ effectors/0/name = "b3"
 effectors/0/index = 3
 effectors/0/target_node = NodePath("../../Effector3")
 effectors/0/use_node_rotation = true
-effectors/0/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+effectors/0/target_transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [sub_resource type="SkeletonModificationStack3D" id=10]
 enabled = true
@@ -118,16 +118,16 @@ blend_shape_mode = 0
 bind_count = 4
 bind/0/name = @"root"
 bind/0/bone = -1
-bind/0/pose = Transform( 2.58418e-15, -1, 7.54979e-08, 1, -3.42285e-08, -3.42285e-08, 3.42285e-08, 7.54979e-08, 1, 0, 0, 0 )
+bind/0/pose = Transform3D( 2.58418e-15, -1, 7.54979e-08, 1, -3.42285e-08, -3.42285e-08, 3.42285e-08, 7.54979e-08, 1, 0, 0, 0 )
 bind/1/name = @"b1"
 bind/1/bone = -1
-bind/1/pose = Transform( 2.58418e-15, -1, 7.54979e-08, 1, -3.42285e-08, -3.42285e-08, 3.42285e-08, 7.54979e-08, 1, 1, 2.58418e-15, -4.12694e-08 )
+bind/1/pose = Transform3D( 2.58418e-15, -1, 7.54979e-08, 1, -3.42285e-08, -3.42285e-08, 3.42285e-08, 7.54979e-08, 1, 1, 2.58418e-15, -4.12694e-08 )
 bind/2/name = @"b2"
 bind/2/bone = -1
-bind/2/pose = Transform( 2.58418e-15, -1, 7.54979e-08, 1, -3.42285e-08, -3.42285e-08, 3.42285e-08, 7.54979e-08, 1, 2, 5.96046e-08, -8.25387e-08 )
+bind/2/pose = Transform3D( 2.58418e-15, -1, 7.54979e-08, 1, -3.42285e-08, -3.42285e-08, 3.42285e-08, 7.54979e-08, 1, 2, 5.96046e-08, -8.25387e-08 )
 bind/3/name = @"b3"
 bind/3/bone = -1
-bind/3/pose = Transform( 2.58418e-15, -1, 7.54979e-08, 1, -3.42285e-08, -3.42285e-08, 3.42285e-08, 7.54979e-08, 1, 3, 1.19209e-07, -1.23808e-07 )
+bind/3/pose = Transform3D( 2.58418e-15, -1, 7.54979e-08, 1, -3.42285e-08, -3.42285e-08, 3.42285e-08, 7.54979e-08, 1, 3, 1.19209e-07, -1.23808e-07 )
 
 [sub_resource type="SkeletonModification3DEWBIK" id=13]
 root_bone = "root"
@@ -136,7 +136,7 @@ effectors/0/name = "b3"
 effectors/0/index = 3
 effectors/0/target_node = NodePath("../../../GlobalEffector")
 effectors/0/use_node_rotation = true
-effectors/0/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+effectors/0/target_transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [sub_resource type="SkeletonModificationStack3D" id=14]
 enabled = true
@@ -163,16 +163,16 @@ resource_name = "Skin"
 bind_count = 4
 bind/0/name = @"root"
 bind/0/bone = -1
-bind/0/pose = Transform( 1, 5.18547e-16, -3.42285e-08, -5.29395e-23, 1, 1.51495e-08, 3.42285e-08, -1.51495e-08, 1, 0, 0, 0 )
+bind/0/pose = Transform3D( 1, 5.18547e-16, -3.42285e-08, -5.29395e-23, 1, 1.51495e-08, 3.42285e-08, -1.51495e-08, 1, 0, 0, 0 )
 bind/1/name = @"b1"
 bind/1/bone = -1
-bind/1/pose = Transform( 1, 2.55873e-15, -3.42285e-08, 0, 1, 7.47542e-08, 3.42285e-08, -7.47542e-08, 1, -2.11758e-22, -1, 7.10543e-15 )
+bind/1/pose = Transform3D( 1, 2.55873e-15, -3.42285e-08, 0, 1, 7.47542e-08, 3.42285e-08, -7.47542e-08, 1, -2.11758e-22, -1, 7.10543e-15 )
 bind/2/name = @"b2"
 bind/2/bone = -1
-bind/2/pose = Transform( 1, 5.18547e-16, -3.42285e-08, -1.05879e-22, 1, 1.51495e-08, 3.42285e-08, -1.51495e-08, 1, 4.08036e-15, -2, -1.19209e-07 )
+bind/2/pose = Transform3D( 1, 5.18547e-16, -3.42285e-08, -1.05879e-22, 1, 1.51495e-08, 3.42285e-08, -1.51495e-08, 1, 4.08036e-15, -2, -1.19209e-07 )
 bind/3/name = @"b3"
 bind/3/bone = -1
-bind/3/pose = Transform( 1, 4.59891e-15, -3.42285e-08, 0, 1, 1.34359e-07, 3.42285e-08, -1.34359e-07, 1, -8.16072e-15, -3, 2.38419e-07 )
+bind/3/pose = Transform3D( 1, 4.59891e-15, -3.42285e-08, 0, 1, 1.34359e-07, 3.42285e-08, -1.34359e-07, 1, -8.16072e-15, -3, 2.38419e-07 )
 
 [sub_resource type="SkeletonModification3DEWBIK" id=17]
 root_bone = "root"
@@ -181,7 +181,7 @@ effectors/0/name = "b3"
 effectors/0/index = 3
 effectors/0/target_node = NodePath("../../../GlobalEffector")
 effectors/0/use_node_rotation = true
-effectors/0/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+effectors/0/target_transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [sub_resource type="SkeletonModificationStack3D" id=18]
 enabled = true
@@ -200,24 +200,24 @@ script = null
 [node name="Skeleton3D" type="Skeleton3D" parent="bone_test/Armature"]
 bones/0/name = "root"
 bones/0/parent = -1
-bones/0/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/0/rest = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 bones/0/enabled = true
-bones/0/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/0/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 bones/1/name = "b1"
 bones/1/parent = 0
-bones/1/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+bones/1/rest = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 bones/1/enabled = true
-bones/1/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/1/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 bones/2/name = "b2"
 bones/2/parent = 1
-bones/2/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+bones/2/rest = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 bones/2/enabled = true
-bones/2/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/2/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 bones/3/name = "b3"
 bones/3/parent = 2
-bones/3/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+bones/3/rest = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 bones/3/enabled = true
-bones/3/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/3/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 modification_stack = SubResource( 2 )
 script = null
 
@@ -229,12 +229,12 @@ surface_material_override/0 = null
 script = null
 
 [node name="LocalEffector" type="Position3D" parent="bone_test/Armature"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.383117, 2.38971, 0.678905 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.383117, 2.38971, 0.678905 )
 visible = false
 script = null
 
 [node name="rx90_IncorrectBoneRollsZForward" type="Node3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0 )
 visible = false
 script = null
 
@@ -244,24 +244,24 @@ script = null
 [node name="Skeleton3D" type="Skeleton3D" parent="rx90_IncorrectBoneRollsZForward/Armature"]
 bones/0/name = "root"
 bones/0/parent = -1
-bones/0/rest = Transform( 1, 0, -1.50996e-07, -1.50996e-07, 0, -1, 0, 1, 0, 0, 0, 0 )
+bones/0/rest = Transform3D( 1, 0, -1.50996e-07, -1.50996e-07, 0, -1, 0, 1, 0, 0, 0, 0 )
 bones/0/enabled = true
-bones/0/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/0/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 bones/1/name = "b1"
 bones/1/parent = 0
-bones/1/rest = Transform( 1, 0, 6.3573e-08, 0, 1, 0, -6.3573e-08, 0, 1, -1.50996e-07, -5.96046e-08, -1 )
+bones/1/rest = Transform3D( 1, 0, 6.3573e-08, 0, 1, 0, -6.3573e-08, 0, 1, -1.50996e-07, -5.96046e-08, -1 )
 bones/1/enabled = true
-bones/1/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/1/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 bones/2/name = "b2"
 bones/2/parent = 1
-bones/2/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.74228e-08, 0, -1 )
+bones/2/rest = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.74228e-08, 0, -1 )
 bones/2/enabled = true
-bones/2/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/2/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 bones/3/name = "b3"
 bones/3/parent = 2
-bones/3/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.74227e-08, -5.96046e-08, -1 )
+bones/3/rest = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.74227e-08, -5.96046e-08, -1 )
 bones/3/enabled = true
-bones/3/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/3/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 modification_stack = SubResource( 6 )
 script = null
 
@@ -273,11 +273,11 @@ surface_material_override/0 = null
 script = null
 
 [node name="Effector2" type="Position3D" parent="rx90_IncorrectBoneRollsZForward"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.789806, 0.915733, -0.0291383 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.789806, 0.915733, -0.0291383 )
 script = null
 
 [node name="ry90_IncorrectBoneRolls_XForward" type="Node3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
 visible = false
 script = null
 
@@ -287,24 +287,24 @@ script = null
 [node name="Skeleton3D" type="Skeleton3D" parent="ry90_IncorrectBoneRolls_XForward/Armature"]
 bones/0/name = "root"
 bones/0/parent = -1
-bones/0/rest = Transform( 0, 1, 3.42285e-08, -1, 0, 7.54979e-08, 7.54979e-08, -3.42285e-08, 1, 0, 0, 0 )
+bones/0/rest = Transform3D( 0, 1, 3.42285e-08, -1, 0, 7.54979e-08, 7.54979e-08, -3.42285e-08, 1, 0, 0, 0 )
 bones/0/enabled = true
-bones/0/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/0/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 bones/1/name = "b1"
 bones/1/parent = 0
-bones/1/rest = Transform( 0.875, -0.216506, 0.433013, 0.433013, 0.75, -0.5, -0.216506, 0.625, 0.75, -1, 0, 0 )
+bones/1/rest = Transform3D( 0.875, -0.216506, 0.433013, 0.433013, 0.75, -0.5, -0.216506, 0.625, 0.75, -1, 0, 0 )
 bones/1/enabled = true
-bones/1/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/1/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 bones/2/name = "b2"
 bones/2/parent = 1
-bones/2/rest = Transform( 0.939693, 0.116978, 0.321394, 0, 0.939693, -0.34202, -0.34202, 0.321394, 0.883022, -1, 0, 0 )
+bones/2/rest = Transform3D( 0.939693, 0.116978, 0.321394, 0, 0.939693, -0.34202, -0.34202, 0.321394, 0.883022, -1, 0, 0 )
 bones/2/enabled = true
-bones/2/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/2/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 bones/3/name = "b3"
 bones/3/parent = 2
-bones/3/rest = Transform( 0.923031, -0.211471, 0.321394, 0.321394, 0.883022, -0.34202, -0.211471, 0.418989, 0.883022, -1, 0, 0 )
+bones/3/rest = Transform3D( 0.923031, -0.211471, 0.321394, 0.321394, 0.883022, -0.34202, -0.211471, 0.418989, 0.883022, -1, 0, 0 )
 bones/3/enabled = true
-bones/3/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/3/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 modification_stack = SubResource( 10 )
 script = null
 
@@ -316,37 +316,37 @@ surface_material_override/0 = null
 script = null
 
 [node name="Effector3" type="Position3D" parent="ry90_IncorrectBoneRolls_XForward"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3739, 0.915733, 0.877612 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3739, 0.915733, 0.877612 )
 script = null
 
 [node name="rotmesh" type="Node3D" parent="."]
 script = null
 
 [node name="Armature" type="Node3D" parent="rotmesh"]
-transform = Transform( 1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0 )
 script = null
 
 [node name="Skeleton3D" type="Skeleton3D" parent="rotmesh/Armature"]
 bones/0/name = "root"
 bones/0/parent = -1
-bones/0/rest = Transform( 1, 0, 3.42285e-08, -3.42285e-08, -1.19209e-07, 1, 5.32907e-15, -1, -1.19209e-07, 0, 0, 0 )
+bones/0/rest = Transform3D( 1, 0, 3.42285e-08, -3.42285e-08, -1.19209e-07, 1, 5.32907e-15, -1, -1.19209e-07, 0, 0, 0 )
 bones/0/enabled = true
-bones/0/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/0/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 bones/1/name = "b1"
 bones/1/parent = 0
-bones/1/rest = Transform( 1, -2.04018e-15, 3.55271e-15, 2.04018e-15, 1, -5.96046e-08, -3.55271e-15, 5.96046e-08, 1, -2.04018e-15, 1, 5.96046e-08 )
+bones/1/rest = Transform3D( 1, -2.04018e-15, 3.55271e-15, 2.04018e-15, 1, -5.96046e-08, -3.55271e-15, 5.96046e-08, 1, -2.04018e-15, 1, 5.96046e-08 )
 bones/1/enabled = true
-bones/1/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/1/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 bones/2/name = "b2"
 bones/2/parent = 1
-bones/2/rest = Transform( 1, 2.04018e-15, -7.10543e-15, -2.04018e-15, 1, 5.96046e-08, 7.10543e-15, -5.96046e-08, 1, 2.11758e-22, 1, -7.10543e-15 )
+bones/2/rest = Transform3D( 1, 2.04018e-15, -7.10543e-15, -2.04018e-15, 1, 5.96046e-08, 7.10543e-15, -5.96046e-08, 1, 2.11758e-22, 1, -7.10543e-15 )
 bones/2/enabled = true
-bones/2/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/2/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 bones/3/name = "b3"
 bones/3/parent = 2
-bones/3/rest = Transform( 1, -4.08036e-15, 7.10543e-15, 4.08036e-15, 1, -1.19209e-07, -7.10543e-15, 1.19209e-07, 1, 8.47033e-22, 1, -2.84217e-14 )
+bones/3/rest = Transform3D( 1, -4.08036e-15, 7.10543e-15, 4.08036e-15, 1, -1.19209e-07, -7.10543e-15, 1.19209e-07, 1, 8.47033e-22, 1, -2.84217e-14 )
 bones/3/enabled = true
-bones/3/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/3/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 modification_stack = SubResource( 14 )
 script = null
 
@@ -358,12 +358,12 @@ surface_material_override/0 = null
 script = null
 
 [node name="LocalEffector" type="Position3D" parent="rotmesh/Armature"]
-transform = Transform( 1, 0, 0, 0, 0, 1, 0, -1, 0, 0.383117, 0.678905, -2.38971 )
+transform = Transform3D( 1, 0, 0, 0, 0, 1, 0, -1, 0, 0.383117, 0.678905, -2.38971 )
 visible = false
 script = null
 
 [node name="rotmesh2" type="Node3D" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 script = null
 
 [node name="Armature" type="Node3D" parent="rotmesh2"]
@@ -372,24 +372,24 @@ script = null
 [node name="Skeleton3D" type="Skeleton3D" parent="rotmesh2/Armature"]
 bones/0/name = "root"
 bones/0/parent = -1
-bones/0/rest = Transform( 1, 0, 3.42285e-08, -3.42285e-08, -1.19209e-07, 1, 5.32907e-15, -1, -1.19209e-07, 0, 0, 0 )
+bones/0/rest = Transform3D( 1, 0, 3.42285e-08, -3.42285e-08, -1.19209e-07, 1, 5.32907e-15, -1, -1.19209e-07, 0, 0, 0 )
 bones/0/enabled = true
-bones/0/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/0/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 bones/1/name = "b1"
 bones/1/parent = 0
-bones/1/rest = Transform( 1, -2.04018e-15, 3.55271e-15, 2.04018e-15, 1, -5.96046e-08, -3.55271e-15, 5.96046e-08, 1, -2.04018e-15, 1, 5.96046e-08 )
+bones/1/rest = Transform3D( 1, -2.04018e-15, 3.55271e-15, 2.04018e-15, 1, -5.96046e-08, -3.55271e-15, 5.96046e-08, 1, -2.04018e-15, 1, 5.96046e-08 )
 bones/1/enabled = true
-bones/1/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/1/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 bones/2/name = "b2"
 bones/2/parent = 1
-bones/2/rest = Transform( 1, 2.04018e-15, -7.10543e-15, -2.04018e-15, 1, 5.96046e-08, 7.10543e-15, -5.96046e-08, 1, 2.11758e-22, 1, -7.10543e-15 )
+bones/2/rest = Transform3D( 1, 2.04018e-15, -7.10543e-15, -2.04018e-15, 1, 5.96046e-08, 7.10543e-15, -5.96046e-08, 1, 2.11758e-22, 1, -7.10543e-15 )
 bones/2/enabled = true
-bones/2/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/2/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 bones/3/name = "b3"
 bones/3/parent = 2
-bones/3/rest = Transform( 1, -4.08036e-15, 7.10543e-15, 4.08036e-15, 1, -1.19209e-07, -7.10543e-15, 1.19209e-07, 1, 8.47033e-22, 1, -2.84217e-14 )
+bones/3/rest = Transform3D( 1, -4.08036e-15, 7.10543e-15, 4.08036e-15, 1, -1.19209e-07, -7.10543e-15, 1.19209e-07, 1, 8.47033e-22, 1, -2.84217e-14 )
 bones/3/enabled = true
-bones/3/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+bones/3/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 modification_stack = SubResource( 18 )
 script = null
 
@@ -401,10 +401,10 @@ surface_material_override/0 = null
 script = null
 
 [node name="LocalEffector" type="Position3D" parent="rotmesh2/Armature"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.383117, 0.678905, -2.38971 )
+transform = Transform3D( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.383117, 0.678905, -2.38971 )
 visible = false
 script = null
 
 [node name="GlobalEffector" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.630785, 1.95469, -0.403614 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.630785, 1.95469, -0.403614 )
 script = null

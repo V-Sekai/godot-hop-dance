@@ -11,7 +11,7 @@ effectors/0/name = "Bone_05"
 effectors/0/index = 4
 effectors/0/target_node = NodePath("Target")
 effectors/0/use_node_rotation = true
-effectors/0/target_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+effectors/0/target_transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [sub_resource type="SkeletonModificationStack3D" id=2]
 enabled = true
@@ -24,15 +24,15 @@ script = null
 [node name="Godot_Simple_Test_Rig" parent="." instance=ExtResource( 1 )]
 
 [node name="Node3D" type="Node3D" parent="Godot_Simple_Test_Rig/Simple_Test_Rig_Armature" index="0"]
-transform = Transform( 0.998434, 0, 0.0559434, 0, 0.999998, 0, -0.0559435, 0, 0.998432, 3.64918, 10.6461, -3.22258 )
+transform = Transform3D( 0.998434, 0, 0.0559434, 0, 0.999998, 0, -0.0559435, 0, 0.998432, 3.64918, 10.6461, -3.22258 )
 script = null
 
 [node name="Skeleton3D" parent="Godot_Simple_Test_Rig/Simple_Test_Rig_Armature" index="1"]
-bones/2/pose = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90328, -0.497856, -3.69291 )
+bones/2/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90328, -0.497856, -3.69291 )
 modification_stack = SubResource( 2 )
 
 [node name="Target" type="Node3D" parent="Godot_Simple_Test_Rig/Simple_Test_Rig_Armature/Skeleton3D" index="1"]
-transform = Transform( -0.654054, 0.279739, 0.702824, -0.670643, 0.21537, -0.709827, -0.349933, -0.935608, 0.0467415, -4.1342, 24.2438, -5.21938 )
+transform = Transform3D( -0.654054, 0.279739, 0.702824, -0.670643, 0.21537, -0.709827, -0.349933, -0.935608, 0.0467415, -4.1342, 24.2438, -5.21938 )
 script = null
 
 [editable path="Godot_Simple_Test_Rig"]
