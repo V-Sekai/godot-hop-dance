@@ -28,7 +28,6 @@ transform = Transform3D( 0.998434, 0, 0.0559434, 0, 0.999998, 0, -0.0559435, 0, 
 script = null
 
 [node name="Skeleton3D" parent="Godot_Simple_Test_Rig/Simple_Test_Rig_Armature" index="1"]
-bones/2/pose = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90328, -0.497856, -3.69291 )
 modification_stack = SubResource( 2 )
 
 [node name="Target" type="Node3D" parent="Godot_Simple_Test_Rig/Simple_Test_Rig_Armature/Skeleton3D" index="1"]
