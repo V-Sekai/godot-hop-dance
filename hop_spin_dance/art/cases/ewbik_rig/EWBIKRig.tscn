@@ -4,27 +4,17 @@
 
 [sub_resource type="SkeletonModification3DEWBIK" id=1]
 root_bone = "C2"
-effector_count = 4
-effectors/0/name = "A1"
-effectors/0/index = 5
-effectors/0/target_node = NodePath("")
-effectors/0/use_node_rotation = true
+ik_iterations = 1
+default_damp_degrees = 1.0
+effector_count = 2
+effectors/0/name = "A1.001"
+effectors/0/index = 7
+effectors/0/target_node = NodePath("A1001")
 effectors/0/target_transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-effectors/1/name = "A1.001"
-effectors/1/index = 7
-effectors/1/target_node = NodePath("A1001")
-effectors/1/use_node_rotation = true
+effectors/1/name = "A1.003"
+effectors/1/index = 15
+effectors/1/target_node = NodePath("A1003")
 effectors/1/target_transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-effectors/2/name = "A1.002"
-effectors/2/index = 12
-effectors/2/target_node = NodePath("")
-effectors/2/use_node_rotation = true
-effectors/2/target_transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-effectors/3/name = "A1.003"
-effectors/3/index = 15
-effectors/3/target_node = NodePath("A1003")
-effectors/3/use_node_rotation = true
-effectors/3/target_transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [sub_resource type="SkeletonModificationStack3D" id=2]
 enabled = true
@@ -40,11 +30,29 @@ script = null
 modification_stack = SubResource( 2 )
 
 [node name="A1001" type="Node3D" parent="ewbik_rig/Armature/Skeleton3D" index="1"]
-transform = Transform3D( -0.871048, -0.00743848, -0.491142, 0.0562653, 0.991793, -0.114808, 0.487966, -0.127638, -0.86348, 1.92234, 1.53873, -1.03141 )
+transform = Transform3D( 1, 0, 0, 0, 0.443102, -0.896471, 0, 0.896471, 0.443102, -3.61989, 4.62373, -0.594907 )
 script = null
 
 [node name="A1003" type="Node3D" parent="ewbik_rig/Armature/Skeleton3D" index="2"]
-transform = Transform3D( -0.300674, -0.0362949, 0.953036, -0.0109201, 0.999341, 0.0346131, -0.953664, 0, -0.300872, -0.79138, 4.0354, 0.501899 )
+transform = Transform3D( -0.25983, -0.155597, 0.953036, -0.416952, 0.908269, 0.0346131, -0.870999, -0.388377, -0.300872, 4.24833, 3.3476, 0.743446 )
+script = null
+
+[node name="BoneAttachment3D2" type="BoneAttachment3D" parent="ewbik_rig/Armature/Skeleton3D" index="3"]
+transform = Transform3D( 0.149599, -0.979968, -0.131469, 0.847603, 0.058641, 0.527381, -0.509107, -0.190329, 0.839396, -2.26813, 3.64782, -0.27674 )
+bone_name = "A1.001"
+bone_idx = 7
+script = null
+
+[node name="Node3D" type="Position3D" parent="ewbik_rig/Armature/Skeleton3D/BoneAttachment3D2"]
+script = null
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="ewbik_rig/Armature/Skeleton3D" index="4"]
+transform = Transform3D( 0.824381, 0.538161, -0.175435, -0.288093, 0.132133, -0.948442, -0.487234, 0.83242, 0.263968, 3.75086, 3.8627, 0.889262 )
+bone_name = "A1.003"
+bone_idx = 15
+script = null
+
+[node name="Node3D" type="Position3D" parent="ewbik_rig/Armature/Skeleton3D/BoneAttachment3D"]
 script = null
 
 [editable path="ewbik_rig"]

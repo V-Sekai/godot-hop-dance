@@ -8,10 +8,20 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node3D",
+"class": @"VRMTopLevel",
+"language": @"GDScript",
+"path": "res://addons/vrm/vrm_toplevel.gd"
+} ]
+_global_script_class_icons={
+@"VRMTopLevel": ""
+}
+
 [application]
 
 config/name="Hop Spin Dance"
-run/main_scene="res://hop_spin_dance/art/cases/ik_match/Node3DRotatedRootComplex.tscn"
+run/main_scene="res://hop_spin_dance/art/cases/ewbik_3_chain/ewbik_3_bone_chain.tscn"
 run/low_processor_mode=true
 boot_splash/use_filter=false
 config/icon="res://icon.png"
@@ -29,6 +39,10 @@ window/stretch/aspect="keep"
 [editor]
 
 import/use_multiple_threads=false
+
+[editor_plugins]
+
+enabled=PackedStringArray( "res://addons/vrm/plugin.cfg" )
 
 [importer_defaults]
 
