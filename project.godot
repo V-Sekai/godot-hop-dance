@@ -8,16 +8,6 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Node3D",
-"class": @"VRMTopLevel",
-"language": @"GDScript",
-"path": "res://addons/vrm/vrm_toplevel.gd"
-} ]
-_global_script_class_icons={
-@"VRMTopLevel": ""
-}
-
 [application]
 
 config/name="Hop Spin Dance"
@@ -42,7 +32,7 @@ import/use_multiple_threads=false
 
 [editor_plugins]
 
-enabled=PackedStringArray( "res://addons/vrm/plugin.cfg" )
+enabled=PackedStringArray(  )
 
 [importer_defaults]
 
