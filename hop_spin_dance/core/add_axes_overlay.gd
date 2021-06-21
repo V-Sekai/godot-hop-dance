@@ -6,7 +6,7 @@ extends EditorScenePostImport
 var axes_y : PackedScene = load("res://hop_spin_dance/uiux/axes_indicator/axes_decameter.glb")
 
 
-func post_import(scene):
+func _post_import(scene):
 	iterate(scene, scene)
 	return scene
 
