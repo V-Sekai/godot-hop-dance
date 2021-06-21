@@ -18,7 +18,7 @@ func iterate(node, root):
 			var bone_attachment = BoneAttachment3D.new()
 			bone_attachment.bone_name = skel.get_bone_name(bone_i)
 			var bone_children : Array = skel.get_bone_children(bone_i)
-			var axis_y_node : Node3D = axes_y.instance()
+			var axis_y_node : Node3D = axes_y.instantiate()
 			bone_attachment.add_child(axis_y_node)			
 			axis_y_node.name = bone_attachment.bone_name
 			axis_y_node.owner = root

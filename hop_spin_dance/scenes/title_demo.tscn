@@ -36,12 +36,12 @@ __meta__ = {
 script = null
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D( -1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 0, 1.383, -3.231 )
+transform = Transform3D(-1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 0, 1.383, -3.231)
 fov = 35.0
 script = null
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D( 1, 0, 0, 0, -0.0438455, 0.999038, 0, -0.999038, -0.0438455, 0, 5.19925, 2.66218 )
+transform = Transform3D(1, 0, 0, 0, -0.0438455, 0.999038, 0, -0.999038, -0.0438455, 0, 5.19925, 2.66218)
 light_energy = 0.5
 script = null
 
