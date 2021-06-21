@@ -7,3 +7,6 @@
 [submodule "addons/gd_util"]
 	path = addons/gd_util
 	url = git@github.com:V-Sekai/gdutil.git
+[submodule "addons/gd_3_to_4"]
+	path = addons/gd_3_to_4
+	url = git@github.com:V-Sekai/gd3to4.git
