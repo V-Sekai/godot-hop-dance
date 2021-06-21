@@ -32,12 +32,12 @@ import/use_multiple_threads=false
 
 [editor_plugins]
 
-enabled=PackedStringArray(  )
+enabled=PackedStringArray()
 
 [importer_defaults]
 
 scene={
-@"meshes/create_shadow_meshes": false
+&"meshes/create_shadow_meshes": false
 }
 
 [input_devices]

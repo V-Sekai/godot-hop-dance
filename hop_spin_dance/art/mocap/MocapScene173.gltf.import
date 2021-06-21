@@ -8,7 +8,7 @@ path="res://.godot/imported/MocapScene173.gltf-efb2250329adacfc69523c29cbcd0ee9.
 [deps]
 
 source_file="res://hop_spin_dance/art/mocap/MocapScene173.gltf"
-dest_files=[ "res://.godot/imported/MocapScene173.gltf-efb2250329adacfc69523c29cbcd0ee9.scn" ]
+dest_files=["res://.godot/imported/MocapScene173.gltf-efb2250329adacfc69523c29cbcd0ee9.scn"]
 
 [params]
 

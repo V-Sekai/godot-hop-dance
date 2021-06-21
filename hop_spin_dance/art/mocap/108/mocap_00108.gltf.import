@@ -8,7 +8,7 @@ path="res://.godot/imported/mocap_00108.gltf-eef396ac6bfd05cf05580183c9008c8a.sc
 [deps]
 
 source_file="res://hop_spin_dance/art/mocap/108/mocap_00108.gltf"
-dest_files=[ "res://.godot/imported/mocap_00108.gltf-eef396ac6bfd05cf05580183c9008c8a.scn" ]
+dest_files=["res://.godot/imported/mocap_00108.gltf-eef396ac6bfd05cf05580183c9008c8a.scn"]
 
 [params]
 
