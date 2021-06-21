@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[{
+"base": "Resource",
+"class": &"HumanoidData",
+"language": &"GDScript",
+"path": "res://addons/vsk_avatar/humanoid_data.gd"
+}, {
 "base": "Node3D",
 "class": &"VRMTopLevel",
 "language": &"GDScript",
 "path": "res://addons/vrm/vrm_toplevel.gd"
 }]
 _global_script_class_icons={
+&"HumanoidData": "",
 &"VRMTopLevel": ""
 }
 
@@ -25,6 +31,11 @@ run/main_scene="res://hop_spin_dance/scenes/title_demo.tscn"
 run/low_processor_mode=true
 boot_splash/use_filter=false
 config/icon="res://icon.png"
+
+[autoload]
+
+GodotMathExtension="*res://addons/math_util/math_funcs.gd"
+ConnectionUtil="*res://addons/gd_util/connection_util.gd"
 
 [display]
 
@@ -42,7 +53,7 @@ import/use_multiple_threads=false
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/fbx/plugin.cfg", "res://addons/vrm/plugin.cfg")
+enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/fbx/plugin.cfg", "res://addons/gd_util/plugin.cfg", "res://addons/math_util/plugin.cfg", "res://addons/vrm/plugin.cfg")
 
 [importer_defaults]
 
