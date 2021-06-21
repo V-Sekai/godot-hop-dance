@@ -4,3 +4,6 @@
 [submodule "addons/math_util"]
 	path = addons/math_util
 	url = https://github.com/V-Sekai/math_util.git
+[submodule "addons/gd_util"]
+	path = addons/gd_util
+	url = git@github.com:V-Sekai/gdutil.git
