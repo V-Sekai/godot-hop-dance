@@ -67,6 +67,7 @@ pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
+textures/vram_compression/import_bptc=true
 threads/thread_model=2
 vram_compression/import_etc2=false
 quality/screen_filters/msaa=2
