@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Hop Spin Dance"
-run/main_scene="res://hop_spin_dance/art/cases/ewbik_3_chain/ewbik_3_bone_chain.tscn"
+run/main_scene="res://hop_spin_dance/scenes/title_demo.tscn"
 run/low_processor_mode=true
 boot_splash/use_filter=false
 config/icon="res://icon.png"
