@@ -8,7 +8,7 @@ path="res://.godot/imported/color_test_scene.glb-b476259d2395efc205fbcfa15ae1cd4
 [deps]
 
 source_file="res://hop_spin_dance/uiux/lut_calibration/color_test_scene.glb"
-dest_files=[ "res://.godot/imported/color_test_scene.glb-b476259d2395efc205fbcfa15ae1cd48.scn" ]
+dest_files=["res://.godot/imported/color_test_scene.glb-b476259d2395efc205fbcfa15ae1cd48.scn"]
 
 [params]
 
@@ -22,7 +22,6 @@ meshes/light_baking=0
 meshes/lightmap_texel_size=0.1
 skins/use_named_skins=true
 animation/import=true
-animation/point_parent_bone_to_children=true
 animation/fps=15
 import_script/path=""
 _subresources={

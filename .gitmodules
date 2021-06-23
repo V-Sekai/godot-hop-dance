@@ -10,3 +10,6 @@
 [submodule "addons/gd_3_to_4"]
 	path = addons/gd_3_to_4
 	url = git@github.com:V-Sekai/gd3to4.git
+[submodule "addons/vsk_vrm_avatar_tool"]
+	path = addons/vsk_vrm_avatar_tool
+	url = https://github.com/V-Sekai/vsk_vrm_avatar_tool

@@ -8,7 +8,7 @@ path="res://.godot/imported/Godot_Simple_Test_Rig.glb-ef5df6bcaaa7d257e4beaaf21b
 [deps]
 
 source_file="res://hop_spin_dance/art/cases/arm/Godot_Simple_Test_Rig.glb"
-dest_files=[ "res://.godot/imported/Godot_Simple_Test_Rig.glb-ef5df6bcaaa7d257e4beaaf21b154cb6.scn" ]
+dest_files=["res://.godot/imported/Godot_Simple_Test_Rig.glb-ef5df6bcaaa7d257e4beaaf21b154cb6.scn"]
 
 [params]
 
@@ -22,7 +22,6 @@ meshes/light_baking=0
 meshes/lightmap_texel_size=0.1
 skins/use_named_skins=true
 animation/import=true
-animation/point_parent_bone_to_children=true
 animation/fps=15
 import_script/path=""
 _subresources={
