@@ -13,3 +13,6 @@
 [submodule "addons/vsk_vrm_avatar_tool"]
 	path = addons/vsk_vrm_avatar_tool
 	url = https://github.com/V-Sekai/vsk_vrm_avatar_tool
+[submodule "addons/root-motion-extractor"]
+	path = addons/root-motion-extractor
+	url = https://github.com/V-Sekai/root-motion-extractor.git
