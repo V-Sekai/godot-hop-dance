@@ -4,7 +4,7 @@
 
 [sub_resource type="SkeletonModification3DEWBIK" id=2]
 root_bone = "hips"
-default_damp_degrees = 0.05
+ik_iterations = 1
 effector_count = 5
 effectors/0/name = "head"
 effectors/0/index = 13
@@ -50,19 +50,19 @@ collider_groups = []
 blend_times = []
 
 [node name="Head" type="Position3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 0.969808, -0.243869, 0, 0.243869, 0.969808, -0.00774167, 1.34674, 0.215554)
+transform = Transform3D(1, 0, 0, 0, 0.934497, -0.355972, 0, 0.355972, 0.934497, 0.148122, 1.3944, -0.309932)
 script = null
 
 [node name="LeftHand" type="Position3D" parent="." index="4"]
-transform = Transform3D(0.995624, 0.093448, 0, -0.093448, 0.995624, 0, 0, 0, 1, -0.679424, 1.02335, 0.292527)
+transform = Transform3D(0.995624, 0.093448, 0, -0.093448, 0.995624, 0, 0, 0, 1, -0.679424, 1.16979, -0.0299335)
 script = null
 
 [node name="RightHand" type="Position3D" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.637117, 1.22716, -0.0537901)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.680244, 1.22716, -0.186944)
 script = null
 
 [node name="RightFoot" type="Position3D" parent="." index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.179719, 0.0727979, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103657, -0.0234452, 0)
 script = null
 
 [node name="LeftFoot" type="Position3D" parent="." index="7"]
