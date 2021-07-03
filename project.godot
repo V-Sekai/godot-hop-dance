@@ -20,14 +20,14 @@ _global_script_classes=[{
 "path": "res://addons/vrm/vrm_toplevel.gd"
 }]
 _global_script_class_icons={
-&"HumanoidData": "",
-&"VRMTopLevel": ""
+"HumanoidData": "",
+"VRMTopLevel": ""
 }
 
 [application]
 
 config/name="Hop Spin Dance"
-run/main_scene="res://hop_spin_dance/scenes/title_demo.tscn"
+run/main_scene="res://hop_spin_dance/art/cases/ewbik_3_chain/ewbik_3_bone_chain.tscn"
 run/low_processor_mode=true
 boot_splash/use_filter=false
 config/icon="res://icon.png"
@@ -58,7 +58,7 @@ enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://a
 [importer_defaults]
 
 scene={
-&"meshes/create_shadow_meshes": false
+"meshes/create_shadow_meshes": false
 }
 
 [input_devices]
