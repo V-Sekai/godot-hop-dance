@@ -5,7 +5,6 @@
 [sub_resource type="SkeletonModification3DEWBIK" id=1]
 root_bone = "bone"
 ik_iterations = 1
-default_damp_degrees = 1.0
 effector_count = 2
 effectors/0/name = "bone"
 effectors/0/index = 0
