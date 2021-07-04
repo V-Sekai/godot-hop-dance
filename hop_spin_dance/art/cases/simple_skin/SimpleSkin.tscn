@@ -4,17 +4,15 @@
 
 [sub_resource type="SkeletonModification3DEWBIK" id=1]
 root_bone = "bone"
-ik_iterations = 1
+ik_iterations = 15
 effector_count = 2
 effectors/0/name = "bone"
 effectors/0/index = 0
 effectors/0/target_node = NodePath("../BoneEffector")
-effectors/0/use_node_rotation = true
 effectors/0/target_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 effectors/1/name = "bone_2"
 effectors/1/index = 1
 effectors/1/target_node = NodePath("../Bone2Effector")
-effectors/1/use_node_rotation = true
 effectors/1/target_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [sub_resource type="SkeletonModificationStack3D" id=2]
@@ -34,5 +32,5 @@ blend_times = []
 script = null
 
 [node name="Bone2Effector" type="Position3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0372384, 1.04504, 0.0526482)
+transform = Transform3D(0.99995, 0.00998309, 6.55111e-05, -0.00991697, 0.99409, -0.108104, -0.00114428, 0.108098, 0.994139, 0.0372384, 1.04504, 0.164803)
 script = null

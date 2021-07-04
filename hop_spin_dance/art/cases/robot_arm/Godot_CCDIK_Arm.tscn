@@ -4,12 +4,12 @@
 
 [sub_resource type="SkeletonModification3DEWBIK" id=1]
 root_bone = "Root"
+ik_iterations = 2
 effector_count = 1
 effectors/0/name = "Joint_05"
 effectors/0/index = 6
-effectors/0/target_node = NodePath("Target")
-effectors/0/use_node_rotation = true
-effectors/0/target_transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+effectors/0/target_node = NodePath("../Root")
+effectors/0/target_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [sub_resource type="SkeletonModificationStack3D" id=2]
 enabled = true
@@ -19,13 +19,13 @@ modifications/0 = SubResource( 1 )
 [node name="Godot_CCDIK_Arm" instance=ExtResource( 1 )]
 
 [node name="Skeleton3D" parent="Robotic_Arm_Armature" index="0"]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0177011, 0, 0 )
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0177011, 0, 0)
 modification_stack = SubResource( 2 )
 
 [node name="Target" type="Position3D" parent="Robotic_Arm_Armature/Skeleton3D" index="1"]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.27935, 3.64894, -0.520195 )
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94747, 4.95316, -0.205321)
 script = null
 
 [node name="Root" type="Node3D" parent="Robotic_Arm_Armature" index="1"]
-transform = Transform3D( 1, 0, 0, 0, 0.993646, -0.112544, 0, 0.112544, 0.993647, 0, 0, 0 )
+transform = Transform3D(1, 0, 0, 0, 0.993646, -0.112544, 0, 0.112544, 0.993647, 0, 0, 0)
 script = null

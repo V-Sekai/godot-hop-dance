@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Hop Spin Dance"
-run/main_scene="res://hop_spin_dance/art/cases/simple_ik/SimpleIK.tscn"
+run/main_scene="res://hop_spin_dance/art/cases/simple_ik/SimpleIKCase.tscn"
 run/low_processor_mode=true
 boot_splash/use_filter=false
 config/icon="res://icon.png"
@@ -36,6 +36,10 @@ config/icon="res://icon.png"
 
 GodotMathExtension="*res://addons/math_util/math_funcs.gd"
 ConnectionUtil="*res://addons/gd_util/connection_util.gd"
+
+[debug]
+
+settings/fps/force_fps=60
 
 [display]
 
