@@ -4,28 +4,27 @@
 
 [sub_resource type="SkeletonModification3DEWBIK" id=2]
 root_bone = "hips"
-default_damp_degrees = 0.1
 effector_count = 5
 effectors/0/name = "head"
-effectors/0/index = 13
-effectors/0/target_node = NodePath("../Head")
-effectors/0/target_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+effectors/0/target_node = NodePath("../HeadTarget")
+effectors/0/priority = Vector3(0.5, 5, 0)
+effectors/0/remove = false
 effectors/1/name = "rightHand"
-effectors/1/index = 22
-effectors/1/target_node = NodePath("../RightHand")
-effectors/1/target_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+effectors/1/target_node = NodePath("../RightHandTarget")
+effectors/1/priority = Vector3(0.5, 5, 0)
+effectors/1/remove = false
 effectors/2/name = "leftHand"
-effectors/2/index = 17
-effectors/2/target_node = NodePath("../LeftHand")
-effectors/2/target_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+effectors/2/target_node = NodePath("../LeftHandTarget")
+effectors/2/priority = Vector3(0.5, 5, 0)
+effectors/2/remove = false
 effectors/3/name = "rightFoot"
-effectors/3/index = 7
-effectors/3/target_node = NodePath("../RightFoot")
-effectors/3/target_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+effectors/3/target_node = NodePath("../RightFootTarget")
+effectors/3/priority = Vector3(0.5, 5, 0)
+effectors/3/remove = false
 effectors/4/name = "leftFoot"
-effectors/4/index = 3
-effectors/4/target_node = NodePath("../LeftFoot")
-effectors/4/target_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+effectors/4/target_node = NodePath("../LeftFootTarget")
+effectors/4/priority = Vector3(0.5, 5, 0)
+effectors/4/remove = false
 
 [sub_resource type="SkeletonModificationStack3D" id=1]
 modification_count = 1
@@ -44,22 +43,22 @@ collider_groups = []
 [node name="anim" parent="." index="2"]
 blend_times = []
 
-[node name="Head" type="Position3D" parent="." index="3"]
+[node name="HeadTarget" type="Position3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00449577, 1.3944, -0.000972688)
 script = null
 
-[node name="LeftHand" type="Position3D" parent="." index="4"]
+[node name="LeftHandTarget" type="Position3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.743685, 1.16979, -0.00864685)
 script = null
 
-[node name="RightHand" type="Position3D" parent="." index="5"]
+[node name="RightHandTarget" type="Position3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.579474, 1.22716, -0.0101889)
 script = null
 
-[node name="RightFoot" type="Position3D" parent="." index="6"]
+[node name="RightFootTarget" type="Position3D" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.217011, -0.0234452, 0)
 script = null
 
-[node name="LeftFoot" type="Position3D" parent="." index="7"]
+[node name="LeftFootTarget" type="Position3D" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0661743, 0, 0)
 script = null
