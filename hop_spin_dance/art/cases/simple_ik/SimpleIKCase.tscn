@@ -3,18 +3,13 @@
 [ext_resource path="res://hop_spin_dance/art/cases/simple_ik/simple_ik.glb" type="PackedScene" id=1]
 
 [sub_resource type="SkeletonModification3DEWBIK" id=1]
-print_skeleton = false
 root_bone = "A0"
-default_damp_degrees = 5.0
-effector_count = 2
+effector_count = 1
 effectors/0/name = "A2"
-effectors/0/index = 2
-effectors/0/target_node = NodePath("A0Effector")
-effectors/0/target_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-effectors/1/name = "A2"
-effectors/1/index = 2
-effectors/1/target_node = NodePath("A2Effector")
-effectors/1/target_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+effectors/0/target_node = NodePath("A2Target")
+effectors/0/priority = Vector3(1, 1, 1)
+effectors/0/depth_falloff = 0.0
+effectors/0/remove = false
 
 [sub_resource type="SkeletonModificationStack3D" id=2]
 enabled = true
@@ -26,9 +21,9 @@ modifications/0 = SubResource( 1 )
 [node name="Skeleton3D" parent="Armature" index="0"]
 modification_stack = SubResource( 2 )
 
-[node name="A0Effector" type="Position3D" parent="Armature/Skeleton3D" index="1"]
+[node name="A0Target" type="Position3D" parent="Armature/Skeleton3D" index="1"]
 script = null
 
-[node name="A2Effector" type="Position3D" parent="Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.865291, 0, -0.501269, 0, 0.999998, 0, 0.501269, 0, 0.865291, -0.0434641, 1.47104, 0.110566)
+[node name="A2Target" type="Position3D" parent="Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.999998, 0, 0, 0, 1, 0, 2, 0)
 script = null

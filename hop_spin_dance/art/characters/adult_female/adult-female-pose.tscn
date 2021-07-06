@@ -8,22 +8,27 @@ effector_count = 5
 effectors/0/name = "head"
 effectors/0/target_node = NodePath("../HeadTarget")
 effectors/0/priority = Vector3(0.5, 5, 0)
+effectors/0/depth_falloff = 0.0
 effectors/0/remove = false
 effectors/1/name = "rightHand"
 effectors/1/target_node = NodePath("../RightHandTarget")
 effectors/1/priority = Vector3(0.5, 5, 0)
+effectors/1/depth_falloff = 0.0
 effectors/1/remove = false
 effectors/2/name = "leftHand"
 effectors/2/target_node = NodePath("../LeftHandTarget")
 effectors/2/priority = Vector3(0.5, 5, 0)
+effectors/2/depth_falloff = 0.0
 effectors/2/remove = false
 effectors/3/name = "rightFoot"
 effectors/3/target_node = NodePath("../RightFootTarget")
 effectors/3/priority = Vector3(0.5, 5, 0)
+effectors/3/depth_falloff = 0.0
 effectors/3/remove = false
 effectors/4/name = "leftFoot"
 effectors/4/target_node = NodePath("../LeftFootTarget")
 effectors/4/priority = Vector3(0.5, 5, 0)
+effectors/4/depth_falloff = 0.0
 effectors/4/remove = false
 
 [sub_resource type="SkeletonModificationStack3D" id=1]
