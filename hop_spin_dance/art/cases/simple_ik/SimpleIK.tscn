@@ -4,17 +4,11 @@
 
 [sub_resource type="SkeletonModification3DEWBIK" id=1]
 root_bone = "A0"
-ik_iterations = 2
-default_damp_degrees = 12.0
-effector_count = 2
-effectors/0/name = "A0"
-effectors/0/index = 0
-effectors/0/target_node = NodePath("A0Target")
-effectors/0/target_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-effectors/1/name = "A2"
-effectors/1/index = 2
-effectors/1/target_node = NodePath("A2Target")
-effectors/1/target_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+effector_count = 1
+effectors/0/name = "A2"
+effectors/0/target_node = NodePath("A2Target")
+effectors/0/priority = Vector3(1, 1, 1)
+effectors/0/remove = false
 
 [sub_resource type="SkeletonModificationStack3D" id=2]
 enabled = true
@@ -24,12 +18,11 @@ modifications/0 = SubResource( 1 )
 [node name="simple_ik" instance=ExtResource( 1 )]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06, 0)
 modification_stack = SubResource( 2 )
 
 [node name="A0Target" type="Position3D" parent="Armature/Skeleton3D" index="1"]
 script = null
 
 [node name="A2Target" type="Position3D" parent="Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.999658, 0.0137756, -0.0222385, -0.0124714, 0.998254, 0.057755, 0.0229953, -0.057458, 0.998084, 0.434501, 1.73826, 0.960881)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 script = null

@@ -7,9 +7,9 @@ root_bone = "Root"
 ik_iterations = 2
 effector_count = 1
 effectors/0/name = "Joint_05"
-effectors/0/index = 6
-effectors/0/target_node = NodePath("../Root")
-effectors/0/target_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+effectors/0/target_node = NodePath("Target")
+effectors/0/priority = Vector3(0.5, 5, 0)
+effectors/0/remove = false
 
 [sub_resource type="SkeletonModificationStack3D" id=2]
 enabled = true
@@ -23,7 +23,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0177011, 0, 0)
 modification_stack = SubResource( 2 )
 
 [node name="Target" type="Position3D" parent="Robotic_Arm_Armature/Skeleton3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94747, 4.95316, -0.205321)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.26045, 4.95316, -0.205321)
 script = null
 
 [node name="Root" type="Node3D" parent="Robotic_Arm_Armature" index="1"]
