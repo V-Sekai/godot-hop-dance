@@ -13,3 +13,21 @@
 [submodule "addons/vsk_vrm_avatar_tool"]
 	path = addons/vsk_vrm_avatar_tool
 	url = https://github.com/V-Sekai/vsk_vrm_avatar_tool
+[submodule "addons/input_manager"]
+	path = addons/input_manager
+	url = https://github.com/V-Sekai/input_manager.git
+[submodule "addons/entity_manager"]
+	path = addons/entity_manager
+	url = https://github.com/V-Sekai/entity_manager.git
+[submodule "addons/mesh_combiner"]
+	path = addons/mesh_combiner
+	url = https://github.com/V-Sekai/mesh_combiner.git
+[submodule "addons/network_manager"]
+	path = addons/network_manager
+	url = https://github.com/V-Sekai/network_manager.git
+[submodule "addons/sar1_log_manager"]
+	path = addons/sar1_log_manager
+	url = https://github.com/V-Sekai/sar1_log_manager
+[submodule "addons/static_baker"]
+	path = addons/static_baker
+	url = https://github.com/V-Sekai/static_baker.git

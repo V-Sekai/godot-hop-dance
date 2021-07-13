@@ -10,9 +10,99 @@ config_version=4
 
 _global_script_classes=[{
 "base": "Resource",
+"class": &"BlendShapeData",
+"language": &"GDScript",
+"path": "res://addons/mesh_combiner/blend_shape_data.gd"
+}, {
+"base": "Node",
+"class": &"ComponentNode",
+"language": &"GDScript",
+"path": "res://addons/entity_manager/component_node.gd"
+}, {
+"base": "Node",
+"class": &"Entity",
+"language": &"GDScript",
+"path": "res://addons/entity_manager/entity.gd"
+}, {
+"base": "Node",
+"class": &"EntityManagerFunctions",
+"language": &"GDScript",
+"path": "res://addons/entity_manager/entity_manager_functions.gd"
+}, {
+"base": "RefCounted",
+"class": &"EntityRef",
+"language": &"GDScript",
+"path": "res://addons/entity_manager/entity_ref.gd"
+}, {
+"base": "Resource",
 "class": &"HumanoidData",
 "language": &"GDScript",
 "path": "res://addons/vsk_avatar/humanoid_data.gd"
+}, {
+"base": "Resource",
+"class": &"MaterialReplacer",
+"language": &"GDScript",
+"path": "res://addons/static_baker/material_replacer.gd"
+}, {
+"base": "RefCounted",
+"class": &"MeshCombiner",
+"language": &"GDScript",
+"path": "res://addons/mesh_combiner/mesh_combiner.gd"
+}, {
+"base": "NetworkLogic",
+"class": &"NetworkHierarchy",
+"language": &"GDScript",
+"path": "res://addons/network_manager/network_hierarchy.gd"
+}, {
+"base": "Node",
+"class": &"NetworkIdentity",
+"language": &"GDScript",
+"path": "res://addons/network_manager/network_identity.gd"
+}, {
+"base": "Node",
+"class": &"NetworkLogic",
+"language": &"GDScript",
+"path": "res://addons/network_manager/network_logic.gd"
+}, {
+"base": "NetworkLogic",
+"class": &"NetworkPhysics",
+"language": &"GDScript",
+"path": "res://addons/network_manager/network_physics.gd"
+}, {
+"base": "Node",
+"class": &"NetworkRPCTable",
+"language": &"GDScript",
+"path": "res://addons/network_manager/network_rpc_table.gd"
+}, {
+"base": "Position3D",
+"class": &"NetworkSpawn",
+"language": &"GDScript",
+"path": "res://addons/network_manager/network_spawn.gd"
+}, {
+"base": "NetworkLogic",
+"class": &"NetworkTransform",
+"language": &"GDScript",
+"path": "res://addons/network_manager/network_transform.gd"
+}, {
+"base": "Node",
+"class": &"RuntimeEntity",
+"language": &"GDScript",
+"path": "res://addons/entity_manager/runtime_entity.gd"
+}, {
+"base": "Node",
+"class": &"SimulationLogic",
+"language": &"GDScript",
+"path": "res://addons/entity_manager/simulation_logic.gd"
+}, {
+"base": "Node3D",
+"class": &"StaticBakerGroup",
+"language": &"GDScript",
+"path": "res://addons/static_baker/static_baker_group.gd"
+}, {
+"base": "RefCounted",
+"class": &"StrongExclusiveEntityDependencyHandle",
+"language": &"GDScript",
+"path": "res://addons/entity_manager/strong_exclusive_entity_dependency_handle.gd"
 }, {
 "base": "Node3D",
 "class": &"VRMTopLevel",
@@ -20,22 +110,47 @@ _global_script_classes=[{
 "path": "res://addons/vrm/vrm_toplevel.gd"
 }]
 _global_script_class_icons={
-&"HumanoidData": "",
-&"VRMTopLevel": ""
+"BlendShapeData": "res://addons/mesh_combiner/icon_blend_shape_data.svg",
+"ComponentNode": "",
+"Entity": "",
+"EntityManagerFunctions": "",
+"EntityRef": "",
+"HumanoidData": "",
+"MaterialReplacer": "",
+"MeshCombiner": "",
+"NetworkHierarchy": "",
+"NetworkIdentity": "",
+"NetworkLogic": "",
+"NetworkPhysics": "",
+"NetworkRPCTable": "",
+"NetworkSpawn": "",
+"NetworkTransform": "",
+"RuntimeEntity": "",
+"SimulationLogic": "",
+"StaticBakerGroup": "",
+"StrongExclusiveEntityDependencyHandle": "",
+"VRMTopLevel": ""
 }
 
 [application]
 
 config/name="Hop Spin Dance"
-run/main_scene="res://hop_spin_dance/scenes/title_demo.tscn"
+run/main_scene="res://emptyscene.tscn"
 run/low_processor_mode=true
 boot_splash/use_filter=false
 config/icon="res://icon.png"
 
 [autoload]
 
-GodotMathExtension="*res://addons/math_util/math_funcs.gd"
 ConnectionUtil="*res://addons/gd_util/connection_util.gd"
+Console="*res://addons/quentincaffeino-console/src/Console.tscn"
+GodotMathExtension="*res://addons/math_util/math_funcs.gd"
+LogManager="*res://addons/sar1_log_manager/log_manager.gd"
+ModelFormat="*res://addons/model_format/model_format.gd"
+NetworkLogger="*res://addons/network_manager/network_logger.gd"
+NetworkManager="*res://addons/network_manager/network_manager.gd"
+InputManager="*res://addons/input_manager/input_manager.gd"
+EntityManager="*res://addons/entity_manager/entity_manager.gd"
 
 [display]
 
@@ -43,9 +158,9 @@ window/size/width=1600
 window/size/height=900
 window/size/resizable=false
 window/dpi/allow_hidpi=true
-window/vsync/vsync_via_compositor=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep"
+window/vsync/vsync_via_compositor=true
 
 [editor]
 
@@ -53,17 +168,30 @@ import/use_multiple_threads=false
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/gd_util/plugin.cfg", "res://addons/math_util/plugin.cfg", "res://addons/vrm/plugin.cfg", "res://addons/vsk_avatar/plugin.cfg", "res://addons/vsk_vrm_avatar_tool/plugin.cfg")
+enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/entity_manager/plugin.cfg", "res://addons/gd_util/plugin.cfg", "res://addons/input_manager/plugin.cfg", "res://addons/math_util/plugin.cfg", "res://addons/mesh_combiner/plugin.cfg", "res://addons/model_format/plugin.cfg", "res://addons/network_manager/plugin.cfg", "res://addons/quentincaffeino-console/plugin.cfg", "res://addons/sar1_log_manager/plugin.cfg", "res://addons/static_baker/plugin.cfg", "res://addons/vrm/plugin.cfg", "res://addons/vsk_avatar/plugin.cfg", "res://addons/vsk_vrm_avatar_tool/plugin.cfg")
+
+[entities]
+
+config/process_priority=0
 
 [importer_defaults]
 
 scene={
-&"meshes/create_shadow_meshes": false
+"meshes/create_shadow_meshes": false
 }
 
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+
+[network]
+
+config/networked_scenes=PackedStringArray()
+config/max_networked_entities=4096
+config/network_fps=60
+config/entity_root_node=NodePath("")
+config/compression_mode=0
+config/default_port=7777
 
 [rendering]
 
