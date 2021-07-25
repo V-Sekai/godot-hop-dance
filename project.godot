@@ -10,9 +10,159 @@ config_version=4
 
 _global_script_classes=[{
 "base": "Resource",
+"class": &"BlendShapeData",
+"language": &"GDScript",
+"path": "res://addons/mesh_combiner/blend_shape_data.gd"
+}, {
+"base": "Control",
+"class": &"Chart",
+"language": &"GDScript",
+"path": "res://addons/charts/Utilities/Scripts/chart.gd"
+}, {
+"base": "Chart",
+"class": &"ColumnChart",
+"language": &"GDScript",
+"path": "res://addons/charts/ColumnChart/column_chart.gd"
+}, {
+"base": "Node",
+"class": &"ComponentNode",
+"language": &"GDScript",
+"path": "res://addons/entity_manager/component_node.gd"
+}, {
+"base": "RefCounted",
+"class": &"DataFrame",
+"language": &"GDScript",
+"path": "res://addons/charts/Utilities/Data/data_frame.gd"
+}, {
+"base": "Node",
+"class": &"Entity",
+"language": &"GDScript",
+"path": "res://addons/entity_manager/entity.gd"
+}, {
+"base": "Node",
+"class": &"EntityManagerFunctions",
+"language": &"GDScript",
+"path": "res://addons/entity_manager/entity_manager_functions.gd"
+}, {
+"base": "RefCounted",
+"class": &"EntityRef",
+"language": &"GDScript",
+"path": "res://addons/entity_manager/entity_ref.gd"
+}, {
+"base": "Resource",
 "class": &"HumanoidData",
 "language": &"GDScript",
 "path": "res://addons/vsk_avatar/humanoid_data.gd"
+}, {
+"base": "VBoxContainer",
+"class": &"LegendElement",
+"language": &"GDScript",
+"path": "res://addons/charts/Utilities/Legend/function_legend.gd"
+}, {
+"base": "Chart2D",
+"class": &"LineChart2D",
+"language": &"GDScript",
+"path": "res://addons/charts/LineChart2D/line_chart2D.gd"
+}, {
+"base": "Resource",
+"class": &"MaterialReplacer",
+"language": &"GDScript",
+"path": "res://addons/static_baker/material_replacer.gd"
+}, {
+"base": "RefCounted",
+"class": &"Matrix",
+"language": &"GDScript",
+"path": "res://addons/charts/Utilities/Data/matrix.gd"
+}, {
+"base": "RefCounted",
+"class": &"MatrixGenerator",
+"language": &"GDScript",
+"path": "res://addons/charts/Utilities/Data/matrix_generator.gd"
+}, {
+"base": "RefCounted",
+"class": &"MeshCombiner",
+"language": &"GDScript",
+"path": "res://addons/mesh_combiner/mesh_combiner.gd"
+}, {
+"base": "NetworkLogic",
+"class": &"NetworkHierarchy",
+"language": &"GDScript",
+"path": "res://addons/network_manager/network_hierarchy.gd"
+}, {
+"base": "Node",
+"class": &"NetworkIdentity",
+"language": &"GDScript",
+"path": "res://addons/network_manager/network_identity.gd"
+}, {
+"base": "Node",
+"class": &"NetworkLogic",
+"language": &"GDScript",
+"path": "res://addons/network_manager/network_logic.gd"
+}, {
+"base": "NetworkLogic",
+"class": &"NetworkPhysics",
+"language": &"GDScript",
+"path": "res://addons/network_manager/network_physics.gd"
+}, {
+"base": "Node",
+"class": &"NetworkRPCTable",
+"language": &"GDScript",
+"path": "res://addons/network_manager/network_rpc_table.gd"
+}, {
+"base": "Position3D",
+"class": &"NetworkSpawn",
+"language": &"GDScript",
+"path": "res://addons/network_manager/network_spawn.gd"
+}, {
+"base": "NetworkLogic",
+"class": &"NetworkTransform",
+"language": &"GDScript",
+"path": "res://addons/network_manager/network_transform.gd"
+}, {
+"base": "Chart",
+"class": &"PieChart",
+"language": &"GDScript",
+"path": "res://addons/charts/PieChart/pie_chart.gd"
+}, {
+"base": "Chart",
+"class": &"RadarChart",
+"language": &"GDScript",
+"path": "res://addons/charts/RadarChart/radar_chart.gd"
+}, {
+"base": "Node",
+"class": &"RuntimeEntity",
+"language": &"GDScript",
+"path": "res://addons/entity_manager/runtime_entity.gd"
+}, {
+"base": "ScatterChartBase",
+"class": &"ScatterChart",
+"language": &"GDScript",
+"path": "res://addons/charts/ScatterChart/scatter_chart.gd"
+}, {
+"base": "Chart",
+"class": &"ScatterChartBase",
+"language": &"GDScript",
+"path": "res://addons/charts/Utilities/Scripts/scatter_chart_base.gd"
+}, {
+"base": "Node",
+"class": &"SimulationLogic",
+"language": &"GDScript",
+"path": "res://addons/entity_manager/simulation_logic.gd"
+}, {
+"base": "RefCounted",
+"class": &"Slice",
+"language": &"GDScript",
+"path": "res://addons/charts/Utilities/Slice/slice.gd"
+}, {
+"base": "Node3D",
+"class": &"StaticBakerGroup",
+"language": &"GDScript",
+"path": "res://addons/static_baker/static_baker_group.gd"
+}, {
+"base": "RefCounted",
+"class": &"StrongExclusiveEntityDependencyHandle",
+"language": &"GDScript",
+"path": "res://addons/entity_manager/strong_exclusive_entity_dependency_handle.gd"
 }, {
 "base": "Node3D",
 "class": &"VRMTopLevel",
@@ -20,22 +170,47 @@ _global_script_classes=[{
 "path": "res://addons/vrm/vrm_toplevel.gd"
 }]
 _global_script_class_icons={
+"BlendShapeData": "res://addons/mesh_combiner/icon_blend_shape_data.svg",
+"Chart": "",
+"ColumnChart": "",
+"ComponentNode": "",
+"DataFrame": "",
+"Entity": "",
+"EntityManagerFunctions": "",
+"EntityRef": "",
 "HumanoidData": "",
+"LegendElement": "",
+"LineChart2D": "",
+"MaterialReplacer": "",
+"Matrix": "",
+"MatrixGenerator": "",
+"MeshCombiner": "",
+"NetworkHierarchy": "",
+"NetworkIdentity": "",
+"NetworkLogic": "",
+"NetworkPhysics": "",
+"NetworkRPCTable": "",
+"NetworkSpawn": "",
+"NetworkTransform": "",
+"PieChart": "",
+"RadarChart": "",
+"RuntimeEntity": "",
+"ScatterChart": "",
+"ScatterChartBase": "",
+"SimulationLogic": "",
+"Slice": "",
+"StaticBakerGroup": "",
+"StrongExclusiveEntityDependencyHandle": "",
 "VRMTopLevel": ""
 }
 
 [application]
 
 config/name="Hop Spin Dance"
-run/main_scene="res://hop_spin_dance/art/characters/adult_female/v_sekai_adult-female.vrm"
+run/main_scene="res://hop_spin_dance/scenes/empty.tscn"
 run/low_processor_mode=true
 boot_splash/use_filter=false
 config/icon="res://icon.png"
-
-[autoload]
-
-GodotMathExtension="*res://addons/math_util/math_funcs.gd"
-ConnectionUtil="*res://addons/gd_util/connection_util.gd"
 
 [debug]
 
@@ -57,7 +232,7 @@ import/use_multiple_threads=false
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/gd_util/plugin.cfg", "res://addons/math_util/plugin.cfg", "res://addons/vrm/plugin.cfg", "res://addons/vsk_avatar/plugin.cfg", "res://addons/vsk_vrm_avatar_tool/plugin.cfg")
+enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/vrm/plugin.cfg")
 
 [importer_defaults]
 
