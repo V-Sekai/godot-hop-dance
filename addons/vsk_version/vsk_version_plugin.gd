@@ -1,10 +1,10 @@
-tool
+@tool
 extends EditorPlugin
 
 var editor_interface: EditorInterface = null
 
 
-func _init() -> void:
+func _init():
 	print("Initialising VSKVersion plugin")
 
 

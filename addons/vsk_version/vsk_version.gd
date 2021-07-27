@@ -1,4 +1,4 @@
-tool
+@tool
 extends Node
 
 const build_constants_const = preload("build_constants.gd")
