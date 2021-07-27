@@ -16,3 +16,7 @@
 	url = https://github.com/V-Sekai/entity_manager.git
 [submodule "addons/root-motion-extractor"]
 	url = https://github.com/V-Sekai/root-motion-extractor.git
+[submodule "addons/sar1_log_manager"]
+	url = https://github.com/V-Sekai/sar1_log_manager.git
+[submodule "addons/static_baker"]
+	url = https://github.com/V-Sekai/static_baker.git
