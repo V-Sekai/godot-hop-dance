@@ -20,3 +20,5 @@
 	url = https://github.com/V-Sekai/sar1_log_manager.git
 [submodule "addons/static_baker"]
 	url = https://github.com/V-Sekai/static_baker.git
+[submodule "addons/input_manager"]
+	url = https://github.com/V-Sekai/input_manager.git
