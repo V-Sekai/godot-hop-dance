@@ -13,3 +13,6 @@
 [submodule "addons/vsk_vrm_avatar_tool"]
 	path = addons/vsk_vrm_avatar_tool
 	url = https://github.com/V-Sekai/vsk_vrm_avatar_tool
+[submodule "addons/entity_manager"]
+	path = addons/entity_manager
+	url = https://github.com/V-Sekai/entity_manager.git
