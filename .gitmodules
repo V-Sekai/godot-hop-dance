@@ -1,18 +1,18 @@
 [submodule "addons/vsk_avatar"]
-	path = addons/vsk_avatar
 	url = https://github.com/V-Sekai/vsk_avatar.git
 [submodule "addons/math_util"]
-	path = addons/math_util
 	url = https://github.com/V-Sekai/math_util.git
 [submodule "addons/gd_util"]
-	path = addons/gd_util
-	url = git@github.com:V-Sekai/gdutil.git
+	url = https://@github.com/V-Sekai/gdutil.git
 [submodule "addons/gd_3_to_4"]
-	path = addons/gd_3_to_4
-	url = git@github.com:V-Sekai/gd3to4.git
+	url = https://github.com/V-Sekai/gd3to4.git
 [submodule "addons/vsk_vrm_avatar_tool"]
-	path = addons/vsk_vrm_avatar_tool
 	url = https://github.com/V-Sekai/vsk_vrm_avatar_tool
 [submodule "addons/entity_manager"]
-	path = addons/entity_manager
 	url = https://github.com/V-Sekai/entity_manager.git
+[submodule "addons/mesh_combiner"]
+	url = https://github.com/V-Sekai/mesh_combiner.git
+[submodule "addons/network_manager"]
+	url = https://github.com/V-Sekai/entity_manager.git
+[submodule "addons/root-motion-extractor"]
+	url = https://github.com/V-Sekai/root-motion-extractor.git
