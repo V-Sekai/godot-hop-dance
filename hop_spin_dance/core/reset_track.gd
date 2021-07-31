@@ -114,13 +114,11 @@ func _fetch_reset_animation(p_ap : AnimationPlayer, r_rest_bones : Dictionary, p
 			rot = rot.normalized()					
 			var rest_bone : Dictionary = {}	
 			rest_bone["rest_local"] = Transform3D()
-			rest_bone["rest_delta"] = Basis()
-			rest_bone["loc"] = Vector3()
 			rest_bone["children"] = PackedInt32Array()
 			var rot_basis : Basis = rot
-			rot_basis *= scale
-			rest_bone["rest_delta"] = Basis()
-			rest_bone["loc"] = Vector3()
+			rot_basis = rot_basis.scaled(scale)
+			rest_bone["rest_delta"] = rot_basis
+			rest_bone["loc"] = loc
 			# Store the animation into the RestBone.
 			var new_path : StringName = str(skeleton.get_owner().get_path_to(skeleton)) + ":" + bone_name
 			r_rest_bones[new_path] = rest_bone;
