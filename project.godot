@@ -93,7 +93,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Hop Spin Dance"
-run/main_scene="res://hop_spin_dance/scenes/empty.tscn"
+run/main_scene="res://hop_spin_dance/TestFireAnim1.glb"
 run/low_processor_mode=true
 boot_splash/use_filter=false
 config/icon="res://icon.png"
