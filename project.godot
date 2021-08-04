@@ -93,7 +93,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Hop Spin Dance"
-run/main_scene="res://hop_spin_dance/TestFireAnim1.glb"
+run/main_scene="res://55_voxel_creatures/vox_files/- all.vox"
 run/low_processor_mode=true
 boot_splash/use_filter=false
 config/icon="res://icon.png"
@@ -133,6 +133,7 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 textures/vram_compression/import_bptc=true
+vulkan/rendering/back_end=1
 threads/thread_model=2
 vram_compression/import_etc2=false
 quality/screen_filters/msaa=2
