@@ -13,9 +13,6 @@
 [submodule "addons/entity_manager"]
 	path = addons/entity_manager
 	url = https://github.com/V-Sekai/entity_manager.git
-[submodule "addons/mesh_combiner"]
-	path = addons/mesh_combiner
-	url = https://github.com/V-Sekai/mesh_combiner.git
 [submodule "addons/root-motion-extractor"]
 	path = addons/root-motion-extractor
 	url = https://github.com/V-Sekai/root-motion-extractor.git
