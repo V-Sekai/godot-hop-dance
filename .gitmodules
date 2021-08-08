@@ -13,6 +13,3 @@
 [submodule "addons/root-motion-extractor"]
 	path = addons/root-motion-extractor
 	url = https://github.com/V-Sekai/root-motion-extractor.git
-[submodule "addons/input_manager"]
-	path = addons/input_manager
-	url = https://github.com/V-Sekai/input_manager.git
