@@ -7,9 +7,6 @@
 [submodule "addons/gd_util"]
 	path = addons/gd_util
 	url = https://@github.com/V-Sekai/gdutil.git
-[submodule "addons/gd_3_to_4"]
-	path = addons/gd_3_to_4
-	url = https://github.com/V-Sekai/gd3to4.git
 [submodule "addons/vsk_vrm_avatar_tool"]
 	path = addons/vsk_vrm_avatar_tool
 	url = https://github.com/V-Sekai/vsk_vrm_avatar_tool
