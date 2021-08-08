@@ -10,64 +10,9 @@ config_version=4
 
 _global_script_classes=[{
 "base": "Resource",
-"class": &"BlendShapeData",
-"language": &"GDScript",
-"path": "res://addons/mesh_combiner/blend_shape_data.gd"
-}, {
-"base": "Node",
-"class": &"ComponentNode",
-"language": &"GDScript",
-"path": "res://addons/entity_manager/component_node.gd"
-}, {
-"base": "Node",
-"class": &"Entity",
-"language": &"GDScript",
-"path": "res://addons/entity_manager/entity.gd"
-}, {
-"base": "Node",
-"class": &"EntityManagerFunctions",
-"language": &"GDScript",
-"path": "res://addons/entity_manager/entity_manager_functions.gd"
-}, {
-"base": "RefCounted",
-"class": &"EntityRef",
-"language": &"GDScript",
-"path": "res://addons/entity_manager/entity_ref.gd"
-}, {
-"base": "Resource",
 "class": &"HumanoidData",
 "language": &"GDScript",
 "path": "res://addons/vsk_avatar/humanoid_data.gd"
-}, {
-"base": "Resource",
-"class": &"MaterialReplacer",
-"language": &"GDScript",
-"path": "res://addons/static_baker/material_replacer.gd"
-}, {
-"base": "RefCounted",
-"class": &"MeshCombiner",
-"language": &"GDScript",
-"path": "res://addons/mesh_combiner/mesh_combiner.gd"
-}, {
-"base": "Node",
-"class": &"RuntimeEntity",
-"language": &"GDScript",
-"path": "res://addons/entity_manager/runtime_entity.gd"
-}, {
-"base": "Node",
-"class": &"SimulationLogic",
-"language": &"GDScript",
-"path": "res://addons/entity_manager/simulation_logic.gd"
-}, {
-"base": "Node3D",
-"class": &"StaticBakerGroup",
-"language": &"GDScript",
-"path": "res://addons/static_baker/static_baker_group.gd"
-}, {
-"base": "RefCounted",
-"class": &"StrongExclusiveEntityDependencyHandle",
-"language": &"GDScript",
-"path": "res://addons/entity_manager/strong_exclusive_entity_dependency_handle.gd"
 }, {
 "base": "Node3D",
 "class": &"VRMTopLevel",
@@ -75,18 +20,7 @@ _global_script_classes=[{
 "path": "res://addons/vrm/vrm_toplevel.gd"
 }]
 _global_script_class_icons={
-"BlendShapeData": "res://addons/mesh_combiner/icon_blend_shape_data.svg",
-"ComponentNode": "",
-"Entity": "",
-"EntityManagerFunctions": "",
-"EntityRef": "",
 "HumanoidData": "",
-"MaterialReplacer": "",
-"MeshCombiner": "",
-"RuntimeEntity": "",
-"SimulationLogic": "",
-"StaticBakerGroup": "",
-"StrongExclusiveEntityDependencyHandle": "",
 "VRMTopLevel": ""
 }
 
