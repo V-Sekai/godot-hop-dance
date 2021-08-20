@@ -744,9 +744,7 @@ func _add_vrm_nodes_to_skin(obj: Dictionary) -> bool:
 	return true
 
 func _import_scene(path: String, flags: int, bake_fps: int):
-	var f : File = File.new()
-	if not f:
-		return FAILED
+	var f = File.new()
 	if f.open(path, File.READ) != OK:
 		return FAILED
 

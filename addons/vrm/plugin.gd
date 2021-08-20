@@ -2,10 +2,9 @@
 extends EditorPlugin
 
 var import_plugin
-var script = load("res://addons/vrm/import_vrm.gd")
 
 func _enter_tree():
-	import_plugin = script.new()
+	import_plugin = preload("res://addons/vrm/import_vrm.gd").new()
 	add_scene_import_plugin(import_plugin)
 
 
