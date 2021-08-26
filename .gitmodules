@@ -4,6 +4,3 @@
 [submodule "addons/gd_util"]
 	path = addons/gd_util
 	url = https://@github.com/V-Sekai/gdutil.git
-[submodule "addons/root-motion-extractor"]
-	path = addons/root-motion-extractor
-	url = https://github.com/V-Sekai/root-motion-extractor.git
