@@ -1,31 +1,29 @@
 [remap]
 
-importer="font_data"
+importer="font_data_dynamic"
 type="FontData"
+uid="uid://tyjjj4lcdr54"
 path="res://.godot/imported/KosugiMaru-Regular.ttf-aee4d25576d75b31de61ded9f5a059a4.fontdata"
 
 [deps]
 
-files=[ "res://.godot/imported/KosugiMaru-Regular.ttf-aee4d25576d75b31de61ded9f5a059a4.fontdata" ]
-
 source_file="res://hop_spin_dance/uiux/Kosugi_Maru/KosugiMaru-Regular.ttf"
-dest_files=[ "res://.godot/imported/KosugiMaru-Regular.ttf-aee4d25576d75b31de61ded9f5a059a4.fontdata", "res://.godot/imported/KosugiMaru-Regular.ttf-aee4d25576d75b31de61ded9f5a059a4.fontdata" ]
+dest_files=["res://.godot/imported/KosugiMaru-Regular.ttf-aee4d25576d75b31de61ded9f5a059a4.fontdata"]
 
 [params]
 
 antialiased=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
 force_autohinter=false
-msdf=true
-oversampling=0.0
-msdf_px_range=8.0
 hinting=1
-base_variation="size=64"
-preload/ranges=PackedStringArray(  )
-preload/variations=PackedStringArray(  )
-support_overrides/language_enabled=PackedStringArray(  )
-support_overrides/language_disabled=PackedStringArray(  )
-support_overrides/script_enabled=PackedStringArray(  )
-support_overrides/script_disabled=PackedStringArray(  )
-convert_to_bitmap=false
-extra_spacing_glyph=0
-extra_spacing_space=0
+oversampling=0.0
+compress=true
+preload/char_ranges=PackedStringArray()
+preload/glyph_ranges=PackedStringArray()
+preload/configurations=PackedStringArray()
+support_overrides/language_enabled=PackedStringArray()
+support_overrides/language_disabled=PackedStringArray()
+support_overrides/script_enabled=PackedStringArray()
+support_overrides/script_disabled=PackedStringArray()
