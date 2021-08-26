@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Hop Spin Dance"
-run/main_scene="res://55_voxel_creatures/vox_files/- all.vox"
+run/main_scene="res://hop_spin_dance/scenes/title_demo.tscn"
 run/low_processor_mode=true
 boot_splash/use_filter=false
 config/icon="res://icon.png"
@@ -51,7 +51,7 @@ import/use_multiple_threads=false
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/gd_util/plugin.cfg", "res://addons/math_util/plugin.cfg", "res://addons/root-motion-extractor/plugin.cfg", "res://addons/vrm/plugin.cfg", "res://addons/vsk_avatar/plugin.cfg", "res://addons/vsk_version/plugin.cfg", "res://addons/vsk_vrm_avatar_tool/plugin.cfg")
+enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/vrm/plugin.cfg", "res://addons/vsk_version/plugin.cfg")
 
 [importer_defaults]
 
