@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bbxkrktx23lb7"
+uid="uid://1qbr2wngb33s"
 path="res://.godot/imported/MrMetaverse.vrm-d2dad3f85ecc8b1a420ec3111c3be913.scn"
 
 [deps]
@@ -27,4 +27,10 @@ animation/bake_reset_animation=true
 animation/fps=15
 import_script/path=""
 _subresources={
+"nodes": {
+"PATH:Skeleton3D/MrMetaverse_0": {
+"decomposition/precision": 10,
+"generate/physics": true
+}
+}
 }
