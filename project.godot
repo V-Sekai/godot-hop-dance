@@ -53,6 +53,10 @@ import/use_multiple_threads=false
 
 enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/vrm/plugin.cfg", "res://addons/vsk_version/plugin.cfg")
 
+[filesystem]
+
+import/fbx/use_fbx=false
+
 [importer_defaults]
 
 scene={

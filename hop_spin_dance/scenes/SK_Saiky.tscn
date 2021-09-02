@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv0m11mlwt202"]
+
+[ext_resource type="PackedScene" uid="uid://dah3lxadml4rd" path="res://hop_spin_dance/art/characters/SK_Saiki/SK_Saiky.vrm" id="1_ernnn"]
+[ext_resource type="Texture2D" uid="uid://bev75sna5tx4o" path="res://hop_spin_dance/art/sky/compatible_skybox.exr" id="2_lmetu"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_px2m1"]
+panorama = ExtResource( "2_lmetu" )
+
+[sub_resource type="Sky" id="Sky_rdtsk"]
+sky_material = SubResource( "PanoramaSkyMaterial_px2m1" )
+
+[sub_resource type="Environment" id="Environment_ysj0g"]
+background_mode = 2
+sky = SubResource( "Sky_rdtsk" )
+tonemap_mode = 2
+sdfgi_enabled = true
+glow_enabled = true
+
+[node name="SK_Saiky" instance=ExtResource( "1_ernnn" )]
+update_in_editor = true
+gizmo_spring_bone_color = Color(1, 1, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+environment = SubResource( "Environment_ysj0g" )
+script = null
+
+[node name="anim" parent="." index="3"]
+blend_times = []
