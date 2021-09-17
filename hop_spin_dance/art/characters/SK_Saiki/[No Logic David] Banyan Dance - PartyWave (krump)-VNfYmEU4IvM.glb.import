@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c1ctbeysosdu3"
+uid="uid://de7gguif5vjnk"
 path="res://.godot/imported/[No Logic David] Banyan Dance - PartyWave (krump)-VNfYmEU4IvM.glb-3943a051ce8de0b23bcf82a702676b65.scn"
 
 [deps]
@@ -24,7 +24,7 @@ meshes/lightmap_texel_size=0.1
 skins/use_named_skins=true
 animation/import=true
 animation/bake_reset_animation=true
-animation/fps=30
+animation/fps=15
 import_script/path=""
 _subresources={
 }
