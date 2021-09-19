@@ -28,6 +28,9 @@ texture={
 "compress/bptc_ldr": 2,
 "compress/mode": 2
 }
+scene={
+"meshes/create_shadow_meshes": false
+}
 
 [rendering]
 
