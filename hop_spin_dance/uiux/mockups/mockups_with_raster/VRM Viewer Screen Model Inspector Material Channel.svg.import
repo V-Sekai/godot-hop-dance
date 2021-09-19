@@ -3,15 +3,15 @@
 importer="texture"
 type="StreamTexture2D"
 uid="uid://pwi6s3k1aknh"
-path="res://.godot/imported/VRM Viewer Screen Model Inspector Material Channel.svg-7fc04222ed608449491252c25bd619ff.stex"
+path="res://.godot/imported/VRM Viewer Screen Model Inspector Material Channel.svg-8990f9c33120f62514bf27b9b3390616.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://hop_spin_dance/uiux/mockups/VRM Viewer Screen Model Inspector Material Channel.svg"
-dest_files=["res://.godot/imported/VRM Viewer Screen Model Inspector Material Channel.svg-7fc04222ed608449491252c25bd619ff.stex"]
+source_file="res://hop_spin_dance/uiux/mockups/mockups_with_raster/VRM Viewer Screen Model Inspector Material Channel.svg"
+dest_files=["res://.godot/imported/VRM Viewer Screen Model Inspector Material Channel.svg-8990f9c33120f62514bf27b9b3390616.stex"]
 
 [params]
 
