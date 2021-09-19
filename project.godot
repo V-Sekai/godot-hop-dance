@@ -18,66 +18,14 @@ _global_script_class_icons={
 "VRMTopLevel": ""
 }
 
-[application]
-
-config/name="Hop Spin Dance"
-run/main_scene="res://hop_spin_dance/scenes/title_demo.tscn"
-run/low_processor_mode=true
-boot_splash/use_filter=false
-config/icon="res://icon.png"
-
-[autoload]
-
-RootMotionExtractor="*res://addons/root-motion-extractor/root_motion_extractor.gd"
-GodotMathExtension="*res://addons/math_util/math_funcs.gd"
-ConnectionUtil="*res://addons/gd_util/connection_util.gd"
-
-[debug]
-
-settings/fps/force_fps=60
-
-[display]
-
-window/size/width=1600
-window/size/height=900
-window/size/resizable=false
-window/dpi/allow_hidpi=true
-window/stretch/mode="canvas_items"
-window/vsync/vsync_via_compositor=true
-
-[editor]
-
-import/use_multiple_threads=false
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/vrm/plugin.cfg", "res://addons/vsk_version/plugin.cfg")
-
-[filesystem]
-
-import/fbx/use_fbx=false
-
 [importer_defaults]
 
-scene={
-"meshes/create_shadow_meshes": false
+texture={
+"compress/bptc_ldr": 2,
+"compress/mode": 2
 }
-
-[input_devices]
-
-pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
 textures/vram_compression/import_bptc=true
-vulkan/rendering/back_end=1
-textures/default_filters/anisotropic_filtering_level=4
-anti_aliasing/quality/msaa=2
-threads/thread_model=2
-vram_compression/import_etc2=false
-quality/screen_filters/msaa=2
-quality/screen_filters/screen_space_aa=1
-quality/screen_filters/use_debanding=false
-environment/default_environment="res://vrm/thirdparty/uiux/stage_env.tres"
-quality/skinning/software_skinning_fallback=false
-quality/filters/msaa=3
+textures/vram_compression/import_s3tc=false

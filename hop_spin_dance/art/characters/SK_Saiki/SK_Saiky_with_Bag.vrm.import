@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d2eo4vgk3bdfs"
+uid="uid://dy4os5vwf7d8w"
 path="res://.godot/imported/SK_Saiky_with_Bag.vrm-ab8231179f432a2da2cbcb66d7380a22.scn"
 
 [deps]
@@ -23,6 +23,7 @@ meshes/light_baking=2
 meshes/lightmap_texel_size=0.1
 skins/use_named_skins=true
 animation/import=true
+animation/point_parent_bone_to_children=true
 animation/bake_reset_animation=true
 animation/fps=30
 import_script/path=""
