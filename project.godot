@@ -35,4 +35,3 @@ scene={
 [rendering]
 
 textures/vram_compression/import_bptc=true
-textures/vram_compression/import_s3tc=false
