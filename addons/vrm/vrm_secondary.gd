@@ -136,7 +136,7 @@ func check_for_editor_update():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if not update_secondary_fixed:
-		if not Engine.editor_hint or check_for_editor_update():
+		if not Engine.is_editor_hint() or check_for_editor_update():
 			# force update skeleton
 			for spring_bone in spring_bones_internal:
 				if spring_bone.skel_polyfill != null:

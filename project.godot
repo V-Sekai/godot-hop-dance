@@ -35,3 +35,4 @@ scene={
 [rendering]
 
 textures/vram_compression/import_bptc=true
+mesh_lod/lod_change/threshold_pixels=10.0
