@@ -31,7 +31,7 @@ func _bake_animation_pose(scene : Node, p_bake_anim : String):
 		if node is Skeleton3D:
 			# Step 2: Bake the RESET animation from the RestBone to the skeleton.
 			_fix_skeleton(node, r_rest_bones)
-		if node is EditorSceneImporterMeshNode3D:
+		if node is ImporterMeshInstance3D:
 			var path : NodePath = node.get_skeleton_path()
 			if not path.is_empty() and node.get_node_or_null(path):
 				meshes.push_back(node);
