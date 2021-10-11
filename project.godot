@@ -33,4 +33,3 @@ texture={
 
 textures/vram_compression/import_bptc=true
 occlusion_culling/use_occlusion_culling=true
-mesh_lod/lod_change/threshold_pixels=10.0
