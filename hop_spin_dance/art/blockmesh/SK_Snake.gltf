@@ -1,0 +1,394 @@
+{
+    "asset" : {
+        "copyright" : "Creative Commons Attribution 4.0 International Public License 2021 V-Sekai. 2019 Wonder Unit. See https://github.com/V-Sekai/blue-tin-fox-models for attributed files.",
+        "generator" : "Khronos glTF Blender I/O v1.6.16",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "extras" : {
+                "bake_range" : 0,
+                "bake_quality" : 4,
+                "progress_bar" : ""
+            },
+            "name" : "Scene",
+            "nodes" : [
+                11
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "name" : "Bone.009",
+            "rotation" : [
+                0.22337855398654938,
+                -0.9509865045547485,
+                -0.20817041397094727,
+                0.0489082932472229
+            ],
+            "scale" : [
+                1,
+                0.9999998807907104,
+                0.9999998807907104
+            ],
+            "translation" : [
+                2.877573667629113e-13,
+                0.2600093185901642,
+                -4.917383193969727e-07
+            ]
+        },
+        {
+            "children" : [
+                0
+            ],
+            "name" : "Bone.005",
+            "rotation" : [
+                0.454075425863266,
+                -0.06295521557331085,
+                0.11947470903396606,
+                0.8806690573692322
+            ],
+            "scale" : [
+                1,
+                0.9999999403953552,
+                0.9999998807907104
+            ],
+            "translation" : [
+                -1.1218637057750438e-23,
+                0.786892831325531,
+                -7.465584417332138e-08
+            ]
+        },
+        {
+            "children" : [
+                1
+            ],
+            "name" : "Bone.004",
+            "rotation" : [
+                0.21856388449668884,
+                -0.0016478280303999782,
+                2.3186834368971176e-05,
+                0.9758212566375732
+            ],
+            "scale" : [
+                1,
+                0.9999999403953552,
+                1
+            ],
+            "translation" : [
+                -1.1920928955078125e-07,
+                0.6869564652442932,
+                1.5742267578389146e-07
+            ]
+        },
+        {
+            "children" : [
+                2
+            ],
+            "name" : "Bone.003",
+            "rotation" : [
+                0.12653198838233948,
+                -0.1522631049156189,
+                0.07384634017944336,
+                0.9774212837219238
+            ],
+            "scale" : [
+                1,
+                0.9999999403953552,
+                0.9999999403953552
+            ],
+            "translation" : [
+                -1.1920928955078125e-07,
+                0.9701762199401855,
+                6.778633687352743e-26
+            ]
+        },
+        {
+            "children" : [
+                3
+            ],
+            "name" : "Bone.002",
+            "rotation" : [
+                0.12684765458106995,
+                0.100187748670578,
+                0.26608577370643616,
+                0.9503002166748047
+            ],
+            "scale" : [
+                0.9999998807907104,
+                0.9999999403953552,
+                1
+            ],
+            "translation" : [
+                5.960464477539063e-08,
+                0.9420433044433594,
+                3.725290298461914e-08
+            ]
+        },
+        {
+            "children" : [
+                4
+            ],
+            "name" : "Bone.001",
+            "rotation" : [
+                -0.08991217613220215,
+                -0.17398805916309357,
+                0.4370045065879822,
+                0.877878725528717
+            ],
+            "scale" : [
+                0.9999998211860657,
+                1,
+                1
+            ],
+            "translation" : [
+                -1.4901161193847656e-08,
+                0.9999998807907104,
+                1.7763568394002505e-15
+            ]
+        },
+        {
+            "children" : [
+                5
+            ],
+            "name" : "Bone",
+            "rotation" : [
+                0.06859200447797775,
+                -0.06963501870632172,
+                -0.6983904242515564,
+                0.7090111970901489
+            ],
+            "scale" : [
+                1.000000238418579,
+                1.000000238418579,
+                1
+            ],
+            "translation" : [
+                0,
+                0.18301302194595337,
+                0
+            ]
+        },
+        {
+            "name" : "Bone.008",
+            "rotation" : [
+                0.5076849460601807,
+                -0.2761058807373047,
+                0.10455188155174255,
+                0.80937659740448
+            ],
+            "translation" : [
+                3.725290298461914e-09,
+                0.4961833953857422,
+                5.960464477539063e-08
+            ]
+        },
+        {
+            "children" : [
+                7
+            ],
+            "name" : "Bone.007",
+            "rotation" : [
+                -0.4818175137042999,
+                0.00930708646774292,
+                0.10197267681360245,
+                0.8702682852745056
+            ],
+            "scale" : [
+                1,
+                1.0000001192092896,
+                1
+            ],
+            "translation" : [
+                2.9802322387695312e-08,
+                0.7764956951141357,
+                2.9802315282267955e-08
+            ]
+        },
+        {
+            "children" : [
+                8
+            ],
+            "name" : "Bone.006",
+            "rotation" : [
+                0.6676845550537109,
+                -0.6626362800598145,
+                -0.24081556499004364,
+                0.23899461328983307
+            ],
+            "scale" : [
+                1,
+                1.0000001192092896,
+                1
+            ],
+            "translation" : [
+                0,
+                0.18301302194595337,
+                0
+            ]
+        },
+        {
+            "mesh" : 0,
+            "name" : "Circle",
+            "skin" : 0
+        },
+        {
+            "children" : [
+                10,
+                6,
+                9
+            ],
+            "name" : "Armature"
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Material",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.800000011920929,
+                    0.800000011920929,
+                    0.800000011920929,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Circle",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2,
+                        "JOINTS_0" : 3,
+                        "WEIGHTS_0" : 4
+                    },
+                    "indices" : 5,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "skins" : [
+        {
+            "inverseBindMatrices" : 6,
+            "joints" : [
+                6,
+                5,
+                4,
+                3,
+                2,
+                1,
+                0,
+                9,
+                8,
+                7
+            ],
+            "name" : "Armature"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 280,
+            "max" : [
+                0.4581821858882904,
+                5.625823974609375,
+                0.5581846833229065
+            ],
+            "min" : [
+                -0.4581821858882904,
+                -0.5035910606384277,
+                -0.27698612213134766
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 280,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 280,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5121,
+            "count" : 280,
+            "type" : "VEC4"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 280,
+            "type" : "VEC4"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5123,
+            "count" : 1668,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 10,
+            "type" : "MAT4"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 3360,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3360,
+            "byteOffset" : 3360
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2240,
+            "byteOffset" : 6720
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1120,
+            "byteOffset" : 8960
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4480,
+            "byteOffset" : 10080
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 3336,
+            "byteOffset" : 14560
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 640,
+            "byteOffset" : 17896
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 18536,
+            "uri" : "SK_Snake.bin"
+        }
+    ]
+}
