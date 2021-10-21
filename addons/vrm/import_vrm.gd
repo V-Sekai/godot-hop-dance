@@ -1,5 +1,5 @@
 @tool
-extends EditorSceneImporter
+extends EditorSceneFormatImporter
 
 # Set this to true to save a .res file with all GLTF DOM state
 # This allows exploring all JSON structure and also Godot internal GLTFState
@@ -55,7 +55,7 @@ func _get_extensions():
 
 
 func _get_import_flags():
-	return EditorSceneImporter.IMPORT_SCENE
+	return EditorSceneFormatImporter.IMPORT_SCENE
 
 
 func _import_animation(path: String, flags: int, bake_fps: int) -> Animation:
@@ -345,10 +345,7 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 
 	var humanBoneDictionary: Dictionary = {}
 	for humanBoneName in human_bone_to_idx:
-		var bone_name = gltfnodes[human_bone_to_idx[humanBoneName]].resource_name
-		var bone_id = skeleton.find_bone(bone_name)
-		skeleton.set_bone_name(bone_id, humanBoneName)
-		humanBoneDictionary[humanBoneName] = humanBoneName
+		humanBoneDictionary[humanBoneName] = gltfnodes[human_bone_to_idx[humanBoneName]].resource_name
 
 	var vrm_meta: Resource = load("res://addons/vrm/vrm_meta.gd").new()
 
