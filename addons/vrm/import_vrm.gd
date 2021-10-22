@@ -606,7 +606,7 @@ func _parse_secondary_node(secondary_node: Node, vrm_extension: Dictionary, gsta
 
 	var vrm_secondary:GDScript = load("res://addons/vrm/vrm_secondary.gd")
 	var vrm_collidergroup:GDScript = load("res://addons/vrm/vrm_collidergroup.gd")
-	var vrm_springbone:GDScript = load("res://addons/vrm/vrm_springbone_skeleton_modification_3d.gd")
+	var vrm_springbone:GDScript = load("res://addons/vrm/vrm_springbone.gd")
 	var skeleton_stack = SkeletonModificationStack3D.new()
 	skeleton_stack.enabled = true
 
