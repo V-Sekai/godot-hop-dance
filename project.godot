@@ -20,7 +20,11 @@ _global_script_class_icons={
 
 [application]
 
-run/main_scene="res://hop_spin_dance/scenes/title_demo.tscn"
+run/main_scene="res://hop_spin_dance/art/characters/SK_AvatarSample_A/AvatarSample_A.tscn"
+
+[display]
+
+window/dpi/allow_hidpi=true
 
 [editor_plugins]
 
