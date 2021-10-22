@@ -12,3 +12,5 @@ data_*/
 
 .godot/imported/
 .godot/
+
+.DS_Store

@@ -40,4 +40,5 @@ texture={
 [rendering]
 
 textures/vram_compression/import_bptc=true
+vulkan/rendering/back_end=1
 occlusion_culling/use_occlusion_culling=true

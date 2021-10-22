@@ -606,7 +606,9 @@ func _parse_secondary_node(secondary_node: Node, vrm_extension: Dictionary, gsta
 
 	var vrm_secondary:GDScript = load("res://addons/vrm/vrm_secondary.gd")
 	var vrm_collidergroup:GDScript = load("res://addons/vrm/vrm_collidergroup.gd")
-	var vrm_springbone:GDScript = load("res://addons/vrm/vrm_springbone.gd")
+	var vrm_springbone:GDScript = load("res://addons/vrm/vrm_springbone_skeleton_modification_3d.gd")
+	var skeleton_stack = SkeletonModificationStack3D.new()
+	skeleton_stack.enabled = true
 
 	var collider_groups: Array = [].duplicate()
 	for cgroup in vrm_extension["secondaryAnimation"]["colliderGroups"]:
@@ -623,6 +625,7 @@ func _parse_secondary_node(secondary_node: Node, vrm_extension: Dictionary, gsta
 			collider_group.skeleton_or_node = secondary_node.get_path_to(skeleton)
 			collider_group.bone = nodes[int(cgroup["node"])].resource_name
 			collider_group.resource_name = collider_group.bone
+			skeleton.set_modification_stack(skeleton_stack)
 		
 		for collider_info in cgroup["colliders"]:
 			var offset_obj = collider_info.get("offset", {"x": 0.0, "y": 0.0, "z": 0.0})
@@ -630,6 +633,7 @@ func _parse_secondary_node(secondary_node: Node, vrm_extension: Dictionary, gsta
 			var radius: float = collider_info.get("radius", 0.0)
 			collider_group.sphere_colliders.append(Plane(local_pos, radius))
 		collider_groups.append(collider_group)
+				
 
 	var spring_bones: Array = [].duplicate()
 	for sbone in vrm_extension["secondaryAnimation"]["boneGroups"]:
@@ -640,7 +644,7 @@ func _parse_secondary_node(secondary_node: Node, vrm_extension: Dictionary, gsta
 		var skeleton: Skeleton3D = _get_skel_godot_node(gstate, nodes, skeletons,gltfnode.skeleton)
 
 		var spring_bone = vrm_springbone.new()
-		spring_bone.skeleton = secondary_node.get_path_to(skeleton)
+		spring_bone.skeleton = "."
 		spring_bone.comment = sbone.get("comment", "")
 		spring_bone.stiffness_force = float(sbone.get("stiffiness", 1.0))
 		spring_bone.gravity_power = float(sbone.get("gravityPower", 0.0))
@@ -674,7 +678,7 @@ func _parse_secondary_node(secondary_node: Node, vrm_extension: Dictionary, gsta
 				spring_bone.root_bones.append(bone_name)
 
 		# Center commonly points outside of the glTF Skeleton, such as the root node.
-		spring_bone.center_node = secondary_node.get_path_to(secondary_node)
+		spring_bone.center_node = String(skeleton.get_path_to(secondary_node.owner)) + "/" + String(secondary_node.owner.get_path_to(secondary_node))
 		spring_bone.center_bone = ""
 		var center_node_idx = sbone.get("center", -1)
 		if center_node_idx != -1:
@@ -691,6 +695,8 @@ func _parse_secondary_node(secondary_node: Node, vrm_extension: Dictionary, gsta
 					spring_bone.center_node = secondary_node.get_path_to(secondary_node) # Fallback
 
 		spring_bones.append(spring_bone)
+		spring_bone.enabled = true
+		skeleton_stack.add_modification(spring_bone);
 
 	secondary_node.set_script(vrm_secondary)
 	secondary_node.set("spring_bones", spring_bones)
