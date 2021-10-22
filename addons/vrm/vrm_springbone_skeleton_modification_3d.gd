@@ -42,7 +42,7 @@ var skel: Skeleton3D = null
 
 func _setup_modification(modification_stack) -> void:
 	skel = modification_stack.get_skeleton()
-	if not self.root_bones.is_empty() && skel != null:
+	if not self.root_bones.is_empty():
 		if verlets.is_empty():
 			if not verlets.is_empty():
 				for verlet in verlets:
@@ -56,13 +56,15 @@ func setup_recursive(id: int, center_tr) -> void:
 	if skel.get_bone_children(id).is_empty():
 		var delta: Vector3 = skel.get_bone_rest(id).origin
 		var child_position: Vector3 = delta.normalized() * 0.07
-		verlets.append(VRMSpringBoneLogic.new(skel, id, center_tr, child_position, skel.get_bone_global_pose_without_override(id, true)))
+		var tr: Transform3D = skel.get_bone_rest(id).affine_inverse() * skel.get_bone_global_pose_without_override(id, true)
+		verlets.append(VRMSpringBoneLogic.new(skel, id, center_tr, child_position, tr))
 	else:
 		var first_child: int = skel.get_bone_children(id)[0]
 		var local_position: Vector3 = skel.get_bone_rest(first_child).origin
 		var sca: Vector3 = skel.get_bone_rest(first_child).basis.get_scale()
 		var pos: Vector3 = Vector3(local_position.x * sca.x, local_position.y * sca.y, local_position.z * sca.z)
-		verlets.append(VRMSpringBoneLogic.new(skel, id, center_tr, pos, skel.get_bone_global_pose_without_override(id, true)))
+		var tr: Transform3D = skel.get_bone_rest(id).affine_inverse() * skel.get_bone_global_pose_without_override(id, true)
+		verlets.append(VRMSpringBoneLogic.new(skel, id, center_tr, pos, tr))
 	for child in skel.get_bone_children(id):
 		setup_recursive(child, center_tr)
 	return
