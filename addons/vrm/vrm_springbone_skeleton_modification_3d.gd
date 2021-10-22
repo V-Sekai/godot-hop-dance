@@ -106,13 +106,13 @@ class VRMSpringBoneLogic:
 	func get_rotation(skel: Skeleton3D) -> Quaternion:
 		return get_transform(skel).basis.get_rotation_quaternion()
 	
-	func get_local_transform(skel_polyfill: Object) -> Transform3D:
-		return skel_polyfill.get_bone_global_pose_without_override(bone_idx)
-	func get_local_rotation(skel_polyfill: Object) -> Quaternion:
-		return get_local_transform(skel_polyfill).basis.get_rotation_quaternion()
+	func get_local_transform(skel: Skeleton3D) -> Transform3D:
+		return skel.get_bone_rest(bone_idx).affine_inverse() * skel.get_bone_global_pose_without_override(bone_idx)
+	func get_local_rotation(skel: Skeleton3D) -> Quaternion:
+		return get_local_transform(skel).basis.get_rotation_quaternion()
 	
-	func reset(skel_polyfill: Object) -> void:
-		skel_polyfill.set_bone_global_pose_override(bone_idx, initial_transform, 1.0)
+	func reset(skel: Object) -> void:
+		skel.set_bone_global_pose_override(bone_idx, skel.get_bone_rest(bone_idx) * initial_transform, 1.0)
 		return
 	
 	func _init(skel: Skeleton3D, idx: int, center, local_child_position: Vector3, default_pose: Transform3D):
