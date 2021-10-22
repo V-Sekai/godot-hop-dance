@@ -644,7 +644,6 @@ func _parse_secondary_node(secondary_node: Node, vrm_extension: Dictionary, gsta
 		var skeleton: Skeleton3D = _get_skel_godot_node(gstate, nodes, skeletons,gltfnode.skeleton)
 
 		var spring_bone = vrm_springbone.new()
-		spring_bone.skeleton = "."
 		spring_bone.comment = sbone.get("comment", "")
 		spring_bone.stiffness_force = float(sbone.get("stiffiness", 1.0))
 		spring_bone.gravity_power = float(sbone.get("gravityPower", 0.0))

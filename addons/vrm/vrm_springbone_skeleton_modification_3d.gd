@@ -17,8 +17,6 @@ extends SkeletonModification3D
 # The resistance (deceleration) of automatic animation.
 @export var drag_force: float = 0.4
  # (float, 0, 1)
-# Bone name references are only valid within a given Skeleton.
-@export var skeleton: NodePath
 
 # The reference point of a swaying object can be set at any location except the origin.
 # When implementing UI moving with warp, the parent node to move with warp can be
