@@ -44,6 +44,7 @@ var skel: Skeleton3D = null
 var skel_polyfill: Object = null
 
 func _setup_modification(modification_stack) -> void:
+	skel = modification_stack.get_skeleton()
 	if not self.root_bones.is_empty() && skel != null:
 		if verlets.is_empty():
 			if not verlets.is_empty():
