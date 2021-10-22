@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://w3cj1inhv4iq"]
-
-[ext_resource type="PackedScene" uid="uid://d2eo4vgk3bdfs" path="res://hop_spin_dance/art/characters/SK_Saiki/SK_Saiky_with_Bag.vrm" id="1_1dbgh"]
-
-[node name="SK_Saiky_with_Bag" instance=ExtResource( "1_1dbgh" )]
-
-[node name="anim" parent="." index="2"]
-blend_times = []

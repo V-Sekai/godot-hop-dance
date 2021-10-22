@@ -18,6 +18,10 @@ _global_script_class_icons={
 "VRMTopLevel": ""
 }
 
+[application]
+
+run/main_scene="res://hop_spin_dance/scenes/title_demo.tscn"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/vrm/plugin.cfg", "res://addons/vsk_version/plugin.cfg")
