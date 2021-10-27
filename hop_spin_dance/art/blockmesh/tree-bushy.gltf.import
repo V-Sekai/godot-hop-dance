@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://uav5f6hhhdwl"
+uid="uid://ddf4kgdv210k8"
 path="res://.godot/imported/tree-bushy.gltf-ef446ba2fb801202f1d078b7e6a5dea4.scn"
 
 [deps]
@@ -23,8 +23,6 @@ meshes/light_baking=2
 meshes/lightmap_texel_size=0.1
 skins/use_named_skins=true
 animation/import=true
-animation/point_parent_bone_to_children=false
-animation/bake_reset_animation=true
 animation/fps=30
 import_script/path=""
 _subresources={
