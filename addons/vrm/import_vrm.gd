@@ -418,7 +418,7 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 			bone["Feature: Bone Parent X global scale in meters"] = parent_scale.x
 			bone["Feature: Bone Parent Y global scale in meters"] = parent_scale.y
 			bone["Feature: Bone Parent Z global scale in meters"] = parent_scale.z
-		bone["Feature: Masculine (-1.0) and feminine (1.0) "] = 0.0
+		bone["Feature: Masculine (-1.0) and feminine (1.0)"] = 0.0
 		bone["Feature: Body mass in kilograms"] = 0.0
 		bone["Feature: Head circumference in meters"] = 0.0
 		bone["Feature: Neckline circumference in meters"] = 0.0
