@@ -423,6 +423,7 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 		bone["Category: Author"] = author
 		bone["Category: Specification Version"] = vrm_extension["meta"].get("specVersion", "")
 		bone["Category: Animation"] = "T-Pose"
+		bone["Feature: Animation Time"] = 0.0
 		skel[bone_i] = bone
 		
 	for humanBoneName in human_bone_to_idx:
