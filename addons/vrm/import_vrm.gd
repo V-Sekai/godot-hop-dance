@@ -351,11 +351,12 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 
 	var gltfnodes: Array = gstate.nodes
 	
+	var humanBoneDictionary: Dictionary = {}
 		
 	var file = File.new()
 	var title = vrm_extension["meta"].get("title", "")
 	var author = vrm_extension["meta"].get("author", "")
-	title = title + "_" + author + "_dlrm.csv.txt"
+	title = title + "_" + author + ".dlrm.csv.txt"
 	file.open("user://" + title, File.WRITE)
 	var skel : Array
 	skel.resize(skeleton.get_bone_count())
@@ -419,9 +420,11 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 			bone["Feature: Bone Parent Y global scale in meters"] = parent_scale.y
 			bone["Feature: Bone Parent Z global scale in meters"] = parent_scale.z
 		bone["Category: Corresponding VRM Bone"] = ""
+		bone["Category: Title"] = title
+		bone["Category: Author"] = author
+		bone["Category: Specification Version"] = vrm_extension["meta"].get("specVersion", "")
 		skel[bone_i] = bone
 		
-	var humanBoneDictionary: Dictionary = {}
 	for humanBoneName in human_bone_to_idx:
 		var bone_name = gltfnodes[human_bone_to_idx[humanBoneName]].resource_name
 		var bone_id = skeleton.find_bone(bone_name)
