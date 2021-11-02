@@ -452,12 +452,12 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 	if skel.size():
 		for column in skel[0].keys():
 			header.push_back(column)
-	file.store_csv_line(header)
+	file.store_csv_line(header, "\t")
 	for bone in skel:
 		var values : Array
 		for value in bone.values():
 			values.push_back(value)
-		file.store_csv_line(values)
+		file.store_csv_line(values, "\t")
 	file.close()
 
 	var vrm_meta: Resource = load("res://addons/vrm/vrm_meta.gd").new()
