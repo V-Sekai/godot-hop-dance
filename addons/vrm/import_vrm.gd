@@ -418,12 +418,12 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 			bone["Feature: Bone Parent X global scale in meters"] = parent_scale.x
 			bone["Feature: Bone Parent Y global scale in meters"] = parent_scale.y
 			bone["Feature: Bone Parent Z global scale in meters"] = parent_scale.z
+		bone["Feature: Animation Time"] = 0.0
 		bone["Category: Corresponding VRM Bone"] = ""
 		bone["Category: Title"] = title
 		bone["Category: Author"] = author
 		bone["Category: Specification Version"] = vrm_extension["meta"].get("specVersion", "")
 		bone["Category: Animation"] = "T-Pose"
-		bone["Feature: Animation Time"] = 0.0
 		skel[bone_i] = bone
 		
 	for humanBoneName in human_bone_to_idx:
