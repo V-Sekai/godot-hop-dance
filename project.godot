@@ -20,6 +20,7 @@ _global_script_class_icons={
 
 [application]
 
+config/name="V-Sekai Dance"
 run/main_scene="res://hop_spin_dance/art/characters/SK_AvatarSample_A/AvatarSample_A.tscn"
 
 [display]
