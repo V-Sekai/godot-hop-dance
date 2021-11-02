@@ -356,8 +356,7 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 	var file = File.new()
 	var title = vrm_extension["meta"].get("title", "")
 	var author = vrm_extension["meta"].get("author", "")
-	title = title + "_" + author + ".dlrm.csv.txt"
-	file.open("user://" + title, File.WRITE)
+	file.open("user://" + title + "_" + author + ".dlrm.csv.txt", File.WRITE)
 	var skel : Array
 	skel.resize(skeleton.get_bone_count())
 	for bone_i in skeleton.get_bone_count():
