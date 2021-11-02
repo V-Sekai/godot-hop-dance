@@ -354,8 +354,8 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 	var humanBoneDictionary: Dictionary = {}
 		
 	var file = File.new()
-	var title = vrm_extension["meta"].get("title", "")
-	var author = vrm_extension["meta"].get("author", "")
+	var title : String = vrm_extension["meta"].get("title", "")
+	var author : String = vrm_extension["meta"].get("author", "")
 	file.open("user://" + title + "_" + author + ".dlrm.csv.txt", File.WRITE)
 	var skel : Array
 	skel.resize(skeleton.get_bone_count())
