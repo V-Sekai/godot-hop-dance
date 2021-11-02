@@ -400,7 +400,7 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 		var scale = bone_pose.basis.get_scale()
 		bone["Feature: Bone X global scale in meters"] = scale.x
 		bone["Feature: Bone Y global scale in meters"] = scale.y
-		bone["Feature: Bone Z global scale in meters"] = scale.z	
+		bone["Feature: Bone Z global scale in meters"] = scale.z
 		var bone_parent = skeleton.get_bone_parent(bone_i)
 		if bone_parent != -1:
 			var bone_parent_pose = skeleton.get_bone_global_pose(bone_parent)
@@ -422,6 +422,7 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 		bone["Category: Title"] = title
 		bone["Category: Author"] = author
 		bone["Category: Specification Version"] = vrm_extension["meta"].get("specVersion", "")
+		bone["Category: Animation"] = "T-Pose"
 		skel[bone_i] = bone
 		
 	for humanBoneName in human_bone_to_idx:
