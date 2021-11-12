@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dn0o0hp6le0pi"
+uid="uid://bmsx6q1tjbce6"
 path="res://.godot/imported/nocchi.bvh-d7b40004bdaea1daacf94a9bea39eb06.scn"
 
 [deps]
@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/nocchi.bvh-d7b40004bdaea1daacf94a9bea39eb06.s
 
 nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
-nodes/root_scale=1.0
+nodes/root_scale=0.01
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
