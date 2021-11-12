@@ -21,7 +21,6 @@ _global_script_class_icons={
 [application]
 
 config/name="V-Sekai Dance"
-run/main_scene="res://hop_spin_dance/art/characters/SK_AvatarSample_A/AvatarSample_A.tscn"
 
 [display]
 
@@ -29,7 +28,11 @@ window/dpi/allow_hidpi=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/vrm/plugin.cfg", "res://addons/vsk_version/plugin.cfg")
+enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/bvh/plugin.cfg", "res://addons/vrm/plugin.cfg", "res://addons/vsk_version/plugin.cfg")
+
+[filesystem]
+
+import/blend/blender_path="blender"
 
 [importer_defaults]
 
@@ -41,5 +44,4 @@ texture={
 [rendering]
 
 textures/vram_compression/import_bptc=true
-vulkan/rendering/back_end=1
 occlusion_culling/use_occlusion_culling=true
