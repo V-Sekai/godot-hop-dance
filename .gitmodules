@@ -1,0 +1,3 @@
+[submodule "hop_spin_dance/art/blockmesh"]
+	path = hop_spin_dance/art/blockmesh
+	url = https://github.com/V-Sekai/art-blue-tin-fox-models.git
