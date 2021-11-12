@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://h02ugwniycnv"
+uid="uid://bgbdv3j427gu8"
 path="res://.godot/imported/9054117983515433596.vrm-6477eebcb24107268e338210015e1b84.scn"
 
 [deps]
@@ -23,9 +23,7 @@ meshes/light_baking=2
 meshes/lightmap_texel_size=0.1
 skins/use_named_skins=true
 animation/import=true
-animation/point_parent_bone_to_children=false
-animation/bake_reset_animation=false
-animation/fps=15
+animation/fps=30
 import_script/path=""
 _subresources={
 }
