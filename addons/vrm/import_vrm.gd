@@ -350,10 +350,108 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 		eyeOffset = Vector3(fpboneoffsetxyz["x"], fpboneoffsetxyz["y"], fpboneoffsetxyz["z"])
 
 	var gltfnodes: Array = gstate.nodes
-
+	
 	var humanBoneDictionary: Dictionary = {}
+		
+	var file = File.new()
+	var title : String = vrm_extension["meta"].get("title", "")
+	var author : String = vrm_extension["meta"].get("author", "")
+	file.open("user://" + title + "_" + author + ".vw.json", File.WRITE)
+	var skel : Array
+	skel.resize(skeleton.get_bone_count())
+	for bone_i in skeleton.get_bone_count():
+		var bone : Dictionary
+		bone["Label"] = 1.0
+		bone["Feature: Bone X global location in meters"] = 0.0
+		bone["Feature: Bone Y global location in meters"] = 0.0
+		bone["Feature: Bone Z global location in meters"] = 0.0
+		bone["Feature: Bone truncated normalized basis axis x 0"] = Basis().x.x
+		bone["Feature: Bone truncated normalized basis axis x 1"] = Basis().x.y
+		bone["Feature: Bone truncated normalized basis axis x 2"] = Basis().x.z
+		bone["Feature: Bone truncated normalized basis axis y 0"] = Basis().y.x
+		bone["Feature: Bone truncated normalized basis axis y 1"] = Basis().y.y
+		bone["Feature: Bone truncated normalized basis axis y 2"] = Basis().y.z	
+		bone["Feature: Bone X global scale in meters"] = 1.0
+		bone["Feature: Bone Y global scale in meters"] = 1.0
+		bone["Feature: Bone Z global scale in meters"] = 1.0
+		bone["Feature: Bone Parent X global location in meters"] = 0.0
+		bone["Feature: Bone Parent Y global location in meters"] = 0.0
+		bone["Feature: Bone Parent Z global location in meters"] = 0.0
+		bone["Feature: Bone Parent truncated normalized basis axis x 0"] = Basis().x.x
+		bone["Feature: Bone Parent truncated normalized basis axis x 1"] = Basis().x.y
+		bone["Feature: Bone Parent truncated normalized basis axis x 2"] = Basis().x.z
+		bone["Feature: Bone Parent truncated normalized basis axis y 0"] = Basis().y.x
+		bone["Feature: Bone Parent truncated normalized basis axis y 1"] = Basis().y.y
+		bone["Feature: Bone Parent truncated normalized basis axis y 2"] = Basis().y.z
+		bone["Feature: Bone Parent X global scale in meters"] = 0.0
+		bone["Feature: Bone Parent Y global scale in meters"] = 0.0
+		bone["Feature: Bone Parent Z global scale in meters"] = 0.0
+		var bone_pose = skeleton.get_bone_global_pose(bone_i)
+		bone["Feature: Bone X global location in meters"] = bone_pose.origin.x
+		bone["Feature: Bone Y global location in meters"] = bone_pose.origin.y
+		bone["Feature: Bone Z global location in meters"] = bone_pose.origin.z
+		var basis = bone_pose.basis.orthonormalized()
+		bone["Feature: Bone truncated normalized basis axis x 0"] = basis.x.x
+		bone["Feature: Bone truncated normalized basis axis x 1"] = basis.x.y
+		bone["Feature: Bone truncated normalized basis axis x 2"] = basis.x.z
+		bone["Feature: Bone truncated normalized basis axis y 0"] = basis.y.x
+		bone["Feature: Bone truncated normalized basis axis y 1"] = basis.y.y
+		bone["Feature: Bone truncated normalized basis axis y 2"] = basis.y.z
+		var scale = bone_pose.basis.get_scale()
+		bone["Feature: Bone X global scale in meters"] = scale.x
+		bone["Feature: Bone Y global scale in meters"] = scale.y
+		bone["Feature: Bone Z global scale in meters"] = scale.z
+		var bone_parent = skeleton.get_bone_parent(bone_i)
+		if bone_parent != -1:
+			var bone_parent_pose = skeleton.get_bone_global_pose(bone_parent)
+			bone["Feature: Bone Parent X global location in meters"] = bone_pose.origin.x
+			bone["Feature: Bone Parent Y global location in meters"] = bone_pose.origin.y
+			bone["Feature: Bone Parent Z global location in meters"] = bone_pose.origin.z
+			var parent_basis = bone_parent_pose.basis.orthonormalized()
+			bone["Feature: Bone Parent truncated normalized basis axis x 0"] = parent_basis.x.x
+			bone["Feature: Bone Parent truncated normalized basis axis x 1"] = parent_basis.x.y
+			bone["Feature: Bone Parent truncated normalized basis axis x 2"] = parent_basis.x.z
+			bone["Feature: Bone Parent truncated normalized basis axis y 0"] = parent_basis.y.x
+			bone["Feature: Bone Parent truncated normalized basis axis y 1"] = parent_basis.y.y
+			bone["Feature: Bone Parent truncated normalized basis axis y 2"] = parent_basis.y.z		
+			var parent_scale = bone_parent_pose.basis.get_scale()
+			bone["Feature: Bone Parent X global scale in meters"] = parent_scale.x
+			bone["Feature: Bone Parent Y global scale in meters"] = parent_scale.y
+			bone["Feature: Bone Parent Z global scale in meters"] = parent_scale.z
+		bone["Feature: Masculine (-1.0) and feminine (1.0)"] = 0.0
+		bone["Feature: Body mass in kilograms"] = 0.0
+		bone["Feature: Head circumference in meters"] = 0.0
+		bone["Feature: Neckline circumference in meters"] = 0.0
+		bone["Feature: Left Shoulder circumference in meters"] = 0.0
+		bone["Feature: Right Shoulder circumference in meters"] = 0.0
+		bone["Feature: Left Elbow circumference in meters"] = 0.0
+		bone["Feature: Right Elbow circumference in meters"] = 0.0
+		bone["Feature: Left wrist circumference in meters"] = 0.0
+		bone["Feature: Right wrist circumference in meters"] = 0.0
+		bone["Feature: Waist circumference in meters"] = 0.0
+		bone["Feature: Left thigh circumference in meters"] = 0.0
+		bone["Feature: Right thigh circumference in meters"] = 0.0
+		bone["Feature: Left ankle circumference in meters"] = 0.0
+		bone["Feature: Right ankle circumference in meters"] = 0.0
+		bone["Feature: Animation Time"] = 0.0
+		bone["Category: Corresponding VRM Bone"] = ""
+		bone["Category: Title"] = title
+		bone["Category: Author"] = author
+		bone["Category: Specification Version"] = vrm_extension["meta"].get("specVersion", "")
+		bone["Category: Animation"] = "T-Pose"
+		skel[bone_i] = bone
+		
 	for humanBoneName in human_bone_to_idx:
-		humanBoneDictionary[humanBoneName] = gltfnodes[human_bone_to_idx[humanBoneName]].resource_name
+		var bone_name = gltfnodes[human_bone_to_idx[humanBoneName]].resource_name
+		var bone_id = skeleton.find_bone(bone_name)
+		skeleton.set_bone_name(bone_id, humanBoneName)
+		humanBoneDictionary[humanBoneName] = humanBoneName
+		if bone_id != -1:
+			skel[bone_id]["Category: Corresponding VRM Bone"] = humanBoneName
+	var json : JSON = JSON.new()
+	var skel_json = json.stringify(skel, "", true, true)
+	file.store_string(skel_json)
+	file.close()
 
 	var vrm_meta: Resource = load("res://addons/vrm/vrm_meta.gd").new()
 
@@ -890,9 +988,3 @@ func _to_material_param_dict(columns: Array, values: Array):
 	for i in range(min(columns.size(), values.size())):
 		dict[columns[i]] = _convert_sql_to_material_param(columns[i], values[i])
 	return dict
-
-
-
-
-
-
