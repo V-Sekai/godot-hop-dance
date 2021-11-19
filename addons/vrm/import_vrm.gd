@@ -357,7 +357,7 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 	var author : String = vrm_extension["meta"].get("author", "")
 	var skel : Array
 	skel.resize(skeleton.get_bone_count())
-	var columns_description : String
+	var columns_description : PackedStringArray
 	var first : bool = true
 	for bone_i in skeleton.get_bone_count():		
 		var bone : Dictionary
@@ -435,41 +435,53 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 		bone["Animation Time"] = 0.0
 		if first:
 			var keys = bone.keys()
-			for key_i in keys.size():
-				if key_i == 0:
-					continue
-				columns_description += str(key_i) + "\tNum\t" + keys[key_i] + "\n"		
+			for key_i in range(keys.size()):
+				columns_description.push_back(str(key_i) + "\tNum\t" + keys[key_i])
 		# Text categories
 		var title_key = "Title"
 		if first:
-			columns_description += str(bone.keys().size()) + "\tCateg\t%s\n" % title_key
+			columns_description.push_back(str(columns_description.size()) + "\tCateg\t%s" % title_key)
 		bone["Title"] = title_key
 		var author_key = "Author"
 		if first:
-			columns_description += str(bone.keys().size()) + "\tCateg\t%s\n" % author_key
+			columns_description.push_back(str(columns_description.size()) + "\tCateg\t%s" % author_key)
 		bone[author_key] = author
+		
 		var name_key = "Bone Name"
 		if first:
-			columns_description += str(bone.keys().size()) + "\tCateg\t%s\n" % name_key
+			columns_description.push_back(str(columns_description.size()) + "\tCateg\t%s" % name_key)
 		bone[name_key] = skeleton.get_bone_name(bone_i)
+		
+		var bone_parent_key = "Bone Parent"
+		if first:
+			columns_description.push_back(str(columns_description.size()) + "\tCateg\t%s" % bone_parent_key)
+		var parent_bone = skeleton.get_bone_name(bone_parent)
+		if parent_bone.is_empty():
+			parent_bone = ""
+		bone[bone_parent_key] = parent_bone
+		
 		var vrm_bone_name_key = "Corresponding VRM Bone"
 		if first:
-			columns_description += str(bone.keys().size()) + "\tLabel\n"
-		bone[vrm_bone_name_key] = 0
+			columns_description.push_back(str(bone.keys().size()) + "\tLabel")
+		bone[vrm_bone_name_key] = "Unknown"
 		var version_key = "Specification Version"
 		if first:
-			columns_description += str(bone.keys().size()) + "\tCateg\t%s\n" % version_key
+			columns_description.push_back(str(bone.keys().size()) + "\tCateg\t%s" % version_key)
 		bone[version_key] = vrm_extension["meta"].get("specVersion", "")
 		var animation_key = "Animation"
 		if first:
-			columns_description += str(bone.keys().size()) + "\tCateg\t%s\n" % animation_key
+			columns_description.push_back(str(bone.keys().size()) + "\tCateg\t%s" % animation_key)
 		bone[animation_key] = "T-Pose"
 		if first:
 			first = false
 		skel[bone_i] = bone
 	var file_cd = File.new()
 	file_cd.open("user://cd.txt", File.WRITE)
-	file_cd.store_string(columns_description)
+	var file_string : String
+	for string in columns_description:
+		file_string += string + "\n"
+	file_cd.store_string(file_string)
+	file_cd.close()
 	for humanBoneName in human_bone_to_idx:
 		var bone_name = gltfnodes[human_bone_to_idx[humanBoneName]].resource_name
 		var bone_id = skeleton.find_bone(bone_name)
@@ -479,13 +491,15 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 	var file = File.new()
 	file.open("user://train.tsv", File.READ)
 	var train : String = file.get_as_text()
-	file.open("user://train.tsv", File.WRITE)
-	file.store_string(train)
-#	file.store_csv_line(skel[0].keys(), "\t")
+	file.close()
+	var file_train = File.new()
+	file_train.open("user://train.tsv", File.WRITE)
+	file_train.store_string(train)
+		
 	if skel.size():
 		for bone in skel:
-			file.store_csv_line(bone.values(), "\t")
-	file.close()
+			file_train.store_csv_line(bone.values(), "\t")
+	file_train.close()
 
 	var vrm_meta: Resource = load("res://addons/vrm/vrm_meta.gd").new()
 
