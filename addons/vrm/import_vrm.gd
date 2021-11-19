@@ -361,9 +361,6 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 	var first : bool = true
 	for bone_i in skeleton.get_bone_count():		
 		var bone : Dictionary
-		bone["Label"] = 1.0
-		if first:
-			columns_description += "0\tLabel\n"
 		bone["Bone X global location in meters"] = 0.0
 		bone["Bone Y global location in meters"] = 0.0
 		bone["Bone Z global location in meters"] = 0.0
@@ -457,8 +454,8 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 		bone[name_key] = skeleton.get_bone_name(bone_i)
 		var vrm_bone_name_key = "Corresponding VRM Bone"
 		if first:
-			columns_description += str(bone.keys().size()) + "\tCateg\t%s\n" % vrm_bone_name_key
-		bone[vrm_bone_name_key] = ""
+			columns_description += str(bone.keys().size()) + "\tLabel\n"
+		bone[vrm_bone_name_key] = 0
 		var version_key = "Specification Version"
 		if first:
 			columns_description += str(bone.keys().size()) + "\tCateg\t%s\n" % version_key
