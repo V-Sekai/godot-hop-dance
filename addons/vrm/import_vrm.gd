@@ -353,15 +353,17 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 	
 	var humanBoneDictionary: Dictionary = {}
 		
-	var file = File.new()
 	var title : String = vrm_extension["meta"].get("title", "")
 	var author : String = vrm_extension["meta"].get("author", "")
-	file.open("user://" + title + "_" + author + ".tsv", File.WRITE)
 	var skel : Array
 	skel.resize(skeleton.get_bone_count())
-	for bone_i in skeleton.get_bone_count():
+	var columns_description : String
+	var first : bool = true
+	for bone_i in skeleton.get_bone_count():		
 		var bone : Dictionary
 		bone["Label"] = 1.0
+		if first:
+			columns_description += "0\tLabel\n"
 		bone["Bone X global location in meters"] = 0.0
 		bone["Bone Y global location in meters"] = 0.0
 		bone["Bone Z global location in meters"] = 0.0
@@ -413,7 +415,7 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 			bone["Bone Parent truncated normalized basis axis x 2"] = parent_basis.x.z
 			bone["Bone Parent truncated normalized basis axis y 0"] = parent_basis.y.x
 			bone["Bone Parent truncated normalized basis axis y 1"] = parent_basis.y.y
-			bone["Bone Parent truncated normalized basis axis y 2"] = parent_basis.y.z		
+			bone["Bone Parent truncated normalized basis axis y 2"] = parent_basis.y.z
 			var parent_scale = bone_parent_pose.basis.get_scale()
 			bone["Bone Parent X global scale in meters"] = parent_scale.x
 			bone["Bone Parent Y global scale in meters"] = parent_scale.y
@@ -434,31 +436,58 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 		bone["Left ankle circumference in meters"] = 0.0
 		bone["Right ankle circumference in meters"] = 0.0
 		bone["Animation Time"] = 0.0
-		bone["Bone Name"] = skeleton.get_bone_name(bone_i)
-		bone["Corresponding VRM Bone"] = ""
-		bone["Title"] = title
-		bone["Author"] = author
-		bone["Specification Version"] = vrm_extension["meta"].get("specVersion", "")
-		bone["Animation"] = "T-Pose"
+		if first:
+			var keys = bone.keys()
+			for key_i in keys.size():
+				if key_i == 0:
+					continue
+				columns_description += str(key_i) + "\tNum\t" + keys[key_i] + "\n"		
+		# Text categories
+		var title_key = "Title"
+		if first:
+			columns_description += str(bone.keys().size()) + "\tCateg\t%s\n" % title_key
+		bone["Title"] = title_key
+		var author_key = "Author"
+		if first:
+			columns_description += str(bone.keys().size()) + "\tCateg\t%s\n" % author_key
+		bone[author_key] = author
+		var name_key = "Bone Name"
+		if first:
+			columns_description += str(bone.keys().size()) + "\tCateg\t%s\n" % name_key
+		bone[name_key] = skeleton.get_bone_name(bone_i)
+		var vrm_bone_name_key = "Corresponding VRM Bone"
+		if first:
+			columns_description += str(bone.keys().size()) + "\tCateg\t%s\n" % vrm_bone_name_key
+		bone[vrm_bone_name_key] = ""
+		var version_key = "Specification Version"
+		if first:
+			columns_description += str(bone.keys().size()) + "\tCateg\t%s\n" % version_key
+		bone[version_key] = vrm_extension["meta"].get("specVersion", "")
+		var animation_key = "Animation"
+		if first:
+			columns_description += str(bone.keys().size()) + "\tCateg\t%s\n" % animation_key
+		bone[animation_key] = "T-Pose"
+		if first:
+			first = false
 		skel[bone_i] = bone
-		
+	var file_cd = File.new()
+	file_cd.open("user://cd.txt", File.WRITE)
+	file_cd.store_string(columns_description)
 	for humanBoneName in human_bone_to_idx:
 		var bone_name = gltfnodes[human_bone_to_idx[humanBoneName]].resource_name
 		var bone_id = skeleton.find_bone(bone_name)
-		skeleton.set_bone_name(bone_id, humanBoneName)
-		humanBoneDictionary[humanBoneName] = humanBoneName
 		if bone_id != -1:
 			skel[bone_id]["Corresponding VRM Bone"] = humanBoneName
 	var header : Array
+	var file = File.new()
+	file.open("user://train.tsv", File.READ)
+	var train : String = file.get_as_text()
+	file.open("user://train.tsv", File.WRITE)
+	file.store_string(train)
+#	file.store_csv_line(skel[0].keys(), "\t")
 	if skel.size():
-		for column in skel[0].keys():
-			header.push_back(column)
-	file.store_csv_line(header, "\t")
-	for bone in skel:
-		var values : Array
-		for value in bone.values():
-			values.push_back(value)
-		file.store_csv_line(values, "\t")
+		for bone in skel:
+			file.store_csv_line(bone.values(), "\t")
 	file.close()
 
 	var vrm_meta: Resource = load("res://addons/vrm/vrm_meta.gd").new()
