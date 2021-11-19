@@ -35,10 +35,11 @@ func _write_test(scene, write_column_description):
 					if skeleton_node is Skeleton3D:
 						var skeleton : Skeleton3D = skeleton_node
 						var skel : Array
-						skel.resize(skeleton.get_bone_count())							
-						var count : int = anim_length / 30
+						skel.resize(skeleton.get_bone_count())
+						var fps : int = 60
+						var count : int = anim_length * fps
 						for count_i in count:
-							ap.seek(count_i / 30, true)
+							ap.seek(count_i / fps, true)
 							var bone_i = skeleton.find_bone(bone_name)
 							var title : String
 							var author : String
@@ -116,7 +117,7 @@ func _write_test(scene, write_column_description):
 							bone["Right thigh circumference in meters"] = 0.0
 							bone["Left ankle circumference in meters"] = 0.0
 							bone["Right ankle circumference in meters"] = 0.0
-							bone["Animation Time"] = count / 30.0
+							bone["Animation Time"] = float(count_i) / fps
 							if first:
 								var keys = bone.keys()
 								for key_i in range(keys.size()):
