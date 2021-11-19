@@ -60,6 +60,7 @@ func _write_test(scene, write_column_description):
 							var columns_description : PackedStringArray
 							var first : bool = true
 							var bone : Dictionary
+							bone["Label"] = 0
 							bone["Bone X global location in meters"] = 0.0
 							bone["Bone Y global location in meters"] = 0.0
 							bone["Bone Z global location in meters"] = 0.0
@@ -161,11 +162,10 @@ func _write_test(scene, write_column_description):
 
 							var vrm_bone_name_key = "Corresponding VRM Bone"
 							if first:
-								columns_description.push_back(str(bone.keys().size()) + "\tLabel")
+								columns_description.push_back(str(bone.keys().size()) + "\tCateg\t%s" % vrm_bone_name_key)
 							if vrm_bone_definition.has(skeleton.get_bone_name(bone_i)):
 								bone[vrm_bone_name_key] = skeleton.get_bone_name(bone_i)
-							else:
-								bone[vrm_bone_name_key] = "No VRM Bone"
+								bone["Label"] = 1
 							var version_key = "Specification Version"
 							if first:
 								columns_description.push_back(str(bone.keys().size()) + "\tText\t%s" % version_key)
