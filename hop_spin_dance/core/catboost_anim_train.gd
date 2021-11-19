@@ -125,21 +125,21 @@ func _write_test(scene, write_column_description):
 							# Text categories
 							var title_key = "Title"
 							if first:
-								columns_description.push_back(str(columns_description.size()) + "\tCateg\t%s" % title_key)
+								columns_description.push_back(str(columns_description.size()) + "\tText\t%s" % title_key)
 							bone["Title"] = ""
 							var author_key = "Author"
 							if first:
-								columns_description.push_back(str(columns_description.size()) + "\tCateg\t%s" % author_key)
+								columns_description.push_back(str(columns_description.size()) + "\tText\t%s" % author_key)
 							bone[author_key] = ""
 							
 							var name_key = "Bone Name"
 							if first:
-								columns_description.push_back(str(columns_description.size()) + "\tCateg\t%s" % name_key)
+								columns_description.push_back(str(columns_description.size()) + "\tText\t%s" % name_key)
 							bone[name_key] = bone_name
 							
 							var bone_parent_key = "Bone Parent"
 							if first:
-								columns_description.push_back(str(columns_description.size()) + "\tCateg\t%s" % bone_parent_key)
+								columns_description.push_back(str(columns_description.size()) + "\tText\t%s" % bone_parent_key)
 							var parent_bone = skeleton.get_bone_name(bone_parent)
 							if parent_bone.is_empty():
 								parent_bone = 0
@@ -151,11 +151,11 @@ func _write_test(scene, write_column_description):
 							bone[vrm_bone_name_key] = 0
 							var version_key = "Specification Version"
 							if first:
-								columns_description.push_back(str(bone.keys().size()) + "\tCateg\t%s" % version_key)
+								columns_description.push_back(str(bone.keys().size()) + "\tText\t%s" % version_key)
 							bone[version_key] = 0
 							var animation_key = "Animation"
 							if first:
-								columns_description.push_back(str(bone.keys().size()) + "\tCateg\t%s" % animation_key)
+								columns_description.push_back(str(bone.keys().size()) + "\tText\t%s" % animation_key)
 							bone[animation_key] = animation.resource_name
 							if first:
 								first = false
