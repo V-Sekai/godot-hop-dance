@@ -1,6 +1,20 @@
 @tool
 extends EditorScenePostImport
 
+var vrm_bone_definition : PackedStringArray  = ["hips","leftUpperLeg","rightUpperLeg","leftLowerLeg","rightLowerLeg","leftFoot","rightFoot",
+ "spine","chest","neck","head","leftShoulder","rightShoulder","leftUpperArm","rightUpperArm",
+ "leftLowerArm","rightLowerArm","leftHand","rightHand","leftToes","rightToes","leftEye","rightEye","jaw",
+ "leftThumbProximal","leftThumbIntermediate","leftThumbDistal",
+ "leftIndexProximal","leftIndexIntermediate","leftIndexDistal",
+ "leftMiddleProximal","leftMiddleIntermediate","leftMiddleDistal",
+ "leftRingProximal","leftRingIntermediate","leftRingDistal",
+ "leftLittleProximal","leftLittleIntermediate","leftLittleDistal",
+ "rightThumbProximal","rightThumbIntermediate","rightThumbDistal",
+ "rightIndexProximal","rightIndexIntermediate","rightIndexDistal",
+ "rightMiddleProximal","rightMiddleIntermediate","rightMiddleDistal",
+ "rightRingProximal","rightRingIntermediate","rightRingDistal",
+ "rightLittleProximal","rightLittleIntermediate","rightLittleDistal", "upperChest"]
+
 func _post_import(scene):
 	_write_test(scene, false)
 	return scene
@@ -148,11 +162,14 @@ func _write_test(scene, write_column_description):
 							var vrm_bone_name_key = "Corresponding VRM Bone"
 							if first:
 								columns_description.push_back(str(bone.keys().size()) + "\tLabel")
-							bone[vrm_bone_name_key] = 0
+							if vrm_bone_definition.has(skeleton.get_bone_name(bone_i)):
+								bone[vrm_bone_name_key] = skeleton.get_bone_name(bone_i)
+							else:
+								bone[vrm_bone_name_key] = "No VRM Bone"
 							var version_key = "Specification Version"
 							if first:
 								columns_description.push_back(str(bone.keys().size()) + "\tText\t%s" % version_key)
-							bone[version_key] = 0
+							bone[version_key] = ""
 							var animation_key = "Animation"
 							if first:
 								columns_description.push_back(str(bone.keys().size()) + "\tText\t%s" % animation_key)
