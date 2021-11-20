@@ -419,21 +419,6 @@ func _create_meta(root_node: Node, animplayer: AnimationPlayer, vrm_extension: D
 				bone["Bone Parent X global scale in meters"] = parent_scale.x
 				bone["Bone Parent Y global scale in meters"] = parent_scale.y
 				bone["Bone Parent Z global scale in meters"] = parent_scale.z
-			bone["Masculine (-1.0) and feminine (1.0)"] = 0.0
-			bone["Body mass in kilograms"] = 0.0
-			bone["Head circumference in meters"] = 0.0
-			bone["Neckline circumference in meters"] = 0.0
-			bone["Left Shoulder circumference in meters"] = 0.0
-			bone["Right Shoulder circumference in meters"] = 0.0
-			bone["Left Elbow circumference in meters"] = 0.0
-			bone["Right Elbow circumference in meters"] = 0.0
-			bone["Left wrist circumference in meters"] = 0.0
-			bone["Right wrist circumference in meters"] = 0.0
-			bone["Waist circumference in meters"] = 0.0
-			bone["Left thigh circumference in meters"] = 0.0
-			bone["Right thigh circumference in meters"] = 0.0
-			bone["Left ankle circumference in meters"] = 0.0
-			bone["Right ankle circumference in meters"] = 0.0
 			bone["Animation Time"] = 0.0
 			if first:
 				var keys = bone.keys()
