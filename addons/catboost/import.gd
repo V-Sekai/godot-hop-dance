@@ -46,11 +46,14 @@ func _write_test(scene):
 						if str(path).find(":") == -1:
 							continue
 						var bone_name = path.split(":")[1]
+						if not catboost.vrm_humanoid_bones.has(bone_name):
+							continue
 						var new_path = path.split(":")[0]
 						var skeleton_node = scene.get_node(new_path)
 						if not skeleton_node is Skeleton3D:
 							continue
 						var skeleton : Skeleton3D = skeleton_node
+						
 						var fps : int = 30
 						var count : int = anim_length * fps
 						for count_i in count:
@@ -64,9 +67,6 @@ func _write_test(scene):
 							bone["BONE"] = bone_name
 							if catboost.vrm_humanoid_bones.has(bone_name):
 								bone["VRM_BONE"] = bone_name
-							else:
-								bone["VRM_BONE"] = vrm_def_bone_name
-								bone["Lable"] = 0
 							var bone_pose = skeleton.get_bone_global_pose(bone_i)
 							bone["Bone X global location in meters"] = bone_pose.origin.x
 							bone["Bone Y global location in meters"] = bone_pose.origin.y
