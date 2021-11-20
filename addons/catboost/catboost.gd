@@ -24,16 +24,16 @@ static func bone_create():
 	var category_description : PackedStringArray
 	var label_key = "Label"
 	category_description.push_back(str(category_description.size()) + "\t%s" % label_key)
-	bone_category[label_key] = 1
+	bone_category[label_key] = 0
 	var keys = ["SPECIFICATION_VERSION", "ANIMATION", "BONE", "BONE_PARENT", "VRM_BONE"
 	, "TITLE", "AUTHOR"]
 	for key_i in keys.size():
 		category_description.push_back(str(1 + key_i) + "\tCateg\t%s" % keys[key_i])
 		bone_category[keys[key_i]] = ""
-		
-	category_description.push_back(str(1 + keys.size()) + "\tTimestamp\t%s" % "Animation time")
-	bone_category["Animation time"] = 0.0
+	bone_category["VRM_BONE"] = "hips"
+	bone_category["BONE"] = "hips"
 	var bone : Dictionary
+	bone["Animation time"] = 0.0
 	bone["Bone X global location in meters"] = 0.0
 	bone["Bone Y global location in meters"] = 0.0
 	bone["Bone Z global location in meters"] = 0.0
@@ -88,7 +88,7 @@ static func bone_create():
 	var columns_description : PackedStringArray		
 	for key in bone.keys():
 		columns_description.push_back(str(bone_category.size() + columns_description.size()) + "\tNum\t%s" % key)
-		bone[key] = ""
+		bone[key] = 0
 	for key in bone.keys():
 		bone_category[key] = bone[key]
 	return {

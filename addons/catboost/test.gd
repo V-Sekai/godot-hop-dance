@@ -18,6 +18,14 @@ func _write_test(scene):
 	file.store_string(file_string)
 	file.close()
 	file.open(catboost.test_path, File.WRITE)
+	file.store_csv_line(init_dict.bone.keys(), "\t")
+	var vrm_extension = scene
+	var bone_map : Dictionary
+	var human_map : Dictionary
+	if vrm_extension.get("vrm_meta"):
+		human_map = vrm_extension["vrm_meta"]["humanoid_bone_mapping"]
+	for key in human_map.keys():
+		bone_map[human_map[key]] = key
 	var queue : Array # Node
 	queue.push_back(scene)
 	while not queue.is_empty():
@@ -25,9 +33,9 @@ func _write_test(scene):
 		var node = front
 		if node is Skeleton3D:
 			var skeleton : Skeleton3D = node
+			var skel : Array
+			skel.resize(skeleton.get_bone_count())
 			for vrm_def_bone_name in catboost.vrm_humanoid_bones:
-				var skel : Array
-				skel.resize(skeleton.get_bone_count())
 				for bone_i in skeleton.get_bone_count():
 					var bone : Dictionary = init_dict.bone
 					var bone_pose = skeleton.get_bone_global_pose(bone_i)
@@ -62,13 +70,19 @@ func _write_test(scene):
 						bone["Bone parent X global scale in meters"] = parent_scale.x
 						bone["Bone parent Y global scale in meters"] = parent_scale.y
 						bone["Bone parent Z global scale in meters"] = parent_scale.z
-					if bone_i != -1:
-						bone["BONE"] = skeleton.get_bone_name(bone_i)
-						if bone_parent != -1:
-							var parent_bone = skeleton.get_bone_name(bone_parent)
-							if not parent_bone.is_empty():
-								bone["BONE_PARENT"] = parent_bone
-					bone["VRM_BONE"] = vrm_def_bone_name
+					bone["BONE"] = skeleton.get_bone_name(bone_i)
+					bone["Label"] = 0
+					if bone_map.has(bone["BONE"]):
+						bone["Label"] = 1
+						bone["VRM_BONE"] = bone_map[bone["BONE"]]
+					else:
+						bone["VRM_BONE"] = vrm_def_bone_name
+					if bone_parent != -1:
+						var parent_bone = skeleton.get_bone_name(bone_parent)
+						if not parent_bone.is_empty():
+							bone["BONE_PARENT"] = parent_bone
+					else:
+						bone["BONE_PARENT"] = bone["BONE"]
 					bone["ANIMATION"] = "T-Pose"
 					file.store_csv_line(bone.values(), "\t")
 

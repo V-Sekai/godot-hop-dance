@@ -31,8 +31,7 @@ func _write_test(scene):
 	var human_map : Dictionary
 	if vrm_extension.get("vrm_meta"):
 		human_map = vrm_extension["vrm_meta"]["humanoid_bone_mapping"]
-	var keys = human_map.keys()
-	for key in keys:
+	for key in human_map.keys():
 		bone_map[human_map[key]] = key
 	var queue : Array # Node
 	queue.push_back(scene)
@@ -155,18 +154,19 @@ func _write_test(scene):
 					bone["BONE"] = skeleton.get_bone_name(bone_i)
 					var parent_bone = skeleton.get_bone_name(bone_parent)
 					if not parent_bone.is_empty():
-						bone[ "BONE_PARENT"] = parent_bone
+						bone["BONE_PARENT"] = parent_bone
+					else:
+						bone["BONE_PARENT"] = bone["BONE"]
 					var version = vrm_extension["vrm_meta"].get("specVersion")
 					if version == null:
 						version = ""
 					bone["SPECIFICATION_VERSION"] = version
 					bone["ANIMATION"] = "VRM Character in T-Pose"
-					if bone_map.has(bone["BONE"]):						
-						bone["VRM_BONE"] = bone_map[bone["BONE"]]
+					bone["VRM_BONE"] = vrm_def_bone_name
+					bone["Label"] = 0
+					if bone_map.has(bone["BONE"]):
+						bone["VRM_BONE"] = bone["BONE"]
 						bone["Label"] = 1
-					else:
-						bone["VRM_BONE"] = vrm_def_bone_name
-						bone["Label"] = 0
 					file.store_csv_line(bone.values(), "\t")
 		var child_count : int = node.get_child_count()
 		for i in child_count:
