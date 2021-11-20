@@ -9,6 +9,10 @@ func _post_import(scene):
 var catboost = load("res://addons/catboost/catboost.gd")
 
 func _write_test(scene):	
+	var old_file = File.new()
+	old_file.open(catboost.train_path, File.READ)
+	var text = old_file.get_as_text()
+	old_file.close()
 	var file = File.new()
 	file.open(catboost.train_description_path, File.WRITE)
 	var init_dict = catboost.bone_create()
@@ -18,7 +22,10 @@ func _write_test(scene):
 		file_string += string + "\n"
 	file.store_string(file_string)
 	var file_description = File.new()
+	var file_path : String = scene.scene_file_path
+	file_path = file_path.get_basename()
 	file.open(catboost.train_path, File.WRITE)
+	file.store_string(text)
 	var vrm_extension = scene
 	var bone_map : Dictionary
 	var human_map : Dictionary

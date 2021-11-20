@@ -28,9 +28,11 @@ static func bone_create():
 	var keys = ["SPECIFICATION_VERSION", "ANIMATION", "BONE", "BONE_PARENT", "VRM_BONE"
 	, "TITLE", "AUTHOR"]
 	for key_i in keys.size():
-		category_description.push_back(str(1 + key_i) + "\tText\t%s" % keys[key_i])
+		category_description.push_back(str(1 + key_i) + "\tCateg\t%s" % keys[key_i])
 		bone_category[keys[key_i]] = ""
-	
+		
+	category_description.push_back(str(1 + keys.size()) + "\tTimestamp\t%s" % "Animation time")
+	bone_category["Animation time"] = 0.0
 	var bone : Dictionary
 	bone["Bone X global location in meters"] = 0.0
 	bone["Bone Y global location in meters"] = 0.0
@@ -83,7 +85,6 @@ static func bone_create():
 	bone["Bone parent X global scale in meters"] = 1.0
 	bone["Bone parent Y global scale in meters"] = 1.0
 	bone["Bone parent Z global scale in meters"] = 1.0
-	bone["Animation time"] = 0.0
 	var columns_description : PackedStringArray		
 	for key in bone.keys():
 		columns_description.push_back(str(bone_category.size() + columns_description.size()) + "\tNum\t%s" % key)

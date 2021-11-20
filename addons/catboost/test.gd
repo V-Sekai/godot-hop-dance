@@ -48,20 +48,20 @@ func _write_test(scene):
 					var bone_parent = skeleton.get_bone_parent(bone_i)
 					if bone_parent != -1:
 						var bone_parent_pose = skeleton.get_bone_global_pose(bone_parent)
-						bone["Bone Parent X global location in meters"] = bone_pose.origin.x
-						bone["Bone Parent Y global location in meters"] = bone_pose.origin.y
-						bone["Bone Parent Z global location in meters"] = bone_pose.origin.z
+						bone["Bone parent X global location in meters"] = bone_pose.origin.x
+						bone["Bone parent Y global location in meters"] = bone_pose.origin.y
+						bone["Bone parent Z global location in meters"] = bone_pose.origin.z
 						var parent_basis = bone_parent_pose.basis.orthonormalized()
-						bone["Bone Parent truncated normalized basis axis x 0"] = parent_basis.x.x
-						bone["Bone Parent truncated normalized basis axis x 1"] = parent_basis.x.y
-						bone["Bone Parent truncated normalized basis axis x 2"] = parent_basis.x.z
-						bone["Bone Parent truncated normalized basis axis y 0"] = parent_basis.y.x
-						bone["Bone Parent truncated normalized basis axis y 1"] = parent_basis.y.y
-						bone["Bone Parent truncated normalized basis axis y 2"] = parent_basis.y.z
+						bone["Bone parent truncated normalized basis axis x 0"] = parent_basis.x.x
+						bone["Bone parent truncated normalized basis axis x 1"] = parent_basis.x.y
+						bone["Bone parent truncated normalized basis axis x 2"] = parent_basis.x.z
+						bone["Bone parent truncated normalized basis axis y 0"] = parent_basis.y.x
+						bone["Bone parent truncated normalized basis axis y 1"] = parent_basis.y.y
+						bone["Bone parent truncated normalized basis axis y 2"] = parent_basis.y.z
 						var parent_scale = bone_parent_pose.basis.get_scale()
-						bone["Bone Parent X global scale in meters"] = parent_scale.x
-						bone["Bone Parent Y global scale in meters"] = parent_scale.y
-						bone["Bone Parent Z global scale in meters"] = parent_scale.z
+						bone["Bone parent X global scale in meters"] = parent_scale.x
+						bone["Bone parent Y global scale in meters"] = parent_scale.y
+						bone["Bone parent Z global scale in meters"] = parent_scale.z
 					if bone_i != -1:
 						bone["BONE"] = skeleton.get_bone_name(bone_i)
 						if bone_parent != -1:
@@ -69,14 +69,8 @@ func _write_test(scene):
 							if not parent_bone.is_empty():
 								bone["BONE_PARENT"] = parent_bone
 					bone["VRM_BONE"] = vrm_def_bone_name
-					bone["Label"] = 1
 					bone["ANIMATION"] = "T-Pose"
-					skel[bone_i] = bone
-				if skel.size():
-					for bone in skel:
-						if bone == null:
-							continue
-						file.store_csv_line(bone.values(), "\t")
+					file.store_csv_line(bone.values(), "\t")
 
 		var child_count : int = node.get_child_count()
 		for i in child_count:
