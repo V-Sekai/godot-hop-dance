@@ -158,10 +158,9 @@ func _write_test(scene):
 					else:
 						bone["BONE_PARENT"] = bone["BONE"]
 					var version = vrm_extension["vrm_meta"].get("specVersion")
-					if version == null:
-						version = ""
+					if version == null or version.is_empty():
+						version = "1.0"
 					bone["SPECIFICATION_VERSION"] = version
-					bone["ANIMATION"] = "VRM Character in T-Pose"
 					bone["VRM_BONE"] = vrm_def_bone_name
 					bone["Label"] = 0
 					if bone_map.has(bone["BONE"]):

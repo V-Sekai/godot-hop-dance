@@ -71,9 +71,9 @@ func _write_test(scene):
 						bone["Bone parent Y global scale in meters"] = parent_scale.y
 						bone["Bone parent Z global scale in meters"] = parent_scale.z
 					bone["BONE"] = skeleton.get_bone_name(bone_i)
-					bone["Label"] = 0
+					# Assume wrong answers are correct
+					bone["Label"] = 1
 					if bone_map.has(bone["BONE"]):
-						bone["Label"] = 1
 						bone["VRM_BONE"] = bone_map[bone["BONE"]]
 					else:
 						bone["VRM_BONE"] = vrm_def_bone_name
@@ -83,7 +83,6 @@ func _write_test(scene):
 							bone["BONE_PARENT"] = parent_bone
 					else:
 						bone["BONE_PARENT"] = bone["BONE"]
-					bone["ANIMATION"] = "T-Pose"
 					file.store_csv_line(bone.values(), "\t")
 
 		var child_count : int = node.get_child_count()
