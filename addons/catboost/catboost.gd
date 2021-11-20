@@ -28,7 +28,7 @@ static func bone_create():
 	var keys = ["SPECIFICATION_VERSION", "ANIMATION", "BONE", "BONE_PARENT", "VRM_BONE"
 	, "TITLE", "AUTHOR"]
 	for key_i in keys.size():
-		category_description.push_back(str(1 + key_i) + "\tCateg\t%s" % keys[key_i])
+		category_description.push_back(str(1 + key_i) + "\tText\t%s" % keys[key_i])
 		bone_category[keys[key_i]] = ""
 	
 	var bone : Dictionary

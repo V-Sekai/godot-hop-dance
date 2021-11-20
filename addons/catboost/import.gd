@@ -19,6 +19,14 @@ func _write_test(scene):
 	file.store_string(file_string)
 	var file_description = File.new()
 	file.open(catboost.train_path, File.WRITE)
+	var vrm_extension = scene
+	var bone_map : Dictionary
+	var human_map : Dictionary
+	if vrm_extension.get("vrm_meta"):
+		human_map = vrm_extension["vrm_meta"]["humanoid_bone_mapping"]
+	var keys = human_map.keys()
+	for key in keys:
+		bone_map[human_map[key]] = key
 	var queue : Array # Node
 	queue.push_back(scene)
 	while not queue.is_empty():
@@ -29,28 +37,36 @@ func _write_test(scene):
 			var anims = node.get_animation_list()
 			for anim_i in anims:
 				var animation = node.get_animation(anim_i)
+				ap.play(animation.resource_name)
+				ap.stop(true)
 				var anim_length : float = animation.length
-				for track_i in animation.get_track_count():
-					var path : String = animation.track_get_path(track_i)
-					if str(path).find(":") == -1:
-						continue
-					var bone_name = path.split(":")[1]
-					var new_path = path.split(":")[0]
-					var skeleton_node = scene.get_node(new_path)
-					if skeleton_node is Skeleton3D:
+				for vrm_def_bone_name in catboost.vrm_humanoid_bones:
+					for track_i in animation.get_track_count():
+						var path : String = animation.track_get_path(track_i)
+						if str(path).find(":") == -1:
+							continue
+						var bone_name = path.split(":")[1]
+						var new_path = path.split(":")[0]
+						var skeleton_node = scene.get_node(new_path)
+						if not skeleton_node is Skeleton3D:
+							continue
 						var skeleton : Skeleton3D = skeleton_node
-						var skel : Array
-						skel.resize(skeleton.get_bone_count())
-						var fps : int = 60
+						var fps : int = 30
 						var count : int = anim_length * fps
 						for count_i in count:
-							ap.seek(count_i / fps, true)
+							ap.seek(float(count_i) / fps, true)
 							var bone_i = skeleton.find_bone(bone_name)
 							var title : String
 							var author : String
 							var columns_description : PackedStringArray
 							var first : bool = true
 							var bone : Dictionary = catboost.bone_create().bone
+							bone["BONE"] = bone_name
+							if catboost.vrm_humanoid_bones.has(bone_name):
+								bone["VRM_BONE"] = bone_name
+							else:
+								bone["VRM_BONE"] = vrm_def_bone_name
+								bone["Lable"] = 0
 							var bone_pose = skeleton.get_bone_global_pose(bone_i)
 							bone["Bone X global location in meters"] = bone_pose.origin.x
 							bone["Bone Y global location in meters"] = bone_pose.origin.y
@@ -84,26 +100,19 @@ func _write_test(scene):
 								bone["Bone Parent Y global scale in meters"] = parent_scale.y
 								bone["Bone Parent Z global scale in meters"] = parent_scale.z
 							bone["Animation Time"] = float(count_i) / fps
-							bone["BONE"] = bone_name							
+							bone["Label"] = 1
 							var bone_parent_key = "BONE_PARENT"
 							var parent_bone = skeleton.get_bone_name(bone_parent)
 							if not parent_bone.is_empty():
 								bone[bone_parent_key] = parent_bone
-							var vrm_bone_name_key = "VRM_BONE"
-							if catboost.vrm_humanoid_bones.has(skeleton.get_bone_name(bone_i)):
-								bone[vrm_bone_name_key] = skeleton.get_bone_name(bone_i)
-							bone["ANIMATION"] = animation.resource_name
 							file.store_csv_line(bone.values(), "\t")
 		elif node is Skeleton3D:
 			var skeleton : Skeleton3D = node
-			var vrm_extension = scene
 			var title : String = vrm_extension["vrm_meta"].get("title")
 			var author : String = vrm_extension["vrm_meta"].get("author")
-			var skel : Array
-			skel.resize(skeleton.get_bone_count())
 			for vrm_def_bone_name in catboost.vrm_humanoid_bones:
 				for bone_i in skeleton.get_bone_count():
-					var bone : Dictionary = catboost.bone_create()
+					var bone : Dictionary = catboost.bone_create().bone
 					var bone_pose = skeleton.get_bone_global_pose(bone_i)
 					bone["Bone X global location in meters"] = bone_pose.origin.x
 					bone["Bone Y global location in meters"] = bone_pose.origin.y
@@ -140,21 +149,17 @@ func _write_test(scene):
 					var parent_bone = skeleton.get_bone_name(bone_parent)
 					if not parent_bone.is_empty():
 						bone[ "BONE_PARENT"] = parent_bone
-					bone["VRM_BONE"] = vrm_def_bone_name
-					bone["Label"] = 0
 					var version = vrm_extension["vrm_meta"].get("specVersion")
 					if version == null:
 						version = ""
 					bone["SPECIFICATION_VERSION"] = version
-					bone["ANIMATION"] = "T-Pose"
-					skel[bone_i] = bone
-				for humanBoneName in vrm_extension["vrm_meta"]["humanoid_bone_mapping"]:
-					var bone_name = vrm_extension["vrm_meta"]["humanoid_bone_mapping"][humanBoneName]
-					var bone_id = skeleton.find_bone(bone_name)
-					if bone_id != -1:
-						skel[bone_id]["VRM_BONE"] = humanBoneName
-						skel[bone_id]["Label"] = 1
-				for bone in skel:
+					bone["ANIMATION"] = "VRM Character in T-Pose"
+					if bone_map.has(bone["BONE"]):						
+						bone["VRM_BONE"] = bone_map[bone["BONE"]]
+						bone["Label"] = 1
+					else:
+						bone["VRM_BONE"] = vrm_def_bone_name
+						bone["Label"] = 0
 					file.store_csv_line(bone.values(), "\t")
 		var child_count : int = node.get_child_count()
 		for i in child_count:
