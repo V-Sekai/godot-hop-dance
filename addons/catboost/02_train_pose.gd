@@ -18,8 +18,22 @@ var vrm_bone_definition : PackedStringArray  = ["hips","leftUpperLeg","rightUppe
 func _post_import(scene):
 	_write_test(scene)
 	return scene
-	
+
+var catboost = load("res://addons/catboost/catboost.gd")
+
 func _write_test(scene):
+	var file = File.new()
+	file.open(catboost.train_path, File.WRITE)
+	file.close()
+	var train : String = file.get_as_text()
+	file.open(catboost.train_description_path, File.WRITE)
+	var init_dict = catboost.bone_create()
+	var description = init_dict.description
+	file.store_string(description)
+	var file_description = File.new()
+	file.open(catboost.train_path, File.WRITE)
+	file.store_csv_line(init_dict.bone.keys(), "\t")
+	file.store_string(train)
 	var queue : Array # Node
 	queue.push_back(scene)
 	while not queue.is_empty():
@@ -27,38 +41,12 @@ func _write_test(scene):
 		var node = front
 		if node is Skeleton3D:
 			var skeleton : Skeleton3D = node
-			var title : String
-			var author : String
 			var skel : Array
 			skel.resize(skeleton.get_bone_count())
 			var columns_description : PackedStringArray
 			var first : bool = true
-			for bone_i in skeleton.get_bone_count():		
-				var bone : Dictionary
-				bone["Bone X global location in meters"] = 0.0
-				bone["Bone Y global location in meters"] = 0.0
-				bone["Bone Z global location in meters"] = 0.0
-				bone["Bone truncated normalized basis axis x 0"] = Basis().x.x
-				bone["Bone truncated normalized basis axis x 1"] = Basis().x.y
-				bone["Bone truncated normalized basis axis x 2"] = Basis().x.z
-				bone["Bone truncated normalized basis axis y 0"] = Basis().y.x
-				bone["Bone truncated normalized basis axis y 1"] = Basis().y.y
-				bone["Bone truncated normalized basis axis y 2"] = Basis().y.z	
-				bone["Bone X global scale in meters"] = 1.0
-				bone["Bone Y global scale in meters"] = 1.0
-				bone["Bone Z global scale in meters"] = 1.0
-				bone["Bone Parent X global location in meters"] = 0.0
-				bone["Bone Parent Y global location in meters"] = 0.0
-				bone["Bone Parent Z global location in meters"] = 0.0
-				bone["Bone Parent truncated normalized basis axis x 0"] = Basis().x.x
-				bone["Bone Parent truncated normalized basis axis x 1"] = Basis().x.y
-				bone["Bone Parent truncated normalized basis axis x 2"] = Basis().x.z
-				bone["Bone Parent truncated normalized basis axis y 0"] = Basis().y.x
-				bone["Bone Parent truncated normalized basis axis y 1"] = Basis().y.y
-				bone["Bone Parent truncated normalized basis axis y 2"] = Basis().y.z
-				bone["Bone Parent X global scale in meters"] = 0.0
-				bone["Bone Parent Y global scale in meters"] = 0.0
-				bone["Bone Parent Z global scale in meters"] = 0.0
+			for bone_i in skeleton.get_bone_count():
+				var bone : Dictionary = init_dict.bone
 				var bone_pose = skeleton.get_bone_global_pose(bone_i)
 				bone["Bone X global location in meters"] = bone_pose.origin.x
 				bone["Bone Y global location in meters"] = bone_pose.origin.y
@@ -96,69 +84,23 @@ func _write_test(scene):
 					var keys = bone.keys()
 					for key_i in range(keys.size()):
 						columns_description.push_back(str(key_i) + "\tNum\t" + keys[key_i])
-				# Text categories
-				var title_key = "Title"
-				if first:
-					columns_description.push_back(str(columns_description.size()) + "\tCateg\t" % title_key)
-				bone["Title"] = title_key
-				var author_key = "Author"
-				if first:
-					columns_description.push_back(str(columns_description.size()) + "\tCateg\t" % author_key)
-				bone[author_key] = author
-				
-				var name_key = "Bone Name"
-				if first:
-					columns_description.push_back(str(columns_description.size()) + "\tCateg\t" % name_key)
-				bone[name_key] = skeleton.get_bone_name(bone_i)
-				
-				var bone_parent_key = "Bone Parent"
-				if first:
-					columns_description.push_back(str(columns_description.size()) + "\tCateg\t" % bone_parent_key)
+				bone["Bone"] = skeleton.get_bone_name(bone_i)
 				var parent_bone = skeleton.get_bone_name(bone_parent)
-				if parent_bone.is_empty():
-					parent_bone = ""
-				bone[bone_parent_key] = parent_bone
-				
-				var vrm_bone_name_key = "Corresponding VRM Bone"
-				if first:
-					columns_description.push_back(str(bone.keys().size()) + "\tCateg\t%s" % vrm_bone_name_key)
+				if not parent_bone.is_empty():
+					bone["Bone Parent"] = parent_bone
 				if vrm_bone_definition.has(skeleton.get_bone_name(bone_i)):
-					bone[vrm_bone_name_key] = skeleton.get_bone_name(bone_i)
+					bone["VRM bone"] = skeleton.get_bone_name(bone_i)
 				else:
-					bone[vrm_bone_name_key] = "No VRM Bone"
-				var version_key = "Specification Version"
-				if first:
-					columns_description.push_back(str(bone.keys().size()) + "\tCateg\t" % version_key)
-				bone[version_key] = ""
-				var animation_key = "Animation"
-				if first:
-					columns_description.push_back(str(bone.keys().size()) + "\tCateg\t" % animation_key)
-				bone[animation_key] = "T-Pose"
-				if first:
-					first = false
+					bone["VRM bone"] = "hips"
+				bone["Specification version"] = ""
+				bone["Animation"] = "T-Pose"
 				skel[bone_i] = bone
-			var file_cd = File.new()
-			file_cd.open("user://cd.txt", File.WRITE)
-			var file_string : String
-			for string in columns_description:
-				file_string += string + "\n"
-			file_cd.store_string(file_string)
-			file_cd.close()
-			var header : Array
-			var train : String 
-			var file = File.new()
-			file.open("user://train.tsv", File.READ)
-			train = file.get_as_text()
-			file.close()
-			var current_file = File.new()
-			current_file.open("user://train.tsv", File.READ)
 			if skel.size():
 				for bone in skel:
-					current_file.store_csv_line(bone.values(), "\t")
-			current_file.close()
+					file.store_csv_line(bone.values(), "\t")
 		var child_count : int = node.get_child_count()
 		for i in child_count:
 			queue.push_back(node.get_child(i))
-		queue.pop_front()		
-
+		queue.pop_front()
+	file.close()
 	return scene
