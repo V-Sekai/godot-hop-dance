@@ -123,6 +123,7 @@ func _write_test(scene):
 						var parent_bone = skeleton.get_bone_name(bone_parent)
 						if not parent_bone.is_empty():
 							bone[bone_parent_key] = parent_bone
+						bone["BONE_PARENT_CAPITALIZED"] = bone[bone_parent_key].capitalize()
 						var version = vrm_extension["vrm_meta"].get("specVersion")
 						if version == null or version.is_empty():
 							version = "VERSION_NONE"
@@ -130,8 +131,6 @@ func _write_test(scene):
 						file.store_csv_line(bone.values(), "\t")
 		elif node is Skeleton3D:
 			var skeleton : Skeleton3D = node
-			var title : String = vrm_extension["vrm_meta"].get("title")
-			var author : String = vrm_extension["vrm_meta"].get("author")
 			for vrm_def_bone_name in catboost.vrm_humanoid_bones:
 				for bone_i in skeleton.get_bone_count():
 					var bone : Dictionary = catboost.bone_create().bone
@@ -189,6 +188,7 @@ func _write_test(scene):
 						bone["BONE_PARENT"] = parent_bone
 					else:
 						bone["BONE_PARENT"] = bone["BONE"]
+					bone["BONE_PARENT_CAPITALIZED"] = bone["BONE_PARENT"].capitalize()
 					if bone_map.has(bone["BONE"]):
 						bone["Label"] = bone_map[bone["BONE"]]
 					var version = vrm_extension["vrm_meta"].get("specVersion")

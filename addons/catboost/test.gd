@@ -87,7 +87,7 @@ func _write_test(scene):
 					if not parent_bone.is_empty():
 						bone["BONE_PARENT"] = parent_bone
 				else:
-					bone["BONE_PARENT"] = bone["BONE"]
+					bone["BONE_PARENT"] = bone["BONE"].capitalize()
 				var version = "VERSION_NONE"
 				if vrm_extension.get("vrm_meta"):
 					vrm_extension["vrm_meta"].get("specVersion")
