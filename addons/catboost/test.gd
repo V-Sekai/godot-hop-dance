@@ -76,7 +76,7 @@ func _write_test(scene):
 					if bone_map.has(bone["BONE"]):
 						bone["VRM_BONE"] = bone_map[bone["BONE"]]
 					else:
-						bone["VRM_BONE"] = vrm_def_bone_name
+						bone["VRM_BONE"] = "None"
 					if bone_parent != -1:
 						var parent_bone = skeleton.get_bone_name(bone_parent)
 						if not parent_bone.is_empty():

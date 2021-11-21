@@ -30,7 +30,7 @@ static func bone_create():
 		category_description.push_back(str(1 + key_i) + "\tCateg\t%s" % keys[key_i])
 		bone_category[keys[key_i]] = ""
 	bone_category["SPECIFICATION_VERSION"] = "1.0"
-	bone_category["VRM_BONE"] = "hips"
+	bone_category["VRM_BONE"] = "VRM_BONE_NONE"
 	bone_category["BONE"] = "hips"
 	var bone : Dictionary
 	bone["Bone X global location in meters"] = 0.0

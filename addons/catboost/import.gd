@@ -161,7 +161,6 @@ func _write_test(scene):
 					if version == null or version.is_empty():
 						version = "1.0"
 					bone["SPECIFICATION_VERSION"] = version
-					bone["VRM_BONE"] = vrm_def_bone_name
 					bone["Label"] = 0
 					if bone_map.has(bone["BONE"]):
 						bone["VRM_BONE"] = bone["BONE"]
