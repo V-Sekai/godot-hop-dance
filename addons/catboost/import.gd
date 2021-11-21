@@ -182,11 +182,11 @@ func _write_test(scene):
 						bone["Bone parent Y global scale in meters"] = parent_scale.y
 						bone["Bone parent Z global scale in meters"] = parent_scale.z
 					bone["BONE"] = skeleton.get_bone_name(bone_i)
-					bone["BONE_CAPITALIZED"] = skeleton.get_bone_name(bone_i).capitalize()
+					bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
 					var parent_bone = skeleton.get_bone_name(bone_parent)
 					if not parent_bone.is_empty():
 						bone["BONE_PARENT"] = parent_bone
-					bone["BONE_PARENT_CAPITALIZED"] = bone[bone_parent_key].capitalize()
+					bone["BONE_PARENT_CAPITALIZED"] = bone["BONE_PARENT"].capitalize()
 					if bone_map.has(bone["BONE"]):
 						bone["Label"] = bone_map[bone["BONE"]]
 					var version = vrm_extension["vrm_meta"].get("specVersion")
