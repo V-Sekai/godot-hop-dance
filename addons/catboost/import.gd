@@ -29,6 +29,7 @@ func _post_import(scene):
 	return scene
 
 var catboost = load("res://addons/catboost/catboost.gd")
+var print_skeleton_neighbours_text_cache : Dictionary
 
 func _write_test(scene):	
 	var old_file = File.new()
@@ -92,6 +93,7 @@ func _write_test(scene):
 						var bone : Dictionary = catboost.bone_create().bone
 						bone["BONE"] = bone_name
 						bone["BONE_CAPITALIZED"] = bone_name.capitalize()
+						bone["BONE_HIERARCHY"] = catboost.print_skeleton_neighbours_text(print_skeleton_neighbours_text_cache, skeleton, bone["BONE"])
 						var bone_rest = skeleton.get_bone_rest(bone_i)
 						bone["Bone rest X global origin in meters"] = bone_rest.origin.x
 						bone["Bone rest Y global origin in meters"] = bone_rest.origin.x
@@ -145,7 +147,6 @@ func _write_test(scene):
 						var parent_bone = skeleton.get_bone_name(bone_parent)
 						if not parent_bone.is_empty():
 							bone[bone_parent_key] = parent_bone
-						bone["BONE_PARENT_CAPITALIZED"] = bone[bone_parent_key].capitalize()
 						var version = vrm_extension["vrm_meta"].get("specVersion")
 						if version == null or version.is_empty():
 							version = "VERSION_NONE"
@@ -203,12 +204,14 @@ func _write_test(scene):
 						bone["Bone parent X global scale in meters"] = parent_scale.x
 						bone["Bone parent Y global scale in meters"] = parent_scale.y
 						bone["Bone parent Z global scale in meters"] = parent_scale.z
+					if bone["BONE"].is_empty():
+						continue
 					bone["BONE"] = skeleton.get_bone_name(bone_i)
+					var hierachy : String = catboost.print_skeleton_neighbours_text(print_skeleton_neighbours_text_cache, skeleton, bone["BONE"])
+					if not hierachy.is_empty():
+						bone["BONE_HIERARCHY"] = hierachy
 					bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
 					var parent_bone = skeleton.get_bone_name(bone_parent)
-					if not parent_bone.is_empty():
-						bone["BONE_PARENT"] = parent_bone
-					bone["BONE_PARENT_CAPITALIZED"] = bone["BONE_PARENT"].capitalize()
 					if bone_map.has(bone["BONE"]):
 						bone["Label"] = bone_map[bone["BONE"]]
 					var version = vrm_extension["vrm_meta"].get("specVersion")

@@ -48,13 +48,20 @@ static func bone_create():
 	category_description.push_back(str(category_description.size()) + "\t%s" % label_key)
 	bone_category[label_key] = "VRM_BONE_NONE"
 	var version_key = "SPECIFICATION_VERSION"
+	bone_category[version_key] = "1.0"	
 	category_description.push_back(str(category_description.size()) + "\tAuxiliary\t%s" % version_key)
 	bone_category[version_key] = "1.0"
-	var keys = ["BONE", "BONE_PARENT", "BONE_CAPITALIZED", "BONE_PARENT_CAPITALIZED"]
+	var hierachy_key = "BONE_HIERARCHY"
+	category_description.push_back(str(category_description.size()) + "\tText\t%s" % hierachy_key)
+	bone_category[hierachy_key] = "BONE_HIERARCHY_NONE"	
+	var bone_capitalized_key = "BONE_CAPITALIZED"
+	category_description.push_back(str(category_description.size()) + "\tText\t%s" % bone_capitalized_key)
+	bone_category[bone_capitalized_key] = "BONE_CAPITALIZED_NONE"	
+	var keys = ["BONE"]
 	for key_i in keys.size():
 		category_description.push_back(str(category_description.size()) + "\tCateg\t%s" % keys[key_i])
 		bone_category[keys[key_i]] = ""
-	bone_category["BONE"] = "hips"
+	bone_category["BONE"] = "BONE_NONE"	
 	var bone : Dictionary
 	bone["Animation time"] = 0
 	bone["Bone rest X global origin in meters"] = 0.0
@@ -129,3 +136,54 @@ static func bone_create():
 		"bone": bone_category,
 		"description": category_description + columns_description,
 	}
+
+static func print_skeleton_neighbours_text(print_skeleton_neighbours_text_cache : Dictionary, skeleton, bone_name):
+	if print_skeleton_neighbours_text_cache.has([skeleton, bone_name]):
+		return print_skeleton_neighbours_text_cache[[skeleton, bone_name]]
+	if bone_name.is_empty():
+		return
+	var bone_list_text : String
+	if skeleton.find_bone(bone_name) == -1:
+		return bone_list_text
+	var bone = skeleton.find_bone(bone_name)
+	var parents : PackedFloat32Array
+	for bone_i in bone:
+		var bone_global_pose = skeleton.get_bone_global_pose(bone_i)
+		var origin = bone_global_pose.origin
+		parents.push_back(origin.distance_to(Vector3(0, 0, 0)))
+	var neighbor_list = find_neighbor_joint(parents, 2.0)
+	for bone_i in neighbor_list.size():
+		if bone_i != 0:
+			bone_list_text = bone_list_text + " | "
+		bone_list_text += skeleton.get_bone_name(bone_i)
+	print_skeleton_neighbours_text_cache[[skeleton, bone_name]] = bone_list_text
+	return bone_list_text
+
+
+static func find_neighbor_joint(parents, threshold):
+# The code in find_neighbor_joint(parents, threshold) is adapted
+# from deep-motion-editing by kfiraberman, PeizhuoLi and HalfSummer11.
+	var n_joint = parents.size()
+	var dist_mat : PackedFloat32Array
+	dist_mat.resize(n_joint * n_joint)
+	for i in parents.size():
+		var p = parents[i]
+		if i != 0:
+			var result = 1
+			dist_mat[p * i + 1] = result
+			dist_mat[i * p + p] = dist_mat[p * i + 1]
+#   Floyd's algorithm
+	for k in range(n_joint):
+		for i in range(n_joint):
+			for j in range(n_joint):
+				dist_mat[i * j + j] = min(dist_mat[i * j + j], dist_mat[i * k + k] + dist_mat[k * j + j])
+
+	var neighbor_list : Array = [].duplicate()
+	for i in range(n_joint):
+		var neighbor = [].duplicate()
+		for j in range(n_joint):
+			if dist_mat[i * j + j] <= threshold:
+				neighbor.append(j)
+		neighbor_list.append(neighbor)
+
+	return neighbor_list

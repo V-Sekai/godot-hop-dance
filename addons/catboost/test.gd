@@ -28,6 +28,7 @@ func _post_import(scene):
 	return scene
 
 var catboost = load("res://addons/catboost/catboost.gd")
+var print_skeleton_neighbours_text_cache : Dictionary
 
 func _write_test(scene):
 	var file = File.new()
@@ -103,11 +104,11 @@ func _write_test(scene):
 					bone["Bone parent Z global scale in meters"] = parent_scale.z
 				bone["BONE"] = skeleton.get_bone_name(bone_i)
 				bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
+				var hierarchy : String = catboost.print_skeleton_neighbours_text(print_skeleton_neighbours_text_cache, skeleton, bone["BONE"])
+				if not hierarchy.is_empty():
+					bone["BONE_HIERARCHY"] = hierarchy
 				if bone_parent != -1:
 					var parent_bone = skeleton.get_bone_name(bone_parent)
-					if not parent_bone.is_empty():
-						bone["BONE_PARENT"] = parent_bone
-				bone["BONE_PARENT_CAPITALIZED"] = bone["BONE_PARENT"].capitalize()
 				var version = "VERSION_NONE"
 				if vrm_extension.get("vrm_meta"):
 					vrm_extension["vrm_meta"].get("specVersion")
