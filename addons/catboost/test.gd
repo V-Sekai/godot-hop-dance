@@ -65,7 +65,6 @@ func _write_test(scene):
 					bone["Bone parent Z global scale in meters"] = parent_scale.z
 				bone["BONE"] = skeleton.get_bone_name(bone_i)
 				# Assume wrong answers are correct
-				bone["Label"] = 1
 				if bone_parent != -1:
 					var parent_bone = skeleton.get_bone_name(bone_parent)
 					if not parent_bone.is_empty():

@@ -161,10 +161,6 @@ func _write_test(scene):
 					if version == null or version.is_empty():
 						version = "1.0"
 					bone["SPECIFICATION_VERSION"] = version
-					bone["Label"] = 0
-					if bone_map.has(bone["BONE"]):
-						bone["VRM_BONE"] = bone["BONE"]
-						bone["Label"] = 1
 					file.store_csv_line(bone.values(), "\t")
 		var child_count : int = node.get_child_count()
 		for i in child_count:
