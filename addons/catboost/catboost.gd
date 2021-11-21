@@ -28,13 +28,28 @@ static func bone_create():
 	var version_key = "SPECIFICATION_VERSION"
 	category_description.push_back(str(category_description.size()) + "\tAuxiliary\t%s" % version_key)
 	bone_category[version_key] = "1.0"
+	var bone_capitalized_key = "BONE_CAPITALIZED"
+	category_description.push_back(str(category_description.size()) + "\tText\t%s" % bone_capitalized_key)
+	bone_category[bone_capitalized_key] = "BONE_CAPITAL_NONE"
 	var keys = ["BONE", "BONE_PARENT"]
 	for key_i in keys.size():
-		category_description.push_back(str(2 + key_i) + "\tCateg\t%s" % keys[key_i])
+		category_description.push_back(str(3 + key_i) + "\tCateg\t%s" % keys[key_i])
 		bone_category[keys[key_i]] = ""
 	bone_category["BONE"] = "hips"
 	var bone : Dictionary
 	bone["Animation time"] = 0
+	bone["Bone rest X global origin in meters"] = 0.0
+	bone["Bone rest Y global origin in meters"] = 0.0
+	bone["Bone rest Z global origin in meters"] = 0.0
+	bone["Bone rest truncated normalized basis axis x 0"] = Basis().x.x
+	bone["Bone rest truncated normalized basis axis x 1"] = Basis().x.y
+	bone["Bone rest truncated normalized basis axis x 2"] = Basis().x.z
+	bone["Bone rest truncated normalized basis axis y 0"] = Basis().y.x
+	bone["Bone rest truncated normalized basis axis y 1"] = Basis().y.y
+	bone["Bone rest truncated normalized basis axis y 2"] = Basis().y.z	
+	bone["Bone rest X global scale in meters"] = 1.0
+	bone["Bone rest Y global scale in meters"] = 1.0
+	bone["Bone rest Z global scale in meters"] = 1.0
 	bone["Bone X global origin in meters"] = 0.0
 	bone["Bone Y global origin in meters"] = 0.0
 	bone["Bone Z global origin in meters"] = 0.0

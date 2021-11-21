@@ -69,6 +69,22 @@ func _write_test(scene):
 						var first : bool = true
 						var bone : Dictionary = catboost.bone_create().bone
 						bone["BONE"] = bone_name
+						bone["BONE_CAPITALIZED"] = bone_name.capitalize()
+						var bone_rest = skeleton.get_bone_rest(bone_i)
+						bone["Bone rest X global origin in meters"] = bone_rest.origin.x
+						bone["Bone rest Y global origin in meters"] = bone_rest.origin.x
+						bone["Bone rest Z global origin in meters"] = bone_rest.origin.x
+						var bone_rest_basis = bone_rest.basis.orthonormalized()
+						bone["Bone rest truncated normalized basis axis x 0"] = bone_rest_basis.x.x
+						bone["Bone rest truncated normalized basis axis x 1"] = bone_rest_basis.x.y
+						bone["Bone rest truncated normalized basis axis x 2"] = bone_rest_basis.x.z
+						bone["Bone rest truncated normalized basis axis y 0"] = bone_rest_basis.y.x
+						bone["Bone rest truncated normalized basis axis y 1"] = bone_rest_basis.y.y
+						bone["Bone rest truncated normalized basis axis y 2"] = bone_rest_basis.y.z
+						var bone_rest_scale = bone_rest.basis.get_scale()	
+						bone["Bone rest X global scale in meters"] = bone_rest_scale.x
+						bone["Bone rest Y global scale in meters"] = bone_rest_scale.y
+						bone["Bone rest Z global scale in meters"] = bone_rest_scale.z
 						var bone_pose = skeleton.get_bone_global_pose(bone_i)
 						bone["Bone X global origin in meters"] = bone_pose.origin.x
 						bone["Bone Y global origin in meters"] = bone_pose.origin.y
@@ -119,6 +135,21 @@ func _write_test(scene):
 			for vrm_def_bone_name in catboost.vrm_humanoid_bones:
 				for bone_i in skeleton.get_bone_count():
 					var bone : Dictionary = catboost.bone_create().bone
+					var bone_rest = skeleton.get_bone_rest(bone_i)
+					bone["Bone rest X global origin in meters"] = bone_rest.origin.x
+					bone["Bone rest Y global origin in meters"] = bone_rest.origin.x
+					bone["Bone rest Z global origin in meters"] = bone_rest.origin.x
+					var bone_rest_basis = bone_rest.basis.orthonormalized()
+					bone["Bone rest truncated normalized basis axis x 0"] = bone_rest_basis.x.x
+					bone["Bone rest truncated normalized basis axis x 1"] = bone_rest_basis.x.y
+					bone["Bone rest truncated normalized basis axis x 2"] = bone_rest_basis.x.z
+					bone["Bone rest truncated normalized basis axis y 0"] = bone_rest_basis.y.x
+					bone["Bone rest truncated normalized basis axis y 1"] = bone_rest_basis.y.y
+					bone["Bone rest truncated normalized basis axis y 2"] = bone_rest_basis.y.z
+					var bone_rest_scale = bone_rest.basis.get_scale()	
+					bone["Bone rest X global scale in meters"] = bone_rest_scale.x
+					bone["Bone rest Y global scale in meters"] = bone_rest_scale.y
+					bone["Bone rest Z global scale in meters"] = bone_rest_scale.z
 					var bone_pose = skeleton.get_bone_global_pose(bone_i)
 					bone["Bone X global origin in meters"] = bone_pose.origin.x
 					bone["Bone Y global origin in meters"] = bone_pose.origin.y
@@ -152,6 +183,7 @@ func _write_test(scene):
 						bone["Bone parent Y global scale in meters"] = parent_scale.y
 						bone["Bone parent Z global scale in meters"] = parent_scale.z
 					bone["BONE"] = skeleton.get_bone_name(bone_i)
+					bone["BONE_CAPITALIZED"] = skeleton.get_bone_name(bone_i).capitalize()
 					var parent_bone = skeleton.get_bone_name(bone_parent)
 					if not parent_bone.is_empty():
 						bone["BONE_PARENT"] = parent_bone
