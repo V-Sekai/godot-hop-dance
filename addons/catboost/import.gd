@@ -123,7 +123,10 @@ func _write_test(scene):
 						var parent_bone = skeleton.get_bone_name(bone_parent)
 						if not parent_bone.is_empty():
 							bone[bone_parent_key] = parent_bone
-						bone["BONE_PARENT_CAPITALIZED"] = bone[bone_parent_key].capitalize()
+							bone["BONE_PARENT_CAPITALIZED"] = bone[bone_parent_key].capitalize()
+						else:
+							bone[bone_parent_key] = "BONE_PARENT_NONE"
+							bone["BONE_PARENT_CAPITALIZED"] = "BONE_PARENT_CAPITALIZE_NONE".capitalize()
 						var version = vrm_extension["vrm_meta"].get("specVersion")
 						if version == null or version.is_empty():
 							version = "VERSION_NONE"
@@ -186,9 +189,7 @@ func _write_test(scene):
 					var parent_bone = skeleton.get_bone_name(bone_parent)
 					if not parent_bone.is_empty():
 						bone["BONE_PARENT"] = parent_bone
-					else:
-						bone["BONE_PARENT"] = bone["BONE"]
-					bone["BONE_PARENT_CAPITALIZED"] = bone["BONE_PARENT"].capitalize()
+					bone["BONE_PARENT_CAPITALIZED"] = bone[bone_parent_key].capitalize()
 					if bone_map.has(bone["BONE"]):
 						bone["Label"] = bone_map[bone["BONE"]]
 					var version = vrm_extension["vrm_meta"].get("specVersion")

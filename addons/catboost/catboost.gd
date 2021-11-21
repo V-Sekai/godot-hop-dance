@@ -28,13 +28,7 @@ static func bone_create():
 	var version_key = "SPECIFICATION_VERSION"
 	category_description.push_back(str(category_description.size()) + "\tAuxiliary\t%s" % version_key)
 	bone_category[version_key] = "1.0"
-	var bone_capitalized_key = "BONE_CAPITALIZED"
-	category_description.push_back(str(category_description.size()) + "\tText\t%s" % bone_capitalized_key)
-	bone_category[bone_capitalized_key] = "BONE_CAPITAL_NONE"
-	var bone_parent_capitalized_key = "BONE_PARENT_CAPITALIZED"
-	category_description.push_back(str(category_description.size()) + "\tText\t%s" % bone_parent_capitalized_key)
-	bone_category[bone_parent_capitalized_key] = "BONE_PARENT_CAPITAL_NONE"
-	var keys = ["BONE", "BONE_PARENT"]
+	var keys = ["BONE", "BONE_PARENT", "BONE_CAPITALIZED", "BONE_PARENT_CAPITALIZED"]
 	for key_i in keys.size():
 		category_description.push_back(str(category_description.size()) + "\tCateg\t%s" % keys[key_i])
 		bone_category[keys[key_i]] = ""
