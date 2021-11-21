@@ -19,13 +19,7 @@ func _write_test(scene):
 	file.close()
 	file.open(catboost.test_path, File.WRITE)
 	file.store_csv_line(init_dict.bone.keys(), "\t")
-	var vrm_extension = scene
-	var bone_map : Dictionary
-	var human_map : Dictionary
-	if vrm_extension.get("vrm_meta"):
-		human_map = vrm_extension["vrm_meta"]["humanoid_bone_mapping"]
-	for key in human_map.keys():
-		bone_map[human_map[key]] = key
+	# NO CHEATING ANSWERS
 	var queue : Array # Node
 	queue.push_back(scene)
 	while not queue.is_empty():
@@ -35,55 +29,50 @@ func _write_test(scene):
 			var skeleton : Skeleton3D = node
 			var skel : Array
 			skel.resize(skeleton.get_bone_count())
-			for vrm_def_bone_name in catboost.vrm_humanoid_bones:
-				for bone_i in skeleton.get_bone_count():
-					var bone : Dictionary = init_dict.bone
-					var bone_pose = skeleton.get_bone_global_pose(bone_i)
-					bone["Bone X global location in meters"] = bone_pose.origin.x
-					bone["Bone Y global location in meters"] = bone_pose.origin.y
-					bone["Bone Z global location in meters"] = bone_pose.origin.z
-					var basis = bone_pose.basis.orthonormalized()
-					bone["Bone truncated normalized basis axis x 0"] = basis.x.x
-					bone["Bone truncated normalized basis axis x 1"] = basis.x.y
-					bone["Bone truncated normalized basis axis x 2"] = basis.x.z
-					bone["Bone truncated normalized basis axis y 0"] = basis.y.x
-					bone["Bone truncated normalized basis axis y 1"] = basis.y.y
-					bone["Bone truncated normalized basis axis y 2"] = basis.y.z
-					var scale = bone_pose.basis.get_scale()
-					bone["Bone X global scale in meters"] = scale.x
-					bone["Bone Y global scale in meters"] = scale.y
-					bone["Bone Z global scale in meters"] = scale.z
-					var bone_parent = skeleton.get_bone_parent(bone_i)
-					if bone_parent != -1:
-						var bone_parent_pose = skeleton.get_bone_global_pose(bone_parent)
-						bone["Bone parent X global location in meters"] = bone_pose.origin.x
-						bone["Bone parent Y global location in meters"] = bone_pose.origin.y
-						bone["Bone parent Z global location in meters"] = bone_pose.origin.z
-						var parent_basis = bone_parent_pose.basis.orthonormalized()
-						bone["Bone parent truncated normalized basis axis x 0"] = parent_basis.x.x
-						bone["Bone parent truncated normalized basis axis x 1"] = parent_basis.x.y
-						bone["Bone parent truncated normalized basis axis x 2"] = parent_basis.x.z
-						bone["Bone parent truncated normalized basis axis y 0"] = parent_basis.y.x
-						bone["Bone parent truncated normalized basis axis y 1"] = parent_basis.y.y
-						bone["Bone parent truncated normalized basis axis y 2"] = parent_basis.y.z
-						var parent_scale = bone_parent_pose.basis.get_scale()
-						bone["Bone parent X global scale in meters"] = parent_scale.x
-						bone["Bone parent Y global scale in meters"] = parent_scale.y
-						bone["Bone parent Z global scale in meters"] = parent_scale.z
-					bone["BONE"] = skeleton.get_bone_name(bone_i)
-					# Assume wrong answers are correct
-					bone["Label"] = 1
-					if bone_map.has(bone["BONE"]):
-						bone["VRM_BONE"] = bone_map[bone["BONE"]]
-					else:
-						bone["VRM_BONE"] = "None"
-					if bone_parent != -1:
-						var parent_bone = skeleton.get_bone_name(bone_parent)
-						if not parent_bone.is_empty():
-							bone["BONE_PARENT"] = parent_bone
-					else:
-						bone["BONE_PARENT"] = bone["BONE"]
-					file.store_csv_line(bone.values(), "\t")
+			for bone_i in skeleton.get_bone_count():
+				var bone : Dictionary = init_dict.bone
+				var bone_pose = skeleton.get_bone_global_pose(bone_i)
+				bone["Bone X global location in meters"] = bone_pose.origin.x
+				bone["Bone Y global location in meters"] = bone_pose.origin.y
+				bone["Bone Z global location in meters"] = bone_pose.origin.z
+				var basis = bone_pose.basis.orthonormalized()
+				bone["Bone truncated normalized basis axis x 0"] = basis.x.x
+				bone["Bone truncated normalized basis axis x 1"] = basis.x.y
+				bone["Bone truncated normalized basis axis x 2"] = basis.x.z
+				bone["Bone truncated normalized basis axis y 0"] = basis.y.x
+				bone["Bone truncated normalized basis axis y 1"] = basis.y.y
+				bone["Bone truncated normalized basis axis y 2"] = basis.y.z
+				var scale = bone_pose.basis.get_scale()
+				bone["Bone X global scale in meters"] = scale.x
+				bone["Bone Y global scale in meters"] = scale.y
+				bone["Bone Z global scale in meters"] = scale.z
+				var bone_parent = skeleton.get_bone_parent(bone_i)
+				if bone_parent != -1:
+					var bone_parent_pose = skeleton.get_bone_global_pose(bone_parent)
+					bone["Bone parent X global location in meters"] = bone_pose.origin.x
+					bone["Bone parent Y global location in meters"] = bone_pose.origin.y
+					bone["Bone parent Z global location in meters"] = bone_pose.origin.z
+					var parent_basis = bone_parent_pose.basis.orthonormalized()
+					bone["Bone parent truncated normalized basis axis x 0"] = parent_basis.x.x
+					bone["Bone parent truncated normalized basis axis x 1"] = parent_basis.x.y
+					bone["Bone parent truncated normalized basis axis x 2"] = parent_basis.x.z
+					bone["Bone parent truncated normalized basis axis y 0"] = parent_basis.y.x
+					bone["Bone parent truncated normalized basis axis y 1"] = parent_basis.y.y
+					bone["Bone parent truncated normalized basis axis y 2"] = parent_basis.y.z
+					var parent_scale = bone_parent_pose.basis.get_scale()
+					bone["Bone parent X global scale in meters"] = parent_scale.x
+					bone["Bone parent Y global scale in meters"] = parent_scale.y
+					bone["Bone parent Z global scale in meters"] = parent_scale.z
+				bone["BONE"] = skeleton.get_bone_name(bone_i)
+				# Assume wrong answers are correct
+				bone["Label"] = 1
+				if bone_parent != -1:
+					var parent_bone = skeleton.get_bone_name(bone_parent)
+					if not parent_bone.is_empty():
+						bone["BONE_PARENT"] = parent_bone
+				else:
+					bone["BONE_PARENT"] = bone["BONE"]
+				file.store_csv_line(bone.values(), "\t")
 
 		var child_count : int = node.get_child_count()
 		for i in child_count:
