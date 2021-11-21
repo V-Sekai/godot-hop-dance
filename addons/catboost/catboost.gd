@@ -24,16 +24,14 @@ static func bone_create():
 	var category_description : PackedStringArray
 	var label_key = "Label"
 	category_description.push_back(str(category_description.size()) + "\t%s" % label_key)
-
+	bone_category[label_key] = "VRM_BONE_NONE"
 	var version_key = "SPECIFICATION_VERSION"
 	category_description.push_back(str(category_description.size()) + "\tAuxiliary\t%s" % version_key)
-
-	bone_category[label_key] = "VRM_BONE_NONE"
+	bone_category[version_key] = "1.0"
 	var keys = ["BONE", "BONE_PARENT"]
 	for key_i in keys.size():
-		category_description.push_back(str(2 + key_i) + "\tText\t%s" % keys[key_i])
+		category_description.push_back(str(2 + key_i) + "\tCateg\t%s" % keys[key_i])
 		bone_category[keys[key_i]] = ""
-	bone_category["SPECIFICATION_VERSION"] = "1.0"
 	bone_category["BONE"] = "hips"
 	var bone : Dictionary
 	bone["Bone X global location in meters"] = 0.0
