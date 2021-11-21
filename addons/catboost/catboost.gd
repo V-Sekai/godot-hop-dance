@@ -34,9 +34,10 @@ static func bone_create():
 		bone_category[keys[key_i]] = ""
 	bone_category["BONE"] = "hips"
 	var bone : Dictionary
-	bone["Bone X global location in meters"] = 0.0
-	bone["Bone Y global location in meters"] = 0.0
-	bone["Bone Z global location in meters"] = 0.0
+	bone["Animation time"] = 0
+	bone["Bone X global origin in meters"] = 0.0
+	bone["Bone Y global origin in meters"] = 0.0
+	bone["Bone Z global origin in meters"] = 0.0
 	bone["Bone truncated normalized basis axis x 0"] = Basis().x.x
 	bone["Bone truncated normalized basis axis x 1"] = Basis().x.y
 	bone["Bone truncated normalized basis axis x 2"] = Basis().x.z
@@ -46,9 +47,9 @@ static func bone_create():
 	bone["Bone X global scale in meters"] = 1.0
 	bone["Bone Y global scale in meters"] = 1.0
 	bone["Bone Z global scale in meters"] = 1.0
-	bone["Bone parent X global location in meters"] = 0.0
-	bone["Bone parent Y global location in meters"] = 0.0
-	bone["Bone parent Z global location in meters"] = 0.0
+	bone["Bone parent X global origin in meters"] = 0.0
+	bone["Bone parent Y global origin in meters"] = 0.0
+	bone["Bone parent Z global origin in meters"] = 0.0
 	bone["Bone parent truncated normalized basis axis x 0"] = Basis().x.x
 	bone["Bone parent truncated normalized basis axis x 1"] = Basis().x.y
 	bone["Bone parent truncated normalized basis axis x 2"] = Basis().x.z
@@ -58,9 +59,9 @@ static func bone_create():
 	bone["Bone parent X global scale in meters"] = 1.0
 	bone["Bone parent Y global scale in meters"] = 1.0
 	bone["Bone parent Z global scale in meters"] = 1.0
-	bone["Bone X global location in meters"] = 0.0
-	bone["Bone Y global location in meters"] = 0.0
-	bone["Bone Z global location in meters"] = 0.0
+	bone["Bone X global origin in meters"] = 0.0
+	bone["Bone Y global origin in meters"] = 0.0
+	bone["Bone Z global origin in meters"] = 0.0
 	var basis : Basis
 	bone["Bone truncated normalized basis axis x 0"] = basis.x.x
 	bone["Bone truncated normalized basis axis x 1"] = basis.x.y
@@ -72,9 +73,9 @@ static func bone_create():
 	bone["Bone X global scale in meters"] = scale.x
 	bone["Bone Y global scale in meters"] = scale.y
 	bone["Bone Z global scale in meters"] = scale.z
-	bone["Bone parent X global location in meters"] = 0.0
-	bone["Bone parent Y global location in meters"] = 0.0
-	bone["Bone parent Z global location in meters"] = 0.0
+	bone["Bone parent X global origin in meters"] = 0.0
+	bone["Bone parent Y global origin in meters"] = 0.0
+	bone["Bone parent Z global origin in meters"] = 0.0
 	var parent_basis : Basis
 	bone["Bone parent truncated normalized basis axis x 0"] = parent_basis.x.x
 	bone["Bone parent truncated normalized basis axis x 1"] = parent_basis.x.y

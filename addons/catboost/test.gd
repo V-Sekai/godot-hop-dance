@@ -20,6 +20,7 @@ func _write_test(scene):
 	file.open(catboost.test_path, File.WRITE)
 	file.store_csv_line(init_dict.bone.keys(), "\t")
 	# NO CHEATING ANSWERS
+	var vrm_extension = scene
 	var queue : Array # Node
 	queue.push_back(scene)
 	while not queue.is_empty():
@@ -32,9 +33,9 @@ func _write_test(scene):
 			for bone_i in skeleton.get_bone_count():
 				var bone : Dictionary = init_dict.bone
 				var bone_pose = skeleton.get_bone_global_pose(bone_i)
-				bone["Bone X global location in meters"] = bone_pose.origin.x
-				bone["Bone Y global location in meters"] = bone_pose.origin.y
-				bone["Bone Z global location in meters"] = bone_pose.origin.z
+				bone["Bone X global origin in meters"] = bone_pose.origin.x
+				bone["Bone Y global origin in meters"] = bone_pose.origin.y
+				bone["Bone Z global origin in meters"] = bone_pose.origin.z
 				var basis = bone_pose.basis.orthonormalized()
 				bone["Bone truncated normalized basis axis x 0"] = basis.x.x
 				bone["Bone truncated normalized basis axis x 1"] = basis.x.y
@@ -49,9 +50,9 @@ func _write_test(scene):
 				var bone_parent = skeleton.get_bone_parent(bone_i)
 				if bone_parent != -1:
 					var bone_parent_pose = skeleton.get_bone_global_pose(bone_parent)
-					bone["Bone parent X global location in meters"] = bone_pose.origin.x
-					bone["Bone parent Y global location in meters"] = bone_pose.origin.y
-					bone["Bone parent Z global location in meters"] = bone_pose.origin.z
+					bone["Bone parent X global origin in meters"] = bone_pose.origin.x
+					bone["Bone parent Y global origin in meters"] = bone_pose.origin.y
+					bone["Bone parent Z global origin in meters"] = bone_pose.origin.z
 					var parent_basis = bone_parent_pose.basis.orthonormalized()
 					bone["Bone parent truncated normalized basis axis x 0"] = parent_basis.x.x
 					bone["Bone parent truncated normalized basis axis x 1"] = parent_basis.x.y
@@ -71,6 +72,10 @@ func _write_test(scene):
 						bone["BONE_PARENT"] = parent_bone
 				else:
 					bone["BONE_PARENT"] = bone["BONE"]
+				var version = vrm_extension["vrm_meta"].get("specVersion")
+				if version == null or version.is_empty():
+					version = "1.0"
+				bone["SPECIFICATION_VERSION"] = version
 				file.store_csv_line(bone.values(), "\t")
 
 		var child_count : int = node.get_child_count()

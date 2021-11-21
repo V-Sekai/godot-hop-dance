@@ -3,7 +3,7 @@
 ```bash
 # https://github.com/catboost/catboost/releases/tag/v1.0.3
 
-catboost fit --learn-set train.tsv --cv Classical:0;5 --column-description train_description.txt --custom-loss="Precision,Recall" --logging-level Verbose --loss-function MultiClass --text-processing processing.json --has-header --rsm 0.05 --od-pval 0.01
+catboost fit --learn-set train.tsv --cv Classical:0;5 --column-description train_description.txt --custom-loss="Precision,Recall" --logging-level Verbose --loss-function MultiClass --has-header --rsm 0.05 --od-pval 0.01
 
 # Probability of each class
 catboost calc -m model.bin --column-description test_description.txt -T 4 --output-columns "Class,BONE,Probability" --input-path test.tsv  --output-path output.tsv --has-header
