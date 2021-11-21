@@ -109,7 +109,7 @@ func _write_test(scene):
 							bone[bone_parent_key] = parent_bone
 						var version = vrm_extension["vrm_meta"].get("specVersion")
 						if version == null or version.is_empty():
-							version = "1.0"
+							version = "VERSION_NONE"
 						bone["SPECIFICATION_VERSION"] = version
 						file.store_csv_line(bone.values(), "\t")
 		elif node is Skeleton3D:

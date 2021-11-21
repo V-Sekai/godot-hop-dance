@@ -72,15 +72,13 @@ func _write_test(scene):
 						bone["BONE_PARENT"] = parent_bone
 				else:
 					bone["BONE_PARENT"] = bone["BONE"]
-				var version = vrm_extension["vrm_meta"].get("specVersion")
-				if version == null or version.is_empty():
-					version = "1.0"
+				var version = "VERSION_NONE"
+				if vrm_extension.get("vrm_meta"):
+					vrm_extension["vrm_meta"].get("specVersion")
 				bone["SPECIFICATION_VERSION"] = version
 				file.store_csv_line(bone.values(), "\t")
-
 		var child_count : int = node.get_child_count()
 		for i in child_count:
 			queue.push_back(node.get_child(i))
 		queue.pop_front()
 	file.close()
-	return scene
