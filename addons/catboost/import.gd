@@ -71,8 +71,6 @@ func _write_test(scene):
 							var first : bool = true
 							var bone : Dictionary = catboost.bone_create().bone
 							bone["BONE"] = bone_name
-							if catboost.vrm_humanoid_bones.has(bone_name):
-								bone["VRM_BONE"] = bone_name
 							var bone_pose = skeleton.get_bone_global_pose(bone_i)
 							bone["Bone X global location in meters"] = bone_pose.origin.x
 							bone["Bone Y global location in meters"] = bone_pose.origin.y
@@ -157,6 +155,8 @@ func _write_test(scene):
 						bone["BONE_PARENT"] = parent_bone
 					else:
 						bone["BONE_PARENT"] = bone["BONE"]
+					if bone_map.has(bone["BONE"]):
+						bone["Label"] = bone_map[bone["BONE"]]
 					var version = vrm_extension["vrm_meta"].get("specVersion")
 					if version == null or version.is_empty():
 						version = "1.0"
