@@ -160,11 +160,11 @@ func _write_test(scene):
 			var skeleton : Skeleton3D = node
 			var print_skeleton_neighbours_text_cache : Dictionary
 			for bone_i in skeleton.get_bone_count():
+				var bone : Dictionary = catboost.bone_create().bone
 				bone["BONE"] = skeleton.get_bone_name(bone_i)
 				if not bone_map.has(bone["BONE"] ):
 					continue
 				bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
-				var bone : Dictionary = catboost.bone_create().bone
 				var bone_rest = skeleton.get_bone_rest(bone_i)
 				bone["Bone rest X global origin in meters"] = bone_rest.origin.x
 				bone["Bone rest Y global origin in meters"] = bone_rest.origin.x
