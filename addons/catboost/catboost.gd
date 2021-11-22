@@ -374,14 +374,12 @@ static func find_neighbor_joint(parents, threshold):
 # The code in find_neighbor_joint(parents, threshold) is adapted
 # from deep-motion-editing by kfiraberman, PeizhuoLi and HalfSummer11.
 	var n_joint = parents.size()
-	var dist_mat : PackedFloat32Array
+	var dist_mat : PackedInt32Array
 	dist_mat.resize(n_joint * n_joint)
-	for i in parents.size():
-		var p = parents[i]
-		if i != 0:
-			var result = 1
-			dist_mat[p * i + 1] = result
-			dist_mat[i * p + p] = dist_mat[p * i + 1]
+	for j in dist_mat.size():
+		dist_mat[j] = 1
+		if j == n_joint * j + j:
+			dist_mat[j] = 0
 #   Floyd's algorithm
 	for k in range(n_joint):
 		for i in range(n_joint):
