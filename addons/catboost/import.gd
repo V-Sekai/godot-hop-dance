@@ -92,6 +92,7 @@ func _write_test(scene):
 						var first : bool = true
 						var bone : Dictionary = catboost.bone_create().bone
 						bone["BONE"] = bone_name
+						bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
 						var neighbours = catboost.skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)
 						for elem_i in neighbours[bone_i].size():
 							if elem_i >= catboost.MAX_HIERARCHY:
@@ -210,6 +211,7 @@ func _write_test(scene):
 				if bone["BONE"].is_empty():
 					continue
 				bone["BONE"] = skeleton.get_bone_name(bone_i)
+				bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
 				var neighbours = catboost.skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)
 				for elem_i in neighbours[bone_i].size():
 					if elem_i >= catboost.MAX_HIERARCHY:

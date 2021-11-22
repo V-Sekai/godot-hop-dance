@@ -54,7 +54,10 @@ static func bone_create():
 	var keys = ["BONE"]
 	for key_i in keys.size():
 		category_description.push_back(str(category_description.size()) + "\tCateg\t%s" % keys[key_i])
-		bone_category[keys[key_i]] = ""		
+		bone_category[keys[key_i]] = ""
+	var bone_capitalized_key = "BONE_CAPITALIZED"
+	category_description.push_back(str(category_description.size()) + "\tText\t%s" % bone_capitalized_key)
+	bone_category[bone_capitalized_key] = "BONE_CAPITAL_NONE"	
 	for key_i in MAX_HIERARCHY:
 		var hierarchy_key = "BONE_HIERARCHY" + "_" + str(key_i).pad_zeros(3)
 		category_description.push_back(str(category_description.size()) + "\tCateg\t%s" % hierarchy_key)

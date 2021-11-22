@@ -103,6 +103,7 @@ func _write_test(scene):
 					bone["Bone parent Y global scale in meters"] = parent_scale.y
 					bone["Bone parent Z global scale in meters"] = parent_scale.z
 				bone["BONE"] = skeleton.get_bone_name(bone_i)
+				bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
 				var neighbours = catboost.skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)
 				for elem_i in neighbours[bone_i].size():
 					if elem_i >= catboost.MAX_HIERARCHY:
