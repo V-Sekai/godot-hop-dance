@@ -19,7 +19,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
+@tool
 extends RefCounted
 
 const vrm_humanoid_bones = ["hips","leftUpperLeg","rightUpperLeg","leftLowerLeg","rightLowerLeg","leftFoot","rightFoot",
@@ -37,23 +37,24 @@ const vrm_humanoid_bones = ["hips","leftUpperLeg","rightUpperLeg","leftLowerLeg"
  "rightLittleProximal","rightLittleIntermediate","rightLittleDistal", "upperChest"]
 
 const MAX_HIERARCHY = 256
-var CATBOOST_KEYS = [
-		["Label", "\t%s", "VRM_BONE_NONE"],
-		["BONE", "\tCateg\t%s", "BONE_NONE"], 
-		["BONE_CAPITALIZED", "\tAuxiliary\t%s", "BONE_NONE"],
-		["SPECIFICATION_VERSION", "\tAuxiliary\t%s", "VERSION_NONE"],
-		["ANIMATION_TIME", "\tAuxiliary\t%s", 0.0],
-	]	
+
 static func bone_create():
 	var bone_category : Dictionary
 	var category_description : PackedStringArray
-	
+	var CATBOOST_KEYS = [
+		["Label", "Label", "VRM_BONE_NONE"],
+		["BONE", "Categ\tBONE", "BONE_NONE"], 
+		["BONE_CAPITALIZED", "Auxiliary\tBONE_CAPITALIZED", "BONE_NONE"],
+		["SPECIFICATION_VERSION", "Auxiliary\tSPECIFICATION_VERSION", "VERSION_NONE"],
+	]
 	for key_i in MAX_HIERARCHY:
-		CATBOOST_KEYS.push_back(["\tCateg\t%s", "BONE_HIERARCHY" + "_" + str(key_i).pad_zeros(3), "BONE_NONE"])
+		var label = "BONE_HIERARCHY_" + str(key_i).pad_zeros(3)
+		CATBOOST_KEYS.push_back([label, "Categ\t" + label, "BONE_NONE"])
 	for key_i in CATBOOST_KEYS.size():
-		category_description.push_back(str(category_description.size()) + CATBOOST_KEYS[key_i][1] % CATBOOST_KEYS[key_i][0])
-		bone_category[CATBOOST_KEYS[key_i]] = CATBOOST_KEYS[key_i][2]
+		category_description.push_back(str(category_description.size()) + "\t" + CATBOOST_KEYS[key_i][1])
+		bone_category[CATBOOST_KEYS[key_i][0]] = CATBOOST_KEYS[key_i][2]
 	var bone : Dictionary
+	bone["Animation time"] = 0.0
 	bone["Bone rest X global origin in meters"] = 0.0
 	bone["Bone rest Y global origin in meters"] = 0.0
 	bone["Bone rest Z global origin in meters"] = 0.0
@@ -117,39 +118,49 @@ static func bone_create():
 	bone["Bone parent X global scale in meters"] = 1.0
 	bone["Bone parent Y global scale in meters"] = 1.0
 	bone["Bone parent Z global scale in meters"] = 1.0
-	var columns_description : PackedStringArray		
-	for key in bone.keys():
-		columns_description.push_back(str(bone_category.size() + columns_description.size()) + "\tNum\t%s" % key)
-	for key in bone.keys():
-		bone_category[key] = bone[key]
+	for bone_key_i in bone.keys().size():
+		var bone_key = bone.keys()[bone_key_i]
+		var bone_value = bone.values()[bone_key_i]
+		category_description.push_back(str(category_description.size()) + "\tNum\t%s" % bone_key)
+		bone_category[bone_key] = bone_value
 	return {
 		"bone": bone_category,
-		"description": category_description + columns_description,
+		"description": category_description,
 	}
 
-static func write_import(scene, is_test):
+static func _write_description(description, is_test):
+	var file = File.new()	
 	var description_path = "user://train_description.txt"
-	var file = File.new()
-	var text = ""
-	var do_path = "user://train.tsv"
-	if not is_test:
-		var old_file = File.new()
-		file.open(do_path, File.READ)
-		text = old_file.get_as_text()
-		file.close()
 	if is_test:
 		description_path = "user://test_description.txt"
-		do_path = "user://test.tsv"
-	file.open(do_path, File.WRITE)
-	file.store_string(text)
 	file.open(description_path, File.WRITE)
-	var init_dict = bone_create()
-	var description : PackedStringArray = init_dict.description
 	var file_string : String
 	for string in description:
 		file_string += string + "\n"
 	file.store_string(file_string)
-	var file_description = File.new()
+	
+	
+static func _write_train(text, is_test):
+	var do_path = "user://train.tsv"
+	var last_text = ""
+	if not is_test:
+		var old_file = File.new()
+		old_file.open(do_path, File.READ)
+		last_text = old_file.get_as_text()
+		old_file.close()
+	else:
+		do_path = "user://test.tsv"
+	var file = File.new()
+	file.open(do_path, File.WRITE)
+	file.store_string(last_text)
+	for t in text:
+		file.store_csv_line(t, "\t")
+	file.close()
+
+static func _write_import(scene, is_test):
+	var init_dict = bone_create()
+	_write_description(init_dict.description, is_test)
+	
 	var file_path : String = scene.scene_file_path
 	file_path = file_path.get_basename()
 	var vrm_extension = scene
@@ -161,6 +172,7 @@ static func write_import(scene, is_test):
 		bone_map[human_map[key]] = key
 	var queue : Array # Node
 	queue.push_back(scene)
+	var string_builder : Array
 	while not queue.is_empty():
 		var front = queue.front()
 		var node = front
@@ -193,7 +205,6 @@ static func write_import(scene, is_test):
 						if not bone_map.has(bone_name):
 							continue
 						ap.seek(float(count_i) / fps, true)
-						var bone_i = skeleton.find_bone(bone_name)
 						var title : String
 						var author : String
 						var columns_description : PackedStringArray
@@ -201,11 +212,13 @@ static func write_import(scene, is_test):
 						var bone : Dictionary = bone_create().bone
 						bone["BONE"] = bone_name
 						bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
-						var neighbours = skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)
-						for elem_i in neighbours[bone_i].size():
+						var bone_i = skeleton.find_bone(bone_name)
+						var neighbours = skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)[bone_i]
+						for elem_i in neighbours.size():
 							if elem_i >= MAX_HIERARCHY:
 								break
-							bone["BONE_HIERARCHY_" + str(elem_i).pad_zeros(3)] = skeleton.get_bone_name(neighbours[bone_i][elem_i])
+							var bone_id = neighbours[elem_i]
+							bone["BONE_HIERARCHY_" + str(elem_i).pad_zeros(3)] = skeleton.get_bone_name(bone_id)
 						var bone_rest = skeleton.get_bone_rest(bone_i)
 						bone["Bone rest X global origin in meters"] = bone_rest.origin.x
 						bone["Bone rest Y global origin in meters"] = bone_rest.origin.x
@@ -253,27 +266,22 @@ static func write_import(scene, is_test):
 							bone["Bone parent X global scale in meters"] = parent_scale.x
 							bone["Bone parent Y global scale in meters"] = parent_scale.y
 							bone["Bone parent Z global scale in meters"] = parent_scale.z
-						bone["ANIMATION_TIME"] = float(count_i) / fps
+						bone["Animation time"] = float(count_i) / fps
 						bone["Label"] = bone_name
-						var bone_parent_key = "BONE_PARENT"
-						var parent_bone = skeleton.get_bone_name(bone_parent)
-						if not parent_bone.is_empty():
-							bone[bone_parent_key] = parent_bone
 						var version = vrm_extension["vrm_meta"].get("specVersion")
 						if version == null or version.is_empty():
 							version = "VERSION_NONE"
 						bone["SPECIFICATION_VERSION"] = version
-						file.store_csv_line(bone.values(), "\t")
+						string_builder.push_back(bone.values())
 		elif node is Skeleton3D:
 			var skeleton : Skeleton3D = node
 			var print_skeleton_neighbours_text_cache : Dictionary
 			for bone_i in skeleton.get_bone_count():
-				var bone : Dictionary = bone_create().bone
-				if bone_map.has(bone["BONE"]):
-					bone["Label"] = bone_map[skeleton.get_bone_name(bone_i)]
-				bone["BONE"] = skeleton.get_bone_name(bone_i)
-				if not bone_map.has(bone["BONE"] ):
+				if not bone_map.has(skeleton.get_bone_name(bone_i)):
 					continue
+				var bone : Dictionary = bone_create().bone
+				bone["Label"] = bone_map[skeleton.get_bone_name(bone_i)]
+				bone["BONE"] = skeleton.get_bone_name(bone_i)
 				bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
 				var bone_rest = skeleton.get_bone_rest(bone_i)
 				bone["Bone rest X global origin in meters"] = bone_rest.origin.x
@@ -332,12 +340,13 @@ static func write_import(scene, is_test):
 				if version == null or version.is_empty():
 					version = "1.0"
 				bone["SPECIFICATION_VERSION"] = version
-				file.store_csv_line(bone.values(), "\t")
+				string_builder.push_back(bone.values())
 		var child_count : int = node.get_child_count()
 		for i in child_count:
 			queue.push_back(node.get_child(i))
 		queue.pop_front()
-	file.close()
+	_write_train(string_builder, is_test)
+	return scene
 
 
 static func skeleton_neighbours(skeleton_neighbours_cache : Dictionary, skeleton):

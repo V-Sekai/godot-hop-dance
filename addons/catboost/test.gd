@@ -23,9 +23,10 @@
 @tool
 extends EditorScenePostImport
 
-var catboost = load("res://addons/catboost/catboost.gd")
+var catboost : RefCounted
 
 
-func _post_import(scene):
-	catboost.write_import(scene, true)
+func _post_import(scene):	
+	catboost = load("res://addons/catboost/catboost.gd").new()
+	catboost._write_import(scene, true)
 	return scene
