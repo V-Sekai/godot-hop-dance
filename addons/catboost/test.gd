@@ -28,7 +28,6 @@ func _post_import(scene):
 	return scene
 
 var catboost = load("res://addons/catboost/catboost.gd")
-var print_skeleton_neighbours_text_cache : Dictionary
 
 func _write_test(scene):
 	var file = File.new()
@@ -53,6 +52,7 @@ func _write_test(scene):
 			var skeleton : Skeleton3D = node
 			var skel : Array
 			skel.resize(skeleton.get_bone_count())
+			var print_skeleton_neighbours_text_cache : Dictionary
 			for bone_i in skeleton.get_bone_count():
 				var bone : Dictionary = init_dict.bone				
 				var bone_rest = skeleton.get_bone_rest(bone_i)
@@ -103,10 +103,11 @@ func _write_test(scene):
 					bone["Bone parent Y global scale in meters"] = parent_scale.y
 					bone["Bone parent Z global scale in meters"] = parent_scale.z
 				bone["BONE"] = skeleton.get_bone_name(bone_i)
-				bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
-				var hierarchy : String = catboost.print_skeleton_neighbours_text(print_skeleton_neighbours_text_cache, skeleton, bone["BONE"])
-				if not hierarchy.is_empty():
-					bone["BONE_HIERARCHY"] = hierarchy
+				var neighbours = catboost.skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton, bone["BONE"])
+				for elem_i in neighbours.size():
+					if elem_i >= catboost.MAX_HIERARCHY:
+						break
+					bone["BONE_HIERARCHY_" + str(elem_i).pad_zeros(3)] = skeleton.get_bone_name(neighbours[elem_i])
 				if bone_parent != -1:
 					var parent_bone = skeleton.get_bone_name(bone_parent)
 				var version = "VERSION_NONE"

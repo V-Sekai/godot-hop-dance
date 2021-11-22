@@ -29,7 +29,6 @@ func _post_import(scene):
 	return scene
 
 var catboost = load("res://addons/catboost/catboost.gd")
-var print_skeleton_neighbours_text_cache : Dictionary
 
 func _write_test(scene):	
 	var old_file = File.new()
@@ -80,6 +79,7 @@ func _write_test(scene):
 					var skeleton_node = scene.get_node(new_path)
 					if not skeleton_node is Skeleton3D:
 						continue
+					var print_skeleton_neighbours_text_cache : Dictionary
 					var skeleton : Skeleton3D = skeleton_node
 					var fps : int = 5
 					var count : int = anim_length * fps
@@ -92,8 +92,11 @@ func _write_test(scene):
 						var first : bool = true
 						var bone : Dictionary = catboost.bone_create().bone
 						bone["BONE"] = bone_name
-						bone["BONE_CAPITALIZED"] = bone_name.capitalize()
-						bone["BONE_HIERARCHY"] = catboost.print_skeleton_neighbours_text(print_skeleton_neighbours_text_cache, skeleton, bone["BONE"])
+						var neighbours = catboost.skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton, bone["BONE"])
+						for elem_i in neighbours.size():
+							if elem_i >= catboost.MAX_HIERARCHY:
+								break
+							bone["BONE_HIERARCHY_" + str(elem_i).pad_zeros(3)] = skeleton.get_bone_name(neighbours[elem_i])
 						var bone_rest = skeleton.get_bone_rest(bone_i)
 						bone["Bone rest X global origin in meters"] = bone_rest.origin.x
 						bone["Bone rest Y global origin in meters"] = bone_rest.origin.x
@@ -154,6 +157,7 @@ func _write_test(scene):
 						file.store_csv_line(bone.values(), "\t")
 		elif node is Skeleton3D:
 			var skeleton : Skeleton3D = node
+			var print_skeleton_neighbours_text_cache : Dictionary
 			for bone_i in skeleton.get_bone_count():
 				var bone : Dictionary = catboost.bone_create().bone
 				var bone_rest = skeleton.get_bone_rest(bone_i)
@@ -206,10 +210,11 @@ func _write_test(scene):
 				if bone["BONE"].is_empty():
 					continue
 				bone["BONE"] = skeleton.get_bone_name(bone_i)
-				var hierachy : String = catboost.print_skeleton_neighbours_text(print_skeleton_neighbours_text_cache, skeleton, bone["BONE"])
-				if not hierachy.is_empty():
-					bone["BONE_HIERARCHY"] = hierachy
-				bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
+				var neighbours = catboost.skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton, bone["BONE"])
+				for elem_i in neighbours.size():
+					if elem_i >= catboost.MAX_HIERARCHY:
+						break
+					bone["BONE_HIERARCHY_" + str(elem_i).pad_zeros(3)] = skeleton.get_bone_name(neighbours[elem_i])
 				var parent_bone = skeleton.get_bone_name(bone_parent)
 				if bone_map.has(bone["BONE"]):
 					bone["Label"] = bone_map[bone["BONE"]]

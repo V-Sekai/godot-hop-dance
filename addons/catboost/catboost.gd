@@ -40,7 +40,7 @@ const train_path = "user://train.tsv"
 const train_description_path = "user://train_description.txt"
 const test_path = "user://test.tsv"
 const test_description_path = "user://test_description.txt"
-
+const MAX_HIERARCHY = 128
 static func bone_create():
 	var bone_category : Dictionary
 	var category_description : PackedStringArray
@@ -51,19 +51,16 @@ static func bone_create():
 	bone_category[version_key] = "1.0"	
 	category_description.push_back(str(category_description.size()) + "\tAuxiliary\t%s" % version_key)
 	bone_category[version_key] = "1.0"
-	var hierachy_key = "BONE_HIERARCHY"
-	category_description.push_back(str(category_description.size()) + "\tText\t%s" % hierachy_key)
-	bone_category[hierachy_key] = "BONE_HIERARCHY_NONE"	
-	var bone_capitalized_key = "BONE_CAPITALIZED"
-	category_description.push_back(str(category_description.size()) + "\tText\t%s" % bone_capitalized_key)
-	bone_category[bone_capitalized_key] = "BONE_CAPITALIZED_NONE"	
 	var keys = ["BONE"]
 	for key_i in keys.size():
 		category_description.push_back(str(category_description.size()) + "\tCateg\t%s" % keys[key_i])
-		bone_category[keys[key_i]] = ""
+		bone_category[keys[key_i]] = ""		
+	for key_i in MAX_HIERARCHY:
+		var hierarchy_key = "BONE_HIERARCHY" + "_" + str(key_i).pad_zeros(3)
+		category_description.push_back(str(category_description.size()) + "\tCateg\t%s" % hierarchy_key)
+		bone_category[hierarchy_key] = "BONE_NONE"
 	bone_category["BONE"] = "BONE_NONE"	
 	var bone : Dictionary
-	bone["Animation time"] = 0
 	bone["Bone rest X global origin in meters"] = 0.0
 	bone["Bone rest Y global origin in meters"] = 0.0
 	bone["Bone rest Z global origin in meters"] = 0.0
@@ -137,9 +134,9 @@ static func bone_create():
 		"description": category_description + columns_description,
 	}
 
-static func print_skeleton_neighbours_text(print_skeleton_neighbours_text_cache : Dictionary, skeleton, bone_name):
-	if print_skeleton_neighbours_text_cache.has([skeleton, bone_name]):
-		return print_skeleton_neighbours_text_cache[[skeleton, bone_name]]
+static func skeleton_neighbours(skeleton_neighbours_cache : Dictionary, skeleton, bone_name):
+	if skeleton_neighbours_cache.has([skeleton, bone_name]):
+		return skeleton_neighbours_cache[[skeleton, bone_name]]
 	if bone_name.is_empty():
 		return
 	var bone_list_text : String
@@ -147,17 +144,13 @@ static func print_skeleton_neighbours_text(print_skeleton_neighbours_text_cache 
 		return bone_list_text
 	var bone = skeleton.find_bone(bone_name)
 	var parents : PackedFloat32Array
-	for bone_i in bone:
+	for bone_i in skeleton.get_bone_count():
 		var bone_global_pose = skeleton.get_bone_global_pose(bone_i)
 		var origin = bone_global_pose.origin
 		parents.push_back(origin.distance_to(Vector3(0, 0, 0)))
-	var neighbor_list = find_neighbor_joint(parents, 2.0)
-	for bone_i in neighbor_list.size():
-		if bone_i != 0:
-			bone_list_text = bone_list_text + " | "
-		bone_list_text += skeleton.get_bone_name(bone_i)
-	print_skeleton_neighbours_text_cache[[skeleton, bone_name]] = bone_list_text
-	return bone_list_text
+	var neighbor_list = find_neighbor_joint(parents, 2.0)[bone]
+	skeleton_neighbours_cache[[skeleton, bone_name]] = neighbor_list
+	return neighbor_list
 
 
 static func find_neighbor_joint(parents, threshold):
@@ -185,5 +178,4 @@ static func find_neighbor_joint(parents, threshold):
 			if dist_mat[i * j + j] <= threshold:
 				neighbor.append(j)
 		neighbor_list.append(neighbor)
-
 	return neighbor_list
