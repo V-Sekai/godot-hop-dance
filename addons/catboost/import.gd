@@ -73,7 +73,7 @@ func _write_test(scene):
 					if str(path).find(":") == -1:
 						continue
 					var bone_name = path.split(":")[1]
-					if not catboost.vrm_humanoid_bones.has(bone_name):
+					if not bone_map.has(bone_name):
 						continue
 					var new_path = path.split(":")[0]
 					var skeleton_node = scene.get_node(new_path)
