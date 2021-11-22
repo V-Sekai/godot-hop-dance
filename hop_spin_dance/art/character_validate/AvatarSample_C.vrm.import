@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cug7kaw7bsjtx"
-path="res://.godot/imported/AvatarSample_C.vrm-d8f413fab34db899822e493ffe471d90.scn"
+path="res://.godot/imported/AvatarSample_C.vrm-cef98b28b2242427f613132c4981a40a.scn"
 
 [deps]
 
-source_file="res://validate/AvatarSample_C.vrm"
-dest_files=["res://.godot/imported/AvatarSample_C.vrm-d8f413fab34db899822e493ffe471d90.scn"]
+source_file="res://hop_spin_dance/art/character_validate/AvatarSample_C.vrm"
+dest_files=["res://.godot/imported/AvatarSample_C.vrm-cef98b28b2242427f613132c4981a40a.scn"]
 
 [params]
 

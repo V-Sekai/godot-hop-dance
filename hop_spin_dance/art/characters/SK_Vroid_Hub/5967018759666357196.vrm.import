@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bhxwsvppb7qkd"
-path="res://.godot/imported/5967018759666357196.vrm-8f18cc12bd4e938b1526b84dc2ca76f9.scn"
+path="res://.godot/imported/5967018759666357196.vrm-049aaeb48e6a4adcbf13e9d4fcb27bc3.scn"
 
 [deps]
 
-source_file="res://hop_spin_dance/art/characters/5967018759666357196.vrm"
-dest_files=["res://.godot/imported/5967018759666357196.vrm-8f18cc12bd4e938b1526b84dc2ca76f9.scn"]
+source_file="res://hop_spin_dance/art/characters/SK_Vroid_Hub/5967018759666357196.vrm"
+dest_files=["res://.godot/imported/5967018759666357196.vrm-049aaeb48e6a4adcbf13e9d4fcb27bc3.scn"]
 
 [params]
 

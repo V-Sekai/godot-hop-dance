@@ -24,6 +24,6 @@ meshes/lightmap_texel_size=0.1
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-import_script/path="res://addons/catboost/import.gd"
+import_script/path="res://addons/catboost/test.gd"
 _subresources={
 }

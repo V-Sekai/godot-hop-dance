@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bp05xgsoexrro"
-path="res://.godot/imported/Vita.vrm-a82187518ded2a8bbc7faa274d6cb5cc.scn"
+path="res://.godot/imported/Vita.vrm-205fb14ff03c861258b1fd08edfe55f9.scn"
 
 [deps]
 
-source_file="res://validate/Vita.vrm"
-dest_files=["res://.godot/imported/Vita.vrm-a82187518ded2a8bbc7faa274d6cb5cc.scn"]
+source_file="res://hop_spin_dance/art/character_validate/Vita.vrm"
+dest_files=["res://.godot/imported/Vita.vrm-205fb14ff03c861258b1fd08edfe55f9.scn"]
 
 [params]
 

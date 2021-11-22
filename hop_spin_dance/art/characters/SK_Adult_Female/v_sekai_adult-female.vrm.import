@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dwhg8vn75k6l5"
-path="res://.godot/imported/v_sekai_adult-female.vrm-6c423afdbfb0a12541fac2508060ddac.scn"
+path="res://.godot/imported/v_sekai_adult-female.vrm-154698c9c9f38ac3c2731cbe98ca751b.scn"
 
 [deps]
 
-source_file="res://hop_spin_dance/art/characters/adult_female/v_sekai_adult-female.vrm"
-dest_files=["res://.godot/imported/v_sekai_adult-female.vrm-6c423afdbfb0a12541fac2508060ddac.scn"]
+source_file="res://hop_spin_dance/art/characters/SK_Adult_Female/v_sekai_adult-female.vrm"
+dest_files=["res://.godot/imported/v_sekai_adult-female.vrm-154698c9c9f38ac3c2731cbe98ca751b.scn"]
 
 [params]
 
