@@ -202,15 +202,17 @@ static func _write_import(scene, is_test):
 					var fps : int = 5
 					var count : int = anim_length * fps
 					for count_i in count:
-						if not bone_map.has(bone_name):
-							if not is_test:
-								continue
 						ap.seek(float(count_i) / fps, true)
 						var title : String
 						var author : String
 						var columns_description : PackedStringArray
 						var first : bool = true
 						var bone : Dictionary = bone_create().bone
+						if not bone_map.has(bone_name):
+							bone["Label"] = "VRM_BONE_NONE"
+						if not is_test:
+							# WATCH FOR CHEATING
+							bone["Label"] = bone_map[bone_name]
 						bone["BONE"] = bone_name
 						bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
 						var bone_i = skeleton.find_bone(bone_name)
@@ -278,12 +280,12 @@ static func _write_import(scene, is_test):
 			var skeleton : Skeleton3D = node
 			var print_skeleton_neighbours_text_cache : Dictionary
 			for bone_i in skeleton.get_bone_count():
-				if not bone_map.has(skeleton.get_bone_name(bone_i)):
-					if not is_test:
-						continue
 				var bone : Dictionary = bone_create().bone
+				bone["Label"] = "VRM_BONE_NONE"
 				if not is_test:
-					bone["Label"] = bone_map[skeleton.get_bone_name(bone_i)]
+					if bone_map.has(skeleton.get_bone_name(bone_i)):
+						# Watch for cheating
+						bone["Label"] = bone_map[skeleton.get_bone_name(bone_i)]
 				bone["BONE"] = skeleton.get_bone_name(bone_i)
 				bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
 				var bone_rest = skeleton.get_bone_rest(bone_i)
