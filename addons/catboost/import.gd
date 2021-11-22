@@ -160,6 +160,10 @@ func _write_test(scene):
 			var skeleton : Skeleton3D = node
 			var print_skeleton_neighbours_text_cache : Dictionary
 			for bone_i in skeleton.get_bone_count():
+				bone["BONE"] = skeleton.get_bone_name(bone_i)
+				if not bone_map.has(bone["BONE"] ):
+					continue
+				bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
 				var bone : Dictionary = catboost.bone_create().bone
 				var bone_rest = skeleton.get_bone_rest(bone_i)
 				bone["Bone rest X global origin in meters"] = bone_rest.origin.x
@@ -208,10 +212,6 @@ func _write_test(scene):
 					bone["Bone parent X global scale in meters"] = parent_scale.x
 					bone["Bone parent Y global scale in meters"] = parent_scale.y
 					bone["Bone parent Z global scale in meters"] = parent_scale.z
-				if bone["BONE"].is_empty():
-					continue
-				bone["BONE"] = skeleton.get_bone_name(bone_i)
-				bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
 				var neighbours = catboost.skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)
 				for elem_i in neighbours[bone_i].size():
 					if elem_i >= catboost.MAX_HIERARCHY:
