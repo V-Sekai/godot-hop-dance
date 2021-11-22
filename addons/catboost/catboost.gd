@@ -40,7 +40,7 @@ const train_path = "user://train.tsv"
 const train_description_path = "user://train_description.txt"
 const test_path = "user://test.tsv"
 const test_description_path = "user://test_description.txt"
-const MAX_HIERARCHY = 128
+const MAX_HIERARCHY = 256
 static func bone_create():
 	var bone_category : Dictionary
 	var category_description : PackedStringArray
@@ -148,7 +148,10 @@ static func skeleton_neighbours(skeleton_neighbours_cache : Dictionary, skeleton
 		var bone_global_pose = skeleton.get_bone_global_pose(bone_i)
 		var origin = bone_global_pose.origin
 		parents.push_back(origin.distance_to(Vector3(0, 0, 0)))
-	var neighbor_list = find_neighbor_joint(parents, 2.0)[bone]
+	var neighbor_list = find_neighbor_joint(parents, 2.0)
+	if neighbor_list.size() == 0:
+		return [].duplicate()
+	neighbor_list = neighbor_list[bone]
 	skeleton_neighbours_cache[[skeleton, bone_name]] = neighbor_list
 	return neighbor_list
 
