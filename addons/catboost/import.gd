@@ -27,5 +27,5 @@ var catboost = load("res://addons/catboost/catboost.gd")
 
 
 func _post_import(scene):
-	catboost.write_import(scene)
+	catboost.write_import(scene, true)
 	return scene
