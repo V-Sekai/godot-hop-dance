@@ -191,7 +191,7 @@ static func _write_import(scene, is_test):
 					if str(path).find(":") == -1:
 						continue
 					var bone_name = path.split(":")[1]
-					if not bone_map.has(bone_name):
+					if not is_test and not bone_map.has(bone_name):
 						continue
 					var new_path = path.split(":")[0]
 					var skeleton_node = scene.get_node(new_path)
@@ -203,7 +203,8 @@ static func _write_import(scene, is_test):
 					var count : int = anim_length * fps
 					for count_i in count:
 						if not bone_map.has(bone_name):
-							continue
+							if not is_test:
+								continue
 						ap.seek(float(count_i) / fps, true)
 						var title : String
 						var author : String
@@ -278,9 +279,11 @@ static func _write_import(scene, is_test):
 			var print_skeleton_neighbours_text_cache : Dictionary
 			for bone_i in skeleton.get_bone_count():
 				if not bone_map.has(skeleton.get_bone_name(bone_i)):
-					continue
+					if not is_test:
+						continue
 				var bone : Dictionary = bone_create().bone
-				bone["Label"] = bone_map[skeleton.get_bone_name(bone_i)]
+				if not is_test:
+					bone["Label"] = bone_map[skeleton.get_bone_name(bone_i)]
 				bone["BONE"] = skeleton.get_bone_name(bone_i)
 				bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
 				var bone_rest = skeleton.get_bone_rest(bone_i)
