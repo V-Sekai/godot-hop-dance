@@ -134,15 +134,10 @@ static func bone_create():
 		"description": category_description + columns_description,
 	}
 
-static func skeleton_neighbours(skeleton_neighbours_cache : Dictionary, skeleton, bone_name):
-	if skeleton_neighbours_cache.has([skeleton, bone_name]):
-		return skeleton_neighbours_cache[[skeleton, bone_name]]
-	if bone_name.is_empty():
-		return
+static func skeleton_neighbours(skeleton_neighbours_cache : Dictionary, skeleton):
+	if skeleton_neighbours_cache.has(skeleton):
+		return skeleton_neighbours_cache[skeleton]
 	var bone_list_text : String
-	if skeleton.find_bone(bone_name) == -1:
-		return bone_list_text
-	var bone = skeleton.find_bone(bone_name)
 	var parents : PackedFloat32Array
 	for bone_i in skeleton.get_bone_count():
 		var bone_global_pose = skeleton.get_bone_global_pose(bone_i)
@@ -151,8 +146,7 @@ static func skeleton_neighbours(skeleton_neighbours_cache : Dictionary, skeleton
 	var neighbor_list = find_neighbor_joint(parents, 2.0)
 	if neighbor_list.size() == 0:
 		return [].duplicate()
-	neighbor_list = neighbor_list[bone]
-	skeleton_neighbours_cache[[skeleton, bone_name]] = neighbor_list
+	skeleton_neighbours_cache[skeleton] = neighbor_list
 	return neighbor_list
 
 

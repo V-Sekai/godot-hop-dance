@@ -92,11 +92,11 @@ func _write_test(scene):
 						var first : bool = true
 						var bone : Dictionary = catboost.bone_create().bone
 						bone["BONE"] = bone_name
-						var neighbours = catboost.skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton, bone["BONE"])
-						for elem_i in neighbours.size():
+						var neighbours = catboost.skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)
+						for elem_i in neighbours[bone_i].size():
 							if elem_i >= catboost.MAX_HIERARCHY:
 								break
-							bone["BONE_HIERARCHY_" + str(elem_i).pad_zeros(3)] = skeleton.get_bone_name(neighbours[elem_i])
+							bone["BONE_HIERARCHY_" + str(elem_i).pad_zeros(3)] = skeleton.get_bone_name(neighbours[bone_i][elem_i])
 						var bone_rest = skeleton.get_bone_rest(bone_i)
 						bone["Bone rest X global origin in meters"] = bone_rest.origin.x
 						bone["Bone rest Y global origin in meters"] = bone_rest.origin.x
@@ -210,11 +210,11 @@ func _write_test(scene):
 				if bone["BONE"].is_empty():
 					continue
 				bone["BONE"] = skeleton.get_bone_name(bone_i)
-				var neighbours = catboost.skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton, bone["BONE"])
-				for elem_i in neighbours.size():
+				var neighbours = catboost.skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)
+				for elem_i in neighbours[bone_i].size():
 					if elem_i >= catboost.MAX_HIERARCHY:
 						break
-					bone["BONE_HIERARCHY_" + str(elem_i).pad_zeros(3)] = skeleton.get_bone_name(neighbours[elem_i])
+					bone["BONE_HIERARCHY_" + str(elem_i).pad_zeros(3)] = skeleton.get_bone_name(neighbours[bone_i][elem_i])
 				var parent_bone = skeleton.get_bone_name(bone_parent)
 				if bone_map.has(bone["BONE"]):
 					bone["Label"] = bone_map[bone["BONE"]]

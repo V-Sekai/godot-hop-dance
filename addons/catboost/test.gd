@@ -103,11 +103,11 @@ func _write_test(scene):
 					bone["Bone parent Y global scale in meters"] = parent_scale.y
 					bone["Bone parent Z global scale in meters"] = parent_scale.z
 				bone["BONE"] = skeleton.get_bone_name(bone_i)
-				var neighbours = catboost.skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton, bone["BONE"])
-				for elem_i in neighbours.size():
+				var neighbours = catboost.skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)
+				for elem_i in neighbours[bone_i].size():
 					if elem_i >= catboost.MAX_HIERARCHY:
 						break
-					bone["BONE_HIERARCHY_" + str(elem_i).pad_zeros(3)] = skeleton.get_bone_name(neighbours[elem_i])
+					bone["BONE_HIERARCHY_" + str(elem_i).pad_zeros(3)] = skeleton.get_bone_name(neighbours[bone_i][elem_i])
 				if bone_parent != -1:
 					var parent_bone = skeleton.get_bone_name(bone_parent)
 				var version = "VERSION_NONE"
