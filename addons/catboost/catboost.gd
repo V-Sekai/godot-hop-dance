@@ -181,8 +181,6 @@ static func _write_import(scene, is_test):
 			var anims = node.get_animation_list()
 			for anim_i in anims:
 				var animation = node.get_animation(anim_i)
-				if animation != null:
-					continue
 				ap.play(animation.resource_name)
 				ap.stop(true)
 				var anim_length : float = animation.length			
@@ -208,8 +206,6 @@ static func _write_import(scene, is_test):
 						var columns_description : PackedStringArray
 						var first : bool = true
 						var bone : Dictionary = bone_create().bone
-						if not bone_map.has(bone_name):
-							bone["Label"] = "VRM_BONE_NONE"
 						if not is_test:
 							# WATCH FOR CHEATING
 							bone["Label"] = bone_map[bone_name]
@@ -271,18 +267,18 @@ static func _write_import(scene, is_test):
 							bone["Bone parent Z global scale in meters"] = parent_scale.z
 						bone["Animation time"] = float(count_i) / fps
 						bone["Label"] = bone_name
-						var version = vrm_extension["vrm_meta"].get("specVersion")
-						if version == null or version.is_empty():
-							version = "VERSION_NONE"
-						bone["SPECIFICATION_VERSION"] = version
+						if vrm_extension.get("vrm_meta"):
+							var version = vrm_extension["vrm_meta"].get("specVersion")
+							if version == null or version.is_empty():
+								version = "VERSION_NONE"
+							bone["SPECIFICATION_VERSION"] = version
 						string_builder.push_back(bone.values())
 		elif node is Skeleton3D:
 			var skeleton : Skeleton3D = node
 			var print_skeleton_neighbours_text_cache : Dictionary
 			for bone_i in skeleton.get_bone_count():
 				var bone : Dictionary = bone_create().bone
-				bone["Label"] = "VRM_BONE_NONE"
-				if not is_test:
+				if is_test == false:
 					if bone_map.has(skeleton.get_bone_name(bone_i)):
 						# Watch for cheating
 						bone["Label"] = bone_map[skeleton.get_bone_name(bone_i)]
@@ -341,10 +337,11 @@ static func _write_import(scene, is_test):
 						break
 					bone["BONE_HIERARCHY_" + str(elem_i).pad_zeros(3)] = skeleton.get_bone_name(neighbours[bone_i][elem_i])
 				var parent_bone = skeleton.get_bone_name(bone_parent)
-				var version = vrm_extension["vrm_meta"].get("specVersion")
-				if version == null or version.is_empty():
-					version = "1.0"
-				bone["SPECIFICATION_VERSION"] = version
+				if vrm_extension.get("vrm_meta"):
+					var version = vrm_extension["vrm_meta"].get("specVersion")
+					if version == null or version.is_empty():
+						version = "VERSION_NONE"
+					bone["SPECIFICATION_VERSION"] = version
 				string_builder.push_back(bone.values())
 		var child_count : int = node.get_child_count()
 		for i in child_count:
