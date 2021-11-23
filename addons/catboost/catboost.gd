@@ -216,7 +216,7 @@ static func _write_import(scene, is_test):
 						bone["BONE"] = bone_name
 						bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
 						var bone_i = skeleton.find_bone(bone_name)
-						var neighbours = skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton, bone_i)
+						var neighbours = skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)[bone_i]
 						for elem_i in neighbours.size():
 							if elem_i >= MAX_HIERARCHY:
 								break
@@ -335,7 +335,7 @@ static func _write_import(scene, is_test):
 					bone["Bone parent X global scale in meters"] = parent_scale.x
 					bone["Bone parent Y global scale in meters"] = parent_scale.y
 					bone["Bone parent Z global scale in meters"] = parent_scale.z
-				var neighbours = skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton, bone_i)
+				var neighbours = skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)
 				for elem_i in neighbours[bone_i].size():
 					if elem_i >= MAX_HIERARCHY:
 						break
@@ -354,8 +354,8 @@ static func _write_import(scene, is_test):
 	return scene
 
 
-static func skeleton_neighbours(skeleton_neighbours_cache : Dictionary, skeleton, bone):
-	if skeleton_neighbours_cache.has([skeleton, bone]):
+static func skeleton_neighbours(skeleton_neighbours_cache : Dictionary, skeleton):
+	if skeleton_neighbours_cache.has(skeleton):
 		return skeleton_neighbours_cache[skeleton]
 	var bone_list_text : String
 	var roots : PackedInt32Array
@@ -370,13 +370,10 @@ static func skeleton_neighbours(skeleton_neighbours_cache : Dictionary, skeleton
 	while not queue.is_empty():
 		var front = queue.front()
 		parents.push_front(front)
-		if seen.find(front) == -1 and front != bone:
-			seen.push_back(front)
-			var children : PackedInt32Array = skeleton.get_bone_children(front)
-			for child in children:
-				queue.push_back(child)
+		var children : PackedInt32Array = skeleton.get_bone_children(front)
+		for child in children:
+			queue.push_back(child)
 		queue.pop_front()
-	parents.reverse()
 	var neighbor_list = find_neighbor_joint(parents, 2.0)
 	if neighbor_list.size() == 0:
 		return [].duplicate()
