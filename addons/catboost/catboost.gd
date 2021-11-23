@@ -335,11 +335,11 @@ static func _write_import(scene, is_test):
 					bone["Bone parent X global scale in meters"] = parent_scale.x
 					bone["Bone parent Y global scale in meters"] = parent_scale.y
 					bone["Bone parent Z global scale in meters"] = parent_scale.z
-				var neighbours = skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)
-				for elem_i in neighbours[bone_i].size():
+				var neighbours = skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)[bone_i]
+				for elem_i in neighbours.size():
 					if elem_i >= MAX_HIERARCHY:
 						break
-					bone["BONE_HIERARCHY_" + str(elem_i).pad_zeros(3)] = skeleton.get_bone_name(neighbours[bone_i][elem_i])
+					bone["BONE_HIERARCHY_" + str(elem_i).pad_zeros(3)] = skeleton.get_bone_name(neighbours[elem_i])
 				var parent_bone = skeleton.get_bone_name(bone_parent)
 				var version = vrm_extension["vrm_meta"].get("specVersion")
 				if version == null or version.is_empty():
@@ -358,22 +358,11 @@ static func skeleton_neighbours(skeleton_neighbours_cache : Dictionary, skeleton
 	if skeleton_neighbours_cache.has(skeleton):
 		return skeleton_neighbours_cache[skeleton]
 	var bone_list_text : String
-	var roots : PackedInt32Array
+	var parents : PackedFloat32Array
 	for bone_i in skeleton.get_bone_count():
-		if skeleton.get_bone_parent(bone_i) == -1:
-			roots.push_back(bone_i)
-	var queue : Array
-	var parents : Array	
-	for bone_i in roots:
-		queue.push_back(bone_i)
-	var seen : Array
-	while not queue.is_empty():
-		var front = queue.front()
-		parents.push_front(front)
-		var children : PackedInt32Array = skeleton.get_bone_children(front)
-		for child in children:
-			queue.push_back(child)
-		queue.pop_front()
+		var bone_global_pose = skeleton.get_bone_global_pose(bone_i)
+		var origin = bone_global_pose.origin
+		parents.push_back(origin.distance_to(Vector3(0, 0, 0)))
 	var neighbor_list = find_neighbor_joint(parents, 2.0)
 	if neighbor_list.size() == 0:
 		return [].duplicate()
